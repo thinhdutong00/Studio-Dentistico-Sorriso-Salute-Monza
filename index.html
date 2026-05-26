@@ -67,7 +67,7 @@
     .skip:focus { top: 1rem; }
 
     .wrap {
-      width: min(1140px, calc(100% - 32px));
+      width: min(1720px, calc(100% - 48px));
       margin-inline: auto;
     }
 
@@ -159,8 +159,8 @@
 
     .hero .wrap {
       display: grid;
-      grid-template-columns: minmax(0, .98fr) minmax(330px, .52fr);
-      gap: 2rem;
+      grid-template-columns: minmax(0, 1.05fr) minmax(420px, .48fr);
+      gap: clamp(2rem, 5vw, 5.5rem);
       align-items: center;
       min-height: 720px;
       padding-block: 74px 58px;
@@ -593,6 +593,46 @@
       align-items: center;
     }
 
+    .staff-grid {
+      display: grid;
+      grid-template-columns: repeat(5, minmax(0, 1fr));
+      gap: 1rem;
+    }
+
+    .staff-card {
+      overflow: hidden;
+      border: 1px solid var(--divider);
+      border-radius: 8px;
+      background: var(--white);
+      box-shadow: 0 14px 34px rgba(14, 56, 76, .07);
+    }
+
+    .staff-card img {
+      width: 100%;
+      aspect-ratio: 2 / 3;
+      object-fit: cover;
+      background: var(--soft-accent);
+    }
+
+    .staff-card div {
+      display: grid;
+      gap: .28rem;
+      padding: 1rem;
+    }
+
+    .staff-card h3 {
+      margin-bottom: 0;
+      font-size: 1.02rem;
+    }
+
+    .staff-card p {
+      margin-bottom: 0;
+      color: var(--text);
+      font-size: .92rem;
+      font-weight: 720;
+      line-height: 1.35;
+    }
+
     .contact-panel {
       padding: 1.25rem;
       border-radius: 8px;
@@ -652,7 +692,8 @@
         padding-block: 44px 42px;
       }
       .solution-grid,
-      .phases {
+      .phases,
+      .staff-grid {
         grid-template-columns: 1fr;
       }
       .micro-proof {
@@ -785,6 +826,7 @@
         <a href="#approccio">Approccio</a>
         <a href="#digitale">Digitale</a>
         <a href="#percorso">Percorso</a>
+        <a href="#equipe">Equipe</a>
         <a href="#faq">FAQ</a>
       </div>
       <a class="btn btn-primary" href="tel:+390392022489" aria-label="Chiama lo studio">
@@ -815,10 +857,9 @@
         <form class="glass-form" id="valutazione" novalidate>
           <div class="form-head">
             <div>
-              <h2>Check implantologico rapido</h2>
-              <p>Rispondi a poche domande: la mail finale darà allo studio un quadro chiaro di problema, obiettivo e priorità.</p>
+              <h2>Prenota una valutazione implantologica</h2>
+              <p>Rispondi a poche domande per aiutare lo studio a preparare un consulto più mirato.</p>
             </div>
-            <span class="step-pill" id="stepLabel">Step 1/7</span>
           </div>
           <div class="progress" aria-hidden="true">
             <span class="is-active"></span>
@@ -873,7 +914,7 @@
             <div class="quiz-options" data-field="tempistica">
               <button class="choice-btn" type="button" data-value="Il prima possibile"><strong>Il prima possibile</strong><span>Il problema mi limita o mi crea disagio evidente.</span></button>
               <button class="choice-btn" type="button" data-value="Entro 1-2 mesi"><strong>Entro 1-2 mesi</strong><span>Vorrei pianificare con calma ma senza rimandare troppo.</span></button>
-              <button class="choice-btn" type="button" data-value="Sto confrontando soluzioni"><strong>Sto confrontando soluzioni</strong><span>Mi serve un quadro chiaro prima di decidere.</span></button>
+              <button class="choice-btn" type="button" data-value="Voglio capire il percorso più adatto"><strong>Voglio capire il percorso più adatto</strong><span>Ho bisogno di una valutazione clinica prima di scegliere tempi e soluzione.</span></button>
               <button class="choice-btn" type="button" data-value="Ho un evento o una scadenza estetica"><strong>Ho un evento o una scadenza estetica</strong><span>Vorrei capire cosa è realistico ottenere nei tempi disponibili.</span></button>
             </div>
           </div>
@@ -1018,6 +1059,55 @@
       </div>
     </section>
 
+    <section class="soft" id="equipe" aria-labelledby="staff-title">
+      <div class="wrap">
+        <div class="section-head">
+          <div>
+            <p class="eyebrow"><span class="dot"></span> Equipe</p>
+            <h2 id="staff-title">Un team odontoiatrico per valutare il tuo caso con precisione.</h2>
+          </div>
+          <p>Specialisti e figure di riferimento dello Studio Dentistico Sorriso & Salute, con esperienza clinica, aggiornamento continuo e attenzione al percorso personalizzato del paziente.</p>
+        </div>
+        <div class="staff-grid" aria-label="Equipe Sorriso e Salute">
+          <article class="staff-card">
+            <img src="/assets/staff-gianni-focarelli.webp" width="420" height="630" loading="lazy" alt="Gianni Focarelli, Titolare e Amministratore della Sorriso&Salute srl">
+            <div>
+              <h3>Gianni Focarelli</h3>
+              <p>Titolare e Amministratore della Sorriso&Salute srl</p>
+            </div>
+          </article>
+          <article class="staff-card">
+            <img src="/assets/staff-chiara-moreschi.webp" width="420" height="630" loading="lazy" alt="Dott.ssa Moreschi Chiara">
+            <div>
+              <h3>Dott.ssa Moreschi Chiara</h3>
+              <p>Equipe odontoiatrica</p>
+            </div>
+          </article>
+          <article class="staff-card">
+            <img src="/assets/staff-maria-pareja.webp" width="420" height="630" loading="lazy" alt="Dott.ssa Maria Isabel Pareja Carrillo, Odontoiatra e Direttore Sanitario">
+            <div>
+              <h3>Dott.ssa Maria Isabel Pareja Carrillo</h3>
+              <p>Odontoiatra, Direttore Sanitario</p>
+            </div>
+          </article>
+          <article class="staff-card">
+            <img src="/assets/staff-paola-cacciabue.webp" width="420" height="630" loading="lazy" alt="Dott.ssa Cacciabue Paola, Odontoiatra Specialista in Ortodonzia">
+            <div>
+              <h3>Dott.ssa Cacciabue Paola</h3>
+              <p>Odontoiatra Specialista in Ortodonzia</p>
+            </div>
+          </article>
+          <article class="staff-card">
+            <img src="/assets/staff-denisa-dervishi.webp" width="420" height="630" loading="lazy" alt="Dott.ssa Dervishi Denisa, Odontoiatra Generalista">
+            <div>
+              <h3>Dott.ssa Dervishi Denisa</h3>
+              <p>Odontoiatra Generalista</p>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
     <section aria-labelledby="closing-title">
       <div class="wrap closing">
         <div>
@@ -1059,7 +1149,6 @@
       const form = document.querySelector("#valutazione");
       const steps = [...document.querySelectorAll(".form-step")];
       const bars = [...document.querySelectorAll(".progress span")];
-      const stepLabel = document.querySelector("#stepLabel");
       const prevBtn = document.querySelector("#prevBtn");
       const nextBtn = document.querySelector("#nextBtn");
       const submitBtn = document.querySelector("#submitBtn");
@@ -1130,7 +1219,6 @@
         currentStep = step;
         steps.forEach((item) => item.classList.toggle("is-active", Number(item.dataset.step) === step));
         bars.forEach((bar, index) => bar.classList.toggle("is-active", index < step));
-        stepLabel.textContent = `Step ${step}/${totalSteps}`;
         prevBtn.hidden = step === 1;
         nextBtn.hidden = step === totalSteps;
         submitBtn.hidden = step !== totalSteps;
