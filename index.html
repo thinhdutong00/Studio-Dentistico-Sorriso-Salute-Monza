@@ -570,9 +570,25 @@
 
     .form-actions {
       display: flex;
-      justify-content: space-between;
+      justify-content: stretch;
       gap: .7rem;
       margin-top: .35rem;
+    }
+
+    .form-actions .btn {
+      min-width: 0;
+      flex: 1 1 0;
+      min-height: 48px;
+    }
+
+    #prevBtn {
+      flex: 0 1 112px;
+      padding-inline: .95rem;
+    }
+
+    #nextBtn,
+    #submitBtn {
+      flex: 1 1 auto;
     }
 
     section { padding-block: 76px; }
@@ -1258,8 +1274,8 @@
 
           <p class="form-error" id="formError" aria-live="polite"></p>
           <div class="form-actions">
-            <button class="btn btn-outline-fill" type="button" id="prevBtn" hidden>Indietro</button>
-            <button class="btn btn-outline-fill" type="button" id="nextBtn">Avanti</button>
+            <button class="btn btn-outline-fill" type="button" id="prevBtn" aria-label="Indietro" hidden>&lt;</button>
+            <button class="btn btn-outline-fill" type="button" id="nextBtn">continua</button>
             <button class="btn btn-primary" type="submit" id="submitBtn" hidden>Invia richiesta</button>
           </div>
         </form>
