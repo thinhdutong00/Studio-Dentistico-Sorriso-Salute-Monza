@@ -1,6 +1,6 @@
 # Landing demo Implantologia - Sorriso & Salute Monza
 
-Landing page statica ottimizzata per SEO locale e campagne Google Ads su servizio di implantologia dentale, con quiz/prenotazione multistep, calendario visuale, sezione equipe e riepilogo completo per lo studio.
+Landing page statica ottimizzata per SEO locale e campagne Google Ads su servizio di implantologia dentale, con quiz/prenotazione multistep, calendario visuale, sezione equipe, servizi di finanziamento e riepilogo completo per lo studio.
 
 ## Fonti contenuto
 
