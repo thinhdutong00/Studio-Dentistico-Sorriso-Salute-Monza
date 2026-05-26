@@ -9,13 +9,13 @@
   <meta name="theme-color" content="#0E384C">
   <link rel="canonical" href="https://studio-dentistico-sorriso-salute-monza.vercel.app/">
   <link rel="icon" href="/assets/favicon.png" type="image/png">
-  <link rel="preload" href="/assets/implantologia.avif" as="image" fetchpriority="high" type="image/avif">
   <meta property="og:type" content="website">
   <meta property="og:locale" content="it_IT">
   <meta property="og:title" content="Implantologia Dentale Avanzata a Monza | Sorriso & Salute">
   <meta property="og:description" content="Pianificazione digitale computer-guidata, diagnostica 3D e chirurgia mininvasiva quando indicata per ripristinare la funzionalità del sorriso.">
   <meta property="og:image" content="/assets/implantologia.avif">
   <meta name="twitter:card" content="summary_large_image">
+  <script>document.documentElement.classList.add("reveal-ready");</script>
   <style>
     :root {
       color-scheme: light;
@@ -54,6 +54,7 @@
     img { display: block; max-width: 100%; }
     a { color: inherit; }
     button, input, textarea { font: inherit; }
+    [hidden] { display: none !important; }
 
     .skip {
       position: absolute;
@@ -150,12 +151,41 @@
     .btn-accent:hover { background: #166E98; }
     .btn-ghost { background: var(--white); color: var(--primary); border-color: rgba(14, 56, 76, .2); }
     .btn-ghost:hover { border-color: var(--accent); }
+    .btn-outline-fill {
+      position: relative;
+      overflow: hidden;
+      isolation: isolate;
+      background: transparent;
+      color: var(--primary);
+      border-color: var(--primary);
+      box-shadow: none;
+    }
+    .btn-outline-fill::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      z-index: -1;
+      background: var(--primary);
+      transform: scaleX(0);
+      transform-origin: left;
+      transition: transform .28s ease;
+    }
+    .btn-outline-fill:hover,
+    .btn-outline-fill:focus-visible {
+      color: var(--white);
+      border-color: var(--primary);
+      box-shadow: 0 12px 28px rgba(14, 56, 76, .14);
+    }
+    .btn-outline-fill:hover::before,
+    .btn-outline-fill:focus-visible::before {
+      transform: scaleX(1);
+    }
 
     .hero {
       overflow: hidden;
       background:
-        linear-gradient(90deg, rgba(249,252,255,.99) 0%, rgba(249,252,255,.92) 48%, rgba(249,252,255,.32) 100%),
-        url("/assets/implantologia.avif") right center / min(50vw, 660px) auto no-repeat,
+        radial-gradient(circle at 86% 18%, rgba(30,132,181,.16), transparent 28rem),
+        linear-gradient(135deg, rgba(249,252,255,.99) 0%, rgba(249,252,255,.93) 100%),
         var(--secondary);
       border-bottom: 1px solid var(--divider);
     }
@@ -267,15 +297,8 @@
 
     .glass-form > * { position: relative; z-index: 1; }
 
-    .form-head {
-      display: flex;
-      align-items: flex-start;
-      justify-content: space-between;
-      gap: 1rem;
-      margin-bottom: .95rem;
-    }
-
-    .form-head p { color: var(--text); margin-bottom: 0; }
+    .form-head { margin-bottom: .95rem; }
+    .form-head h2 { margin-bottom: 0; }
 
     .progress {
       display: grid;
@@ -554,6 +577,19 @@
 
     section { padding-block: 76px; }
 
+    .reveal { opacity: 1; transform: none; }
+    .reveal-ready .reveal {
+      opacity: 0;
+      transform: translateY(-36px);
+      transition: opacity .6s ease, transform .6s ease;
+    }
+    .reveal-ready .reveal.is-visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+    .delay-1 { transition-delay: .08s; }
+    .delay-2 { transition-delay: .16s; }
+
     .section-head {
       display: grid;
       grid-template-columns: minmax(0, .88fr) minmax(280px, .45fr);
@@ -567,10 +603,31 @@
 
     .soft { background: var(--secondary); }
 
+    .problem-grid {
+      display: grid;
+      grid-template-columns: minmax(0, .92fr) minmax(380px, .62fr);
+      gap: clamp(2rem, 5vw, 4.5rem);
+      align-items: center;
+    }
+
     .problem-copy {
       max-width: 940px;
       color: var(--body-strong);
       font-size: 1.12rem;
+    }
+
+    .problem-media {
+      overflow: hidden;
+      border: 1px solid var(--divider);
+      border-radius: 8px;
+      background: var(--secondary);
+      box-shadow: 0 22px 62px rgba(14, 56, 76, .12);
+    }
+
+    .problem-media img {
+      width: 100%;
+      aspect-ratio: 4 / 3;
+      object-fit: cover;
     }
 
     .solution-grid {
@@ -646,11 +703,47 @@
       color: var(--text);
     }
 
+    .closing-section {
+      min-height: 440px;
+      display: grid;
+      align-items: center;
+      background:
+        radial-gradient(circle at 82% 0%, rgba(30,132,181,.34), transparent 28rem),
+        var(--primary);
+      color: var(--white);
+    }
+
     .closing {
       display: grid;
       grid-template-columns: minmax(0, .9fr) minmax(320px, .45fr);
-      gap: 2rem;
+      gap: clamp(2rem, 5vw, 4.2rem);
       align-items: center;
+    }
+
+    .closing .eyebrow,
+    .closing h2,
+    .closing .lead { color: var(--white); }
+
+    .closing .dot { background: #70C2E5; box-shadow: 0 0 0 5px rgba(255,255,255,.12); }
+
+    .closing .lead {
+      max-width: 760px;
+      color: #DDEDF4;
+      font-size: clamp(1.1rem, 1.8vw, 1.28rem);
+    }
+
+    .closing .btn-primary {
+      background: var(--white);
+      color: var(--primary);
+      box-shadow: 0 16px 34px rgba(0, 0, 0, .18);
+    }
+
+    .closing .btn-primary:hover { background: var(--secondary); }
+
+    .closing .btn-ghost {
+      background: transparent;
+      color: var(--white);
+      border-color: rgba(255,255,255,.46);
     }
 
     .staff-grid {
@@ -882,12 +975,12 @@
       .hero {
         background:
           linear-gradient(180deg, rgba(249,252,255,.96), rgba(249,252,255,.98)),
-          url("/assets/implantologia.avif") center 108px / 580px auto no-repeat,
           var(--secondary);
       }
       .hero .wrap,
       .section-head,
       .closing,
+      .problem-grid,
       .footer-cta,
       .footer-main {
         grid-template-columns: 1fr;
@@ -895,6 +988,10 @@
       .hero .wrap {
         min-height: auto;
         padding-block: 44px 42px;
+      }
+      .closing-section {
+        min-height: auto;
+        padding-block: 64px;
       }
       .solution-grid,
       .phases,
@@ -930,6 +1027,7 @@
       .slot-grid {
         grid-template-columns: repeat(3, minmax(0, 1fr));
       }
+      .problem-media img { aspect-ratio: 16 / 10; }
       .calendar-grid { gap: .28rem; }
       .date-btn { min-height: 42px; font-size: .88rem; }
       .date-btn small { font-size: .66rem; }
@@ -946,6 +1044,10 @@
         animation-iteration-count: 1 !important;
         scroll-behavior: auto !important;
         transition-duration: .01ms !important;
+      }
+      .reveal-ready .reveal {
+        opacity: 1;
+        transform: none;
       }
     }
   </style>
@@ -1052,7 +1154,7 @@
   <main id="main">
     <section class="hero" id="top" aria-labelledby="hero-title">
       <div class="wrap">
-        <div>
+        <div class="reveal">
           <p class="eyebrow"><span class="dot"></span> Implantologia dentale a Monza</p>
           <h1 id="hero-title">Implantologia Dentale Avanzata a Monza: Ripristina la Funzionalità del Sorriso</h1>
           <p class="lead">Tecnologie digitali computer-guidate per il reinserimento di elementi dentali fissi, riducendo l'invasività chirurgica e ottimizzando i tempi di guarigione nei casi clinicamente idonei.</p>
@@ -1067,11 +1169,10 @@
           </div>
         </div>
 
-        <form class="glass-form" id="valutazione" novalidate>
+        <form class="glass-form reveal delay-1" id="valutazione" novalidate>
           <div class="form-head">
             <div>
               <h2>Prenota una valutazione implantologica</h2>
-              <p>Indica cosa vuoi risolvere e scegli una preferenza di appuntamento: ti ricontatteremo per confermare la prima valutazione in studio.</p>
             </div>
           </div>
           <div class="progress" aria-hidden="true">
@@ -1157,8 +1258,8 @@
 
           <p class="form-error" id="formError" aria-live="polite"></p>
           <div class="form-actions">
-            <button class="btn btn-ghost" type="button" id="prevBtn" hidden>Indietro</button>
-            <button class="btn btn-primary" type="button" id="nextBtn">Avanti</button>
+            <button class="btn btn-outline-fill" type="button" id="prevBtn" hidden>Indietro</button>
+            <button class="btn btn-outline-fill" type="button" id="nextBtn">Avanti</button>
             <button class="btn btn-primary" type="submit" id="submitBtn" hidden>Invia richiesta</button>
           </div>
         </form>
@@ -1166,16 +1267,21 @@
     </section>
 
     <section id="approccio" aria-labelledby="problem-title">
-      <div class="wrap">
-        <p class="eyebrow"><span class="dot"></span> Approccio etico</p>
-        <h2 id="problem-title">La perdita dei denti naturali: oltre l'estetica, la salute funzionale</h2>
-        <p class="problem-copy">La mancanza di uno o più elementi dentali non è solo un disagio estetico. Nel tempo, influisce sulla corretta masticazione, sul posizionamento dei denti adiacenti e sul riassorbimento dell'osso mascellare. La moderna odontoiatria permette oggi di affrontare la sostituzione dei denti mancanti in modo radicalmente diverso rispetto al passato, ponendo al centro il comfort biologico del paziente.</p>
+      <div class="wrap problem-grid">
+        <div class="reveal">
+          <p class="eyebrow"><span class="dot"></span> Approccio etico</p>
+          <h2 id="problem-title">La perdita dei denti naturali: oltre l'estetica, la salute funzionale</h2>
+          <p class="problem-copy">La mancanza di uno o più elementi dentali non è solo un disagio estetico. Nel tempo, influisce sulla corretta masticazione, sul posizionamento dei denti adiacenti e sul riassorbimento dell'osso mascellare. La moderna odontoiatria permette oggi di affrontare la sostituzione dei denti mancanti in modo radicalmente diverso rispetto al passato, ponendo al centro il comfort biologico del paziente.</p>
+        </div>
+        <figure class="problem-media reveal delay-1">
+          <img src="/assets/implantologia.avif" width="1200" height="900" loading="lazy" alt="Tecnologia digitale per pianificazione implantologica nello studio dentistico">
+        </figure>
       </div>
     </section>
 
     <section class="soft" id="digitale" aria-labelledby="digital-title">
       <div class="wrap">
-        <div class="section-head">
+        <div class="section-head reveal">
           <div>
             <p class="eyebrow"><span class="dot"></span> Implantologia digitale</p>
             <h2 id="digital-title">Perché l'Implantologia Digitale Computer-Guidata cambia l'esperienza del paziente</h2>
@@ -1183,17 +1289,17 @@
           <p>Un protocollo progettato per aumentare precisione, ridurre invasività quando possibile e rendere più chiari tempi e fasi del trattamento.</p>
         </div>
         <div class="solution-grid">
-          <article class="info-card">
+          <article class="info-card reveal">
             <b>1</b>
             <h3>Diagnostica 3D e Simulazione Virtuale</h3>
             <p class="muted">Prima di procedere all'intervento, l'anatomia ossea viene mappata digitalmente tramite TAC Cone Beam e scanner intraorale. Questo ci permette di simulare l'inserimento dell'impianto al computer con precisione millimetrica, individuando la posizione ideale per stabilità e rispetto dei tessuti nervosi.</p>
           </article>
-          <article class="info-card">
+          <article class="info-card reveal delay-1">
             <b>2</b>
             <h3>Tecnica Flapless: Chirurgia senza incisioni tradizionali</h3>
             <p class="muted">Quando i parametri clinici lo consentono, utilizziamo la metodica Flapless. Significa che l'impianto viene inserito attraverso una dima chirurgica personalizzata, senza necessità di tagliare la gengiva con il bisturi né di applicare punti di sutura. Il risultato è una riduzione di dolore, gonfiore ed ematomi post-operatori.</p>
           </article>
-          <article class="info-card">
+          <article class="info-card reveal delay-2">
             <b>3</b>
             <h3>Riduzione dei tempi in poltrona e recupero rapido</h3>
             <p class="muted">Grazie alla pianificazione digitale, la durata dell'intervento si riduce significativamente: spesso bastano 15-20 minuti per singolo impianto. Nei casi idonei a carico immediato, è possibile ancorare la protesi provvisoria fissa nella stessa giornata, permettendo un rapido ritorno alle normali attività quotidiane.</p>
@@ -1204,7 +1310,7 @@
 
     <section class="band" id="percorso" aria-labelledby="path-title">
       <div class="wrap">
-        <div class="section-head">
+        <div class="section-head reveal">
           <div>
             <p class="eyebrow"><span class="dot"></span> Flusso clinico</p>
             <h2 id="path-title">Il percorso clinico protocollato per il tuo impianto</h2>
@@ -1212,17 +1318,17 @@
           <p>Trasparenza informativa, diagnosi e follow-up sono parte integrante del trattamento.</p>
         </div>
         <div class="phases">
-          <article class="phase">
+          <article class="phase reveal">
             <b>1</b>
             <h3>Studio del Caso e Screening Sanitario</h3>
             <p class="muted">Visita clinica approfondita, anamnesi medica e screening radiografico digitale direttamente in studio.</p>
           </article>
-          <article class="phase">
+          <article class="phase reveal delay-1">
             <b>2</b>
             <h3>Progettazione 3D</h3>
             <p class="muted">Elaborazione del modello virtuale e realizzazione della guida personalizzata per l'inserimento mininvasivo.</p>
           </article>
-          <article class="phase">
+          <article class="phase reveal delay-2">
             <b>3</b>
             <h3>Seduta Chirurgica e Follow-up</h3>
             <p class="muted">Posizionamento dell'impianto in anestesia locale ed esecuzione dei controlli periodici per monitorare l'osteointegrazione biologica a lungo termine.</p>
@@ -1233,14 +1339,14 @@
 
     <section class="faq" id="faq" aria-labelledby="faq-title">
       <div class="wrap">
-        <div class="section-head">
+        <div class="section-head reveal">
           <div>
             <p class="eyebrow"><span class="dot"></span> FAQ implantologia</p>
             <h2 id="faq-title">Domande Frequenti sull'Implantologia</h2>
           </div>
           <p>Risposte utili per chi sta valutando un percorso implantologico e vuole arrivare alla prima visita con più consapevolezza.</p>
         </div>
-        <div class="faq-list">
+        <div class="faq-list reveal delay-1">
           <details>
             <summary>L'intervento di implantologia è doloroso?</summary>
             <p>L'intervento viene eseguito in anestesia locale. Nei giorni successivi, grazie alle tecniche mininvasive computer-guidate come la Flapless quando indicata, il fastidio e il gonfiore sono ridotti e gestibili con gli analgesici consigliati dal clinico.</p>
@@ -1259,7 +1365,7 @@
 
     <section class="soft" id="equipe" aria-labelledby="staff-title">
       <div class="wrap">
-        <div class="section-head">
+        <div class="section-head reveal">
           <div>
             <p class="eyebrow"><span class="dot"></span> Equipe</p>
             <h2 id="staff-title">Un team odontoiatrico per valutare il tuo caso con precisione.</h2>
@@ -1267,35 +1373,35 @@
           <p>Specialisti e figure di riferimento dello Studio Dentistico Sorriso & Salute, con esperienza clinica, aggiornamento continuo e attenzione al percorso personalizzato del paziente.</p>
         </div>
         <div class="staff-grid" aria-label="Equipe Sorriso e Salute">
-          <article class="staff-card">
+          <article class="staff-card reveal">
             <img src="/assets/staff-gianni-focarelli.webp" width="420" height="630" loading="lazy" alt="Gianni Focarelli, Titolare e Amministratore della Sorriso&Salute srl">
             <div>
               <h3>Gianni Focarelli</h3>
               <p>Titolare e Amministratore della Sorriso&Salute srl</p>
             </div>
           </article>
-          <article class="staff-card">
+          <article class="staff-card reveal delay-1">
             <img src="/assets/staff-chiara-moreschi.webp" width="420" height="630" loading="lazy" alt="Dott.ssa Moreschi Chiara">
             <div>
               <h3>Dott.ssa Moreschi Chiara</h3>
               <p>Equipe odontoiatrica</p>
             </div>
           </article>
-          <article class="staff-card">
+          <article class="staff-card reveal delay-2">
             <img src="/assets/staff-maria-pareja.webp" width="420" height="630" loading="lazy" alt="Dott.ssa Maria Isabel Pareja Carrillo, Odontoiatra e Direttore Sanitario">
             <div>
               <h3>Dott.ssa Maria Isabel Pareja Carrillo</h3>
               <p>Odontoiatra, Direttore Sanitario</p>
             </div>
           </article>
-          <article class="staff-card">
+          <article class="staff-card reveal delay-1">
             <img src="/assets/staff-paola-cacciabue.webp" width="420" height="630" loading="lazy" alt="Dott.ssa Cacciabue Paola, Odontoiatra Specialista in Ortodonzia">
             <div>
               <h3>Dott.ssa Cacciabue Paola</h3>
               <p>Odontoiatra Specialista in Ortodonzia</p>
             </div>
           </article>
-          <article class="staff-card">
+          <article class="staff-card reveal delay-2">
             <img src="/assets/staff-denisa-dervishi.webp" width="420" height="630" loading="lazy" alt="Dott.ssa Dervishi Denisa, Odontoiatra Generalista">
             <div>
               <h3>Dott.ssa Dervishi Denisa</h3>
@@ -1308,7 +1414,7 @@
 
     <section class="finance-section" id="finanziamenti" aria-labelledby="finance-title">
       <div class="wrap">
-        <div class="section-head">
+        <div class="section-head reveal">
           <div>
             <p class="eyebrow"><span class="dot"></span> Le nostre finanziarie</p>
             <h2 id="finance-title">I nostri Servizi di Finanziamento personalizzati</h2>
@@ -1316,7 +1422,7 @@
           <p>Il nostro Studio Odontoiatrico offre <strong>soluzioni di finanziamento personalizzate</strong> pensate per rendere le cure dentistiche più accessibili, senza rinunciare alla qualità dei trattamenti.</p>
         </div>
         <div class="finance-grid" aria-label="Finanziarie disponibili presso Sorriso e Salute">
-          <article class="finance-card">
+          <article class="finance-card reveal">
             <div class="finance-logo">
               <img src="/assets/finance-compass.png" width="560" height="114" loading="lazy" alt="Logo Compass">
             </div>
@@ -1325,7 +1431,7 @@
               <p>Possibilità di valutare piani di pagamento personalizzati per affrontare il percorso odontoiatrico con maggiore serenità.</p>
             </div>
           </article>
-          <article class="finance-card">
+          <article class="finance-card reveal delay-1">
             <div class="finance-logo">
               <img src="/assets/finance-heylight.png" width="197" height="87" loading="lazy" alt="Logo HeyLight">
             </div>
@@ -1338,9 +1444,9 @@
       </div>
     </section>
 
-    <section aria-labelledby="closing-title">
+    <section class="closing-section" aria-labelledby="closing-title">
       <div class="wrap closing">
-        <div>
+        <div class="reveal">
           <p class="eyebrow"><span class="dot"></span> Consulto diagnostico</p>
           <h2 id="closing-title">Richiedi un consulto informativo e diagnostico</h2>
           <p class="lead">Ogni situazione clinica è unica e richiede un piano terapeutico personalizzato. Il nostro team di professionisti è a disposizione per valutare lo stato della tua salute orale e illustrarti le soluzioni tecnologiche più adatte al tuo caso, nel pieno rispetto dei tempi biologici del tuo organismo.</p>
@@ -1349,7 +1455,7 @@
             <a class="btn btn-ghost" href="tel:+390392022489">039 2022489</a>
           </div>
         </div>
-        <aside class="contact-panel" aria-label="Informazioni studio">
+        <aside class="contact-panel reveal delay-1" aria-label="Informazioni studio">
           <h3>Studio Dentistico Sorriso & Salute</h3>
           <p>Via Gaslini 1, 20090 Monza (MB)</p>
           <p><strong>Telefono:</strong> <a href="tel:+390392022489">039 2022489</a><br><strong>Email:</strong> <a href="mailto:info@sorrisoesalute.it">info@sorrisoesalute.it</a></p>
@@ -1457,6 +1563,24 @@
       const isoDate = (date) => {
         const offset = date.getTimezoneOffset() * 60000;
         return new Date(date.getTime() - offset).toISOString().slice(0, 10);
+      };
+
+      const initReveal = () => {
+        const targets = [...document.querySelectorAll(".reveal")];
+        if (!targets.length) return;
+        if (window.matchMedia("(prefers-reduced-motion: reduce)").matches || !("IntersectionObserver" in window)) {
+          targets.forEach((target) => target.classList.add("is-visible"));
+          return;
+        }
+        const observer = new IntersectionObserver((entries) => {
+          entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+              entry.target.classList.add("is-visible");
+              observer.unobserve(entry.target);
+            }
+          });
+        }, { threshold: .12, rootMargin: "0px 0px -60px" });
+        targets.forEach((target) => observer.observe(target));
       };
 
       const officeSlots = () => {
@@ -1662,6 +1786,7 @@
       buildSlots();
       updateSummary();
       showStep(1);
+      initReveal();
     })();
   </script>
 </body>
