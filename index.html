@@ -3,76 +3,78 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Implantologia Dentale Monza | Sorriso & Salute</title>
-  <meta name="description" content="Implantologia dentale a Monza con impianti in titanio, tecnica flapless quando indicata e progettazione digitale. Chiama lo Studio Dentistico Sorriso & Salute.">
+  <title>Implantologia Dentale Avanzata a Monza | Sorriso & Salute</title>
+  <meta name="description" content="Implantologia dentale avanzata a Monza con tecnologie digitali computer-guidate, pianificazione 3D e tecnica flapless nei casi idonei. Richiedi una valutazione clinica preliminare.">
   <meta name="robots" content="index,follow,max-image-preview:large">
-  <meta name="theme-color" content="#0f6b65">
+  <meta name="theme-color" content="#0E384C">
   <link rel="canonical" href="https://studio-dentistico-sorriso-salute-monza.vercel.app/">
   <link rel="icon" href="/assets/favicon.png" type="image/png">
   <link rel="preload" href="/assets/implantologia.avif" as="image" fetchpriority="high" type="image/avif">
   <meta property="og:type" content="website">
   <meta property="og:locale" content="it_IT">
-  <meta property="og:title" content="Implantologia Dentale a Monza | Sorriso & Salute">
-  <meta property="og:description" content="Valutazione implantologica, impianti in titanio e tecnica flapless quando indicata, nel centro odontoiatrico Sorriso & Salute di Monza.">
+  <meta property="og:title" content="Implantologia Dentale Avanzata a Monza | Sorriso & Salute">
+  <meta property="og:description" content="Pianificazione digitale computer-guidata, diagnostica 3D e chirurgia mininvasiva quando indicata per ripristinare la funzionalità del sorriso.">
   <meta property="og:image" content="/assets/implantologia.avif">
   <meta name="twitter:card" content="summary_large_image">
   <style>
     :root {
       color-scheme: light;
-      --ink: #16302f;
-      --muted: #526260;
-      --line: #d8e6e3;
-      --paper: #ffffff;
-      --soft: #eef7f5;
-      --brand: #0f6b65;
-      --brand-strong: #064c48;
-      --accent: #a74222;
-      --gold: #c89f45;
-      --shadow: 0 18px 55px rgba(13, 58, 55, .13);
+      --primary: #0E384C;
+      --secondary: #F9FCFF;
+      --text: #527282;
+      --accent: #1E84B5;
+      --white: #FFFFFF;
+      --divider: #0E384C12;
+      --soft-accent: #E8F5FB;
+      --ink: #092838;
+      --success: #287269;
+      --warning: #9A4D14;
+      --shadow: 0 22px 70px rgba(14, 56, 76, .16);
       font-family: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
     }
 
     * { box-sizing: border-box; }
 
     html { scroll-behavior: smooth; }
+    section, form { scroll-margin-top: 96px; }
 
     body {
       margin: 0;
-      color: var(--ink);
-      background: var(--paper);
+      color: var(--primary);
+      background: var(--white);
       font-size: 16px;
-      line-height: 1.55;
+      line-height: 1.58;
       text-rendering: optimizeLegibility;
       -webkit-font-smoothing: antialiased;
     }
 
-    img { max-width: 100%; display: block; }
-
+    img { display: block; max-width: 100%; }
     a { color: inherit; }
+    button, input, textarea { font: inherit; }
 
     .skip {
       position: absolute;
-      left: 1rem;
       top: -4rem;
-      z-index: 20;
-      background: var(--ink);
-      color: #fff;
+      left: 1rem;
+      z-index: 30;
       padding: .7rem 1rem;
-      border-radius: 6px;
+      border-radius: 8px;
+      background: var(--primary);
+      color: var(--white);
       transition: top .2s ease;
     }
 
     .skip:focus { top: 1rem; }
 
-    .topbar {
-      background: var(--ink);
-      color: #eef7f5;
-      font-size: .92rem;
-    }
-
     .wrap {
       width: min(1140px, calc(100% - 32px));
       margin-inline: auto;
+    }
+
+    .topbar {
+      background: var(--primary);
+      color: var(--white);
+      font-size: .92rem;
     }
 
     .topbar .wrap,
@@ -84,16 +86,15 @@
     }
 
     .topbar .wrap { min-height: 42px; }
-
-    .topbar a { text-decoration: none; font-weight: 700; }
+    .topbar a { text-decoration: none; font-weight: 800; }
 
     header {
       position: sticky;
       top: 0;
-      z-index: 10;
-      background: rgba(255, 255, 255, .94);
-      border-bottom: 1px solid var(--line);
-      backdrop-filter: blur(14px);
+      z-index: 20;
+      background: rgba(249, 252, 255, .94);
+      border-bottom: 1px solid var(--divider);
+      backdrop-filter: blur(16px);
     }
 
     .nav { min-height: 78px; }
@@ -101,12 +102,11 @@
     .brand {
       display: inline-flex;
       align-items: center;
-      gap: .8rem;
-      text-decoration: none;
       min-width: 0;
-      background: var(--ink);
-      padding: .55rem .75rem;
+      padding: .55rem .78rem;
       border-radius: 8px;
+      background: var(--primary);
+      text-decoration: none;
     }
 
     .brand img { width: 184px; height: auto; }
@@ -114,14 +114,106 @@
     .navlinks {
       display: flex;
       align-items: center;
-      gap: 1.2rem;
-      font-weight: 750;
+      gap: 1.1rem;
+      color: var(--primary);
       font-size: .95rem;
+      font-weight: 850;
     }
 
-    .navlinks a {
+    .navlinks a { text-decoration: none; }
+    .navlinks a:hover { color: var(--accent); }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: .55rem;
+      min-height: 46px;
+      padding: .85rem 1.08rem;
+      border: 1px solid transparent;
+      border-radius: 8px;
+      font-weight: 900;
+      line-height: 1;
       text-decoration: none;
-      color: #244543;
+      cursor: pointer;
+      transition: background .16s ease, border-color .16s ease, transform .16s ease, box-shadow .16s ease;
+    }
+
+    .btn svg { width: 18px; height: 18px; flex: 0 0 auto; }
+    .btn:hover { transform: translateY(-1px); }
+    .btn-primary { background: var(--primary); color: var(--white); box-shadow: 0 14px 30px rgba(14, 56, 76, .24); }
+    .btn-primary:hover { background: var(--ink); }
+    .btn-accent { background: var(--accent); color: var(--primary); border-color: rgba(14, 56, 76, .18); }
+    .btn-accent:hover { background: #66B4D6; }
+    .btn-ghost { background: var(--white); color: var(--primary); border-color: rgba(14, 56, 76, .2); }
+    .btn-ghost:hover { border-color: var(--accent); }
+
+    .hero {
+      overflow: hidden;
+      background:
+        linear-gradient(90deg, rgba(249,252,255,.99) 0%, rgba(249,252,255,.92) 48%, rgba(249,252,255,.32) 100%),
+        url("/assets/implantologia.avif") right center / min(50vw, 660px) auto no-repeat,
+        var(--secondary);
+      border-bottom: 1px solid var(--divider);
+    }
+
+    .hero .wrap {
+      display: grid;
+      grid-template-columns: minmax(0, .98fr) minmax(330px, .52fr);
+      gap: 2rem;
+      align-items: center;
+      min-height: 720px;
+      padding-block: 74px 58px;
+    }
+
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: .55rem;
+      color: #0A4863;
+      font-size: .8rem;
+      font-weight: 950;
+      letter-spacing: 0;
+      text-transform: uppercase;
+    }
+
+    .dot {
+      width: 10px;
+      height: 10px;
+      border-radius: 999px;
+      background: var(--accent);
+      box-shadow: 0 0 0 5px rgba(30, 132, 181, .12);
+    }
+
+    h1, h2, h3, p { margin-top: 0; }
+
+    h1 {
+      max-width: 820px;
+      margin-bottom: 1rem;
+      font-size: clamp(2.55rem, 6.4vw, 5.25rem);
+      line-height: .98;
+      letter-spacing: 0;
+    }
+
+    h2 {
+      max-width: 880px;
+      margin-bottom: .95rem;
+      font-size: clamp(1.8rem, 4vw, 3rem);
+      line-height: 1.06;
+      letter-spacing: 0;
+    }
+
+    h3 {
+      margin-bottom: .55rem;
+      font-size: 1.12rem;
+      line-height: 1.22;
+    }
+
+    .lead {
+      max-width: 690px;
+      margin-bottom: 1.35rem;
+      color: #33596A;
+      font-size: 1.17rem;
     }
 
     .cta-row {
@@ -131,344 +223,389 @@
       gap: .75rem;
     }
 
-    .btn {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      gap: .55rem;
-      min-height: 46px;
-      padding: .82rem 1.05rem;
-      border: 1px solid transparent;
-      border-radius: 8px;
-      font-weight: 850;
-      text-decoration: none;
-      line-height: 1;
-      transition: transform .15s ease, box-shadow .15s ease, background .15s ease;
-    }
-
-    .btn svg { width: 18px; height: 18px; flex: 0 0 auto; }
-    .btn:hover { transform: translateY(-1px); }
-    .btn-primary { background: var(--accent); color: #fff; box-shadow: 0 12px 24px rgba(217, 105, 60, .24); }
-    .btn-primary:hover { background: #8f351a; }
-    .btn-dark { background: var(--brand); color: #fff; }
-    .btn-dark:hover { background: var(--brand-strong); }
-    .btn-ghost { border-color: var(--line); color: var(--brand-strong); background: #fff; }
-
-    .hero {
-      position: relative;
-      overflow: hidden;
-      background:
-        linear-gradient(90deg, rgba(255,255,255,.98) 0%, rgba(255,255,255,.9) 47%, rgba(255,255,255,.24) 100%),
-        url("/assets/implantologia.avif") right center / min(52vw, 680px) auto no-repeat,
-        var(--soft);
-      border-bottom: 1px solid var(--line);
-    }
-
-    .hero .wrap {
-      display: grid;
-      grid-template-columns: minmax(0, 1fr) 380px;
-      gap: 2rem;
-      align-items: center;
-      min-height: 690px;
-      padding-block: 82px 64px;
-    }
-
-    .eyebrow {
-      display: inline-flex;
-      align-items: center;
-      gap: .55rem;
-      color: var(--brand-strong);
-      font-weight: 900;
-      letter-spacing: 0;
-      text-transform: uppercase;
-      font-size: .82rem;
-    }
-
-    .dot {
-      width: 10px;
-      height: 10px;
-      border-radius: 50%;
-      background: var(--gold);
-    }
-
-    h1, h2, h3, p { margin-top: 0; }
-
-    h1 {
-      max-width: 760px;
-      margin-bottom: 1rem;
-      font-size: clamp(2.6rem, 7vw, 5.4rem);
-      line-height: .96;
-      letter-spacing: 0;
-    }
-
-    h2 {
-      font-size: clamp(1.8rem, 4vw, 3rem);
-      line-height: 1.05;
-      letter-spacing: 0;
-      margin-bottom: .95rem;
-    }
-
-    h3 {
-      font-size: 1.12rem;
-      line-height: 1.22;
-      margin-bottom: .5rem;
-    }
-
-    .lead {
-      max-width: 660px;
-      color: #354a48;
-      font-size: 1.16rem;
-      margin-bottom: 1.35rem;
-    }
-
-    .trust {
+    .micro-proof {
       display: grid;
       grid-template-columns: repeat(3, minmax(0, 1fr));
       gap: .75rem;
-      max-width: 720px;
+      max-width: 760px;
       margin-top: 1.6rem;
     }
 
-    .trust div,
-    .contact-card,
-    .feature,
-    .process-step,
+    .proof-item,
+    .info-card,
+    .phase,
     .faq details,
-    .review {
-      border: 1px solid var(--line);
+    .glass-form {
+      border: 1px solid var(--divider);
       border-radius: 8px;
-      background: rgba(255,255,255,.88);
+      background: rgba(255, 255, 255, .88);
     }
 
-    .trust div { padding: .9rem; }
-    .trust strong { display: block; font-size: 1.45rem; line-height: 1; color: var(--brand); }
-    .trust span { display: block; margin-top: .35rem; color: var(--muted); font-weight: 650; font-size: .92rem; }
+    .proof-item { padding: .92rem; }
+    .proof-item strong { display: block; color: var(--primary); font-size: 1.3rem; line-height: 1; }
+    .proof-item span { display: block; margin-top: .35rem; color: #476C7D; font-weight: 720; font-size: .92rem; }
 
-    .contact-card {
-      background: #fff;
-      padding: 1.2rem;
+    .glass-form {
+      position: relative;
+      padding: 1.15rem;
+      background: rgba(255, 255, 255, .74);
       box-shadow: var(--shadow);
-      align-self: end;
+      backdrop-filter: blur(20px);
     }
 
-    .contact-card p { color: var(--muted); margin-bottom: 1rem; }
-
-    .mini-list {
-      display: grid;
-      gap: .7rem;
-      padding: 0;
-      margin: 1rem 0 1.2rem;
-      list-style: none;
+    .glass-form::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      pointer-events: none;
+      border-radius: inherit;
+      background: linear-gradient(135deg, rgba(255,255,255,.75), rgba(30,132,181,.08));
     }
 
-    .mini-list li {
+    .glass-form > * { position: relative; z-index: 1; }
+
+    .form-head {
       display: flex;
-      gap: .65rem;
       align-items: flex-start;
+      justify-content: space-between;
+      gap: 1rem;
+      margin-bottom: .95rem;
+    }
+
+    .form-head p { color: #426A7C; margin-bottom: 0; }
+
+    .step-pill {
+      flex: 0 0 auto;
+      padding: .42rem .6rem;
+      border-radius: 999px;
+      background: var(--primary);
+      color: var(--white);
+      font-size: .82rem;
+      font-weight: 900;
+    }
+
+    .progress {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: .45rem;
+      margin-bottom: 1rem;
+    }
+
+    .progress span {
+      height: 8px;
+      border-radius: 999px;
+      background: rgba(14, 56, 76, .14);
+    }
+
+    .progress span.is-active { background: var(--accent); }
+
+    .form-step { display: none; }
+    .form-step.is-active { display: grid; gap: .8rem; }
+
+    .field-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: .78rem;
+    }
+
+    label {
+      display: grid;
+      gap: .32rem;
+      color: var(--primary);
+      font-weight: 850;
+    }
+
+    input, textarea {
+      width: 100%;
+      min-height: 46px;
+      border: 1px solid rgba(14, 56, 76, .22);
+      border-radius: 8px;
+      padding: .75rem .85rem;
+      background: rgba(255,255,255,.92);
+      color: var(--primary);
+    }
+
+    textarea { min-height: 106px; resize: vertical; }
+
+    input:focus, textarea:focus, button:focus-visible, a:focus-visible {
+      outline: 3px solid rgba(30, 132, 181, .28);
+      outline-offset: 2px;
+    }
+
+    .calendar-grid,
+    .slot-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: .55rem;
+    }
+
+    .date-btn,
+    .slot-btn {
+      min-height: 58px;
+      border: 1px solid rgba(14, 56, 76, .18);
+      border-radius: 8px;
+      background: rgba(255,255,255,.9);
+      color: var(--primary);
+      cursor: pointer;
+      font-weight: 850;
+    }
+
+    .date-btn {
+      display: grid;
+      align-content: center;
+      gap: .1rem;
+      padding: .58rem;
+      text-align: left;
+    }
+
+    .date-btn small {
+      color: #4F7485;
+      font-size: .78rem;
+      font-weight: 850;
+      text-transform: uppercase;
+    }
+
+    .date-btn[aria-pressed="true"],
+    .slot-btn[aria-pressed="true"] {
+      border-color: var(--primary);
+      background: var(--primary);
+      color: var(--white);
+    }
+
+    .date-btn[aria-pressed="true"] small { color: #DDEDF4; }
+
+    .slot-grid {
+      max-height: 244px;
+      overflow: auto;
+      padding-right: .2rem;
+      overscroll-behavior: contain;
+    }
+
+    .slot-btn {
+      min-height: 44px;
+      padding: .65rem .45rem;
+    }
+
+    .summary-box {
+      display: grid;
+      gap: .42rem;
+      padding: .9rem;
+      border: 1px solid rgba(14,56,76,.16);
+      border-radius: 8px;
+      background: rgba(249,252,255,.9);
+      color: #31586A;
       font-weight: 720;
     }
 
-    .check {
-      display: inline-grid;
-      place-items: center;
-      flex: 0 0 22px;
-      width: 22px;
-      height: 22px;
-      border-radius: 50%;
-      color: #fff;
-      background: var(--brand);
-      font-size: .8rem;
-      margin-top: .1rem;
+    .summary-box strong { color: var(--primary); }
+
+    .form-error {
+      min-height: 22px;
+      margin: .1rem 0 0;
+      color: #8A2C1A;
+      font-size: .92rem;
+      font-weight: 800;
+    }
+
+    .form-actions {
+      display: flex;
+      justify-content: space-between;
+      gap: .7rem;
+      margin-top: .35rem;
     }
 
     section { padding-block: 76px; }
 
     .section-head {
       display: grid;
-      grid-template-columns: minmax(0, .85fr) minmax(280px, .45fr);
+      grid-template-columns: minmax(0, .88fr) minmax(280px, .45fr);
       gap: 2rem;
       align-items: end;
       margin-bottom: 2rem;
     }
 
     .section-head p,
-    .muted { color: var(--muted); }
+    .muted { color: var(--text); }
 
-    .grid-3 {
+    .soft { background: var(--secondary); }
+
+    .problem-copy {
+      max-width: 940px;
+      color: #365D6E;
+      font-size: 1.12rem;
+    }
+
+    .solution-grid {
       display: grid;
       grid-template-columns: repeat(3, minmax(0, 1fr));
       gap: 1rem;
     }
 
-    .feature, .process-step, .review { padding: 1.25rem; }
-    .feature b, .process-step b { color: var(--brand); }
+    .info-card {
+      padding: 1.2rem;
+      background: var(--white);
+      box-shadow: 0 12px 34px rgba(14, 56, 76, .06);
+    }
+
+    .info-card b,
+    .phase b {
+      display: inline-grid;
+      place-items: center;
+      width: 34px;
+      height: 34px;
+      margin-bottom: .85rem;
+      border-radius: 50%;
+      background: var(--soft-accent);
+      color: #0A4863;
+      font-weight: 950;
+    }
 
     .band {
-      background: var(--ink);
-      color: #f7fbfa;
+      background: var(--primary);
+      color: var(--white);
     }
 
-    .band .eyebrow { color: #d8e6e3; }
-    .band .dot { background: #f2c56d; }
-    .band .muted { color: #b9cfcc; }
+    .band .eyebrow { color: #DDEDF4; }
+    .band .dot { background: #70C2E5; box-shadow: 0 0 0 5px rgba(255,255,255,.12); }
+    .band .muted,
+    .band .section-head p { color: #C9DCE6; }
 
-    .process {
+    .phases {
       display: grid;
-      grid-template-columns: repeat(4, minmax(0, 1fr));
+      grid-template-columns: repeat(3, minmax(0, 1fr));
       gap: 1rem;
     }
 
-    .process-step {
+    .phase {
+      padding: 1.2rem;
       background: rgba(255,255,255,.06);
-      border-color: rgba(255,255,255,.18);
+      border-color: rgba(255,255,255,.16);
     }
 
-    .process-step b { color: #f2c56d; }
+    .phase b { background: rgba(255,255,255,.12); color: var(--white); }
 
-    .split {
-      display: grid;
-      grid-template-columns: minmax(0, .95fr) minmax(320px, .55fr);
-      gap: 2rem;
-      align-items: start;
+    .faq {
+      background: var(--secondary);
+      border-top: 1px solid var(--divider);
+      border-bottom: 1px solid var(--divider);
     }
 
-    .benefits {
-      display: grid;
-      gap: 1rem;
-      padding: 0;
-      margin: 0;
-      list-style: none;
-    }
-
-    .benefits li {
-      padding: 1rem 0;
-      border-bottom: 1px solid var(--line);
-    }
-
-    .benefits strong { display: block; font-size: 1.05rem; }
-
-    .quote {
-      padding: 1.4rem;
-      border-left: 5px solid var(--gold);
-      background: var(--soft);
-      border-radius: 0 8px 8px 0;
-      color: #244543;
-      font-weight: 750;
-    }
-
-    .faq { background: #f8fbfa; border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); }
     .faq-list { display: grid; gap: .8rem; }
-    .faq details { padding: 1rem 1.1rem; background: #fff; }
-    .faq summary { cursor: pointer; font-weight: 850; }
-    .faq details p { margin: .75rem 0 0; color: var(--muted); }
 
-    .reviews {
-      display: grid;
-      grid-template-columns: repeat(2, minmax(0, 1fr));
-      gap: 1rem;
+    .faq details {
+      padding: 1rem 1.1rem;
+      background: var(--white);
     }
 
-    .stars { color: #b98724; letter-spacing: 0; font-weight: 950; }
+    .faq summary {
+      cursor: pointer;
+      color: var(--primary);
+      font-weight: 900;
+    }
 
-    .form-panel {
-      border-radius: 8px;
-      border: 1px solid var(--line);
+    .faq details p {
+      margin: .75rem 0 0;
+      color: var(--text);
+    }
+
+    .closing {
+      display: grid;
+      grid-template-columns: minmax(0, .9fr) minmax(320px, .45fr);
+      gap: 2rem;
+      align-items: center;
+    }
+
+    .contact-panel {
       padding: 1.25rem;
-      background: #fff;
+      border-radius: 8px;
+      background: var(--white);
+      color: var(--primary);
       box-shadow: var(--shadow);
     }
 
-    form {
-      display: grid;
-      gap: .85rem;
-    }
-
-    label {
-      display: grid;
-      gap: .35rem;
-      color: #284946;
-      font-weight: 800;
-    }
-
-    input, textarea, select {
-      width: 100%;
-      min-height: 46px;
-      border: 1px solid #bdd2ce;
-      border-radius: 8px;
-      padding: .75rem .85rem;
-      font: inherit;
-      background: #fff;
-      color: var(--ink);
-    }
-
-    textarea { min-height: 112px; resize: vertical; }
-
-    input:focus, textarea:focus, select:focus {
-      outline: 3px solid rgba(15, 107, 101, .2);
-      border-color: var(--brand);
-    }
+    .contact-panel p { color: #426A7C; }
 
     footer {
       padding-block: 34px;
-      background: #102928;
-      color: #d8e6e3;
+      background: #082433;
+      color: #DDEDF4;
+      font-size: .94rem;
     }
 
     footer .wrap {
-      display: flex;
-      justify-content: space-between;
-      gap: 1rem;
-      flex-wrap: wrap;
+      display: grid;
+      gap: .65rem;
     }
 
-    footer a { color: #fff; font-weight: 800; text-decoration: none; }
+    footer a {
+      color: var(--white);
+      font-weight: 850;
+      text-decoration: none;
+    }
 
     .mobile-cta {
       display: none;
       position: fixed;
       inset: auto 0 0;
-      z-index: 15;
-      padding: .7rem .85rem;
-      background: rgba(255,255,255,.96);
-      border-top: 1px solid var(--line);
+      z-index: 25;
       gap: .55rem;
+      padding: .7rem .85rem;
+      border-top: 1px solid var(--divider);
+      background: rgba(255,255,255,.96);
     }
 
     .mobile-cta .btn { flex: 1; min-height: 48px; padding-inline: .7rem; }
 
-    @media (max-width: 900px) {
-      .topbar .wrap { justify-content: center; text-align: center; }
+    @media (max-width: 980px) {
       .navlinks { display: none; }
-      .nav { min-height: 70px; }
-      .brand img { width: 160px; }
       .hero {
         background:
-          linear-gradient(180deg, rgba(255,255,255,.95), rgba(255,255,255,.97)),
-          url("/assets/implantologia.avif") center 112px / 520px auto no-repeat,
-          var(--soft);
+          linear-gradient(180deg, rgba(249,252,255,.96), rgba(249,252,255,.98)),
+          url("/assets/implantologia.avif") center 108px / 580px auto no-repeat,
+          var(--secondary);
+      }
+      .hero .wrap,
+      .section-head,
+      .closing {
+        grid-template-columns: 1fr;
       }
       .hero .wrap {
-        grid-template-columns: 1fr;
         min-height: auto;
         padding-block: 44px 42px;
       }
-      .contact-card { align-self: stretch; }
-      .trust, .grid-3, .process, .reviews, .section-head, .split {
+      .solution-grid,
+      .phases {
         grid-template-columns: 1fr;
       }
-      section { padding-block: 56px; }
+      .micro-proof {
+        grid-template-columns: 1fr;
+      }
+      section { padding-block: 58px; }
       .mobile-cta { display: flex; }
       body { padding-bottom: 74px; }
     }
 
-    @media (max-width: 560px) {
+    @media (max-width: 620px) {
       .wrap { width: min(100% - 24px, 1140px); }
       .topbar { display: none; }
-      h1 { font-size: 2.55rem; }
-      .cta-row .btn { width: 100%; }
-      .trust div { padding: .8rem; }
-      .hero .wrap { padding-top: 32px; }
-      .contact-card { padding: 1rem; }
+      .nav { min-height: 70px; }
+      .brand img { width: 160px; }
+      h1 { font-size: 2.4rem; }
+      .lead { font-size: 1.04rem; }
+      .cta-row .btn,
+      .form-actions .btn {
+        width: 100%;
+      }
+      .field-grid,
+      .calendar-grid {
+        grid-template-columns: 1fr;
+      }
+      .slot-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+      .form-actions {
+        flex-direction: column-reverse;
+      }
     }
 
     @media (prefers-reduced-motion: reduce) {
@@ -502,20 +639,6 @@
           "addressCountry": "IT"
         },
         "areaServed": ["Monza", "Brianza", "Monza e Brianza"],
-        "openingHoursSpecification": [
-          {
-            "@type": "OpeningHoursSpecification",
-            "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
-            "opens": "09:00",
-            "closes": "12:30"
-          },
-          {
-            "@type": "OpeningHoursSpecification",
-            "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
-            "opens": "14:00",
-            "closes": "19:00"
-          }
-        ],
         "medicalSpecialty": "Dentistry",
         "hasOfferCatalog": {
           "@type": "OfferCatalog",
@@ -525,8 +648,8 @@
               "@type": "Offer",
               "itemOffered": {
                 "@type": "Service",
-                "name": "Implantologia dentale",
-                "serviceType": "Sostituzione delle radici dentarie tramite impianti in titanio"
+                "name": "Implantologia dentale computer-guidata",
+                "serviceType": "Pianificazione digitale e sostituzione degli elementi dentali mancanti con impianti"
               }
             }
           ]
@@ -538,26 +661,26 @@
         "mainEntity": [
           {
             "@type": "Question",
-            "name": "La tecnica flapless e indicata per tutti?",
+            "name": "L'intervento di implantologia è doloroso?",
             "acceptedAnswer": {
               "@type": "Answer",
-              "text": "No. La tecnica flapless viene valutata solo quando le condizioni cliniche lo permettono. La visita serve a verificare osso, gengiva, salute orale generale e obiettivi del paziente."
+              "text": "L'intervento viene eseguito in anestesia locale. Nei giorni successivi, grazie alle tecniche mininvasive computer-guidate quando indicate, fastidio e gonfiore possono essere ridotti e gestiti con le indicazioni del clinico."
             }
           },
           {
             "@type": "Question",
-            "name": "Quanto dura l'intervento di implantologia?",
+            "name": "Esiste il rischio di rigetto dell'impianto dentale?",
             "acceptedAnswer": {
               "@type": "Answer",
-              "text": "Il sito dello studio indica che, quando la tecnica flapless e applicabile, l'intervento puo richiedere circa 15-20 minuti. Tempi e percorso cambiano in base al singolo caso."
+              "text": "In medicina non si parla di rigetto perché il titanio è biocompatibile. Può esistere una mancata osteointegrazione, rischio che viene valutato e ridotto attraverso diagnosi, pianificazione e protocolli clinici."
             }
           },
           {
             "@type": "Question",
-            "name": "Dove si trova lo Studio Dentistico Sorriso & Salute?",
+            "name": "Chiunque può sottoporsi a implantologia computer-guidata?",
             "acceptedAnswer": {
               "@type": "Answer",
-              "text": "Lo studio si trova in Via Gaslini, 1, 20090 Monza (MB), ed e aperto dal lunedi al venerdi dalle 9:00 alle 12:30 e dalle 14:00 alle 19:00."
+              "text": "La tecnica è applicabile nella maggior parte dei pazienti adulti, ma richiede quantità d'osso sufficiente e buono stato di salute generale. La prima valutazione serve a verificare requisiti, rischi e alternative."
             }
           }
         ]
@@ -570,7 +693,7 @@
   <a class="skip" href="#main">Salta al contenuto</a>
   <div class="topbar" aria-label="Contatti rapidi">
     <div class="wrap">
-      <span>Monza, Via Gaslini 1 · Lun-Ven 9:00-12:30 / 14:00-19:00</span>
+      <span>Studio Dentistico Sorriso & Salute · Monza, Via Gaslini 1</span>
       <span><a href="tel:+390392022489">039 2022489</a> · <a href="https://wa.me/393892490181">WhatsApp 389 2490181</a></span>
     </div>
   </div>
@@ -580,13 +703,13 @@
       <a class="brand" href="#top" aria-label="Studio Dentistico Sorriso & Salute">
         <img src="/assets/logo.png" width="360" height="87" alt="Sorriso e Salute">
       </a>
-      <div class="navlinks" aria-label="Sezioni pagina">
-        <a href="#vantaggi">Vantaggi</a>
-        <a href="#metodo">Metodo</a>
+      <div class="navlinks">
+        <a href="#approccio">Approccio</a>
+        <a href="#digitale">Digitale</a>
+        <a href="#percorso">Percorso</a>
         <a href="#faq">FAQ</a>
-        <a href="#contatti">Contatti</a>
       </div>
-      <a class="btn btn-dark" href="tel:+390392022489" aria-label="Chiama lo studio">
+      <a class="btn btn-primary" href="tel:+390392022489" aria-label="Chiama lo studio">
         <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M6.6 10.8c1.7 3.4 3.2 4.9 6.6 6.6l2.2-2.2c.3-.3.8-.4 1.2-.2 1.3.4 2.6.7 4 .7.7 0 1.2.5 1.2 1.2v3.5c0 .7-.5 1.2-1.2 1.2C10.2 21.6 2.4 13.8 2.4 3.4c0-.7.5-1.2 1.2-1.2h3.5c.7 0 1.2.5 1.2 1.2 0 1.4.2 2.8.7 4 .1.4 0 .8-.3 1.1l-2.1 2.3Z" fill="currentColor"/></svg>
         Chiama
       </a>
@@ -598,102 +721,137 @@
       <div class="wrap">
         <div>
           <p class="eyebrow"><span class="dot"></span> Implantologia dentale a Monza</p>
-          <h1 id="hero-title">Torna a masticare e sorridere con piu sicurezza.</h1>
-          <p class="lead">Valutazione implantologica presso Sorriso & Salute: impianti in titanio, progettazione digitale e tecnica flapless quando le condizioni cliniche lo permettono.</p>
-          <div class="cta-row" aria-label="Azioni principali">
-            <a class="btn btn-primary" href="tel:+390392022489">
-              <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M6.6 10.8c1.7 3.4 3.2 4.9 6.6 6.6l2.2-2.2c.3-.3.8-.4 1.2-.2 1.3.4 2.6.7 4 .7.7 0 1.2.5 1.2 1.2v3.5c0 .7-.5 1.2-1.2 1.2C10.2 21.6 2.4 13.8 2.4 3.4c0-.7.5-1.2 1.2-1.2h3.5c.7 0 1.2.5 1.2 1.2 0 1.4.2 2.8.7 4 .1.4 0 .8-.3 1.1l-2.1 2.3Z" fill="currentColor"/></svg>
-              Prenota una valutazione
-            </a>
-            <a class="btn btn-ghost" href="https://wa.me/393892490181">
-              <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M12 2.4a9.3 9.3 0 0 0-8 14.1L3 21l4.6-1.2A9.3 9.3 0 1 0 12 2.4Zm0 16.8c-1.5 0-2.9-.4-4.1-1.2l-.3-.2-2.2.6.6-2.1-.2-.3A7.5 7.5 0 1 1 12 19.2Zm4.2-5.6c-.2-.1-1.4-.7-1.6-.8-.2-.1-.4-.1-.5.1-.2.2-.6.8-.7.9-.1.2-.3.2-.5.1-.3-.1-1-.4-1.9-1.1-.7-.6-1.1-1.3-1.3-1.6-.1-.2 0-.3.1-.5l.4-.4c.1-.1.1-.2.2-.4.1-.1 0-.3 0-.4l-.7-1.7c-.2-.4-.4-.4-.5-.4h-.5c-.2 0-.4.1-.6.3-.2.2-.8.8-.8 1.9s.8 2.2.9 2.3c.1.2 1.6 2.5 3.9 3.5.5.2 1 .4 1.3.5.6.2 1.1.2 1.5.1.5-.1 1.4-.6 1.6-1.1.2-.6.2-1 .1-1.1 0 0-.2-.1-.4-.2Z" fill="currentColor"/></svg>
-              Scrivi su WhatsApp
-            </a>
-          </div>
-          <div class="trust" aria-label="Punti di fiducia">
-            <div><strong>20+</strong><span>anni al servizio di Monza e Brianza</span></div>
-            <div><strong>2003</strong><span>esperienza clinica consolidata</span></div>
-            <div><strong>15-20</strong><span>minuti indicati per casi flapless idonei</span></div>
-          </div>
-        </div>
-
-        <aside class="contact-card" aria-label="Scheda contatto">
-          <h2>Prima visita implantologica</h2>
-          <p>Parla con lo studio per capire se l'implantologia e il percorso adatto al tuo caso.</p>
-          <ul class="mini-list">
-            <li><span class="check">✓</span><span>Valutazione clinica personalizzata</span></li>
-            <li><span class="check">✓</span><span>Simulazione digitale dell'intervento</span></li>
-            <li><span class="check">✓</span><span>Possibili soluzioni di finanziamento</span></li>
-          </ul>
+          <h1 id="hero-title">Implantologia Dentale Avanzata a Monza: Ripristina la Funzionalità del Sorriso</h1>
+          <p class="lead">Tecnologie digitali computer-guidate per il reinserimento di elementi dentali fissi, riducendo l'invasività chirurgica e ottimizzando i tempi di guarigione nei casi clinicamente idonei.</p>
           <div class="cta-row">
-            <a class="btn btn-primary" href="tel:+390392022489">Chiama ora</a>
-            <a class="btn btn-ghost" href="#contatti">Richiedi info</a>
+            <a class="btn btn-primary" href="#valutazione">Richiedi una Valutazione Clinica Preliminare</a>
+            <a class="btn btn-ghost" href="https://wa.me/393892490181">Scrivi su WhatsApp</a>
           </div>
-        </aside>
+          <div class="micro-proof" aria-label="Punti clinici">
+            <div class="proof-item"><strong>3D</strong><span>pianificazione digitale del caso</span></div>
+            <div class="proof-item"><strong>Flapless</strong><span>quando i parametri lo consentono</span></div>
+            <div class="proof-item"><strong>15-20 min</strong><span>spesso per singolo impianto idoneo</span></div>
+          </div>
+        </div>
+
+        <form class="glass-form" id="valutazione" novalidate>
+          <div class="form-head">
+            <div>
+              <h2>Valutazione preliminare</h2>
+              <p>Seleziona dati, data e orario preferito. La richiesta apre una mail precompilata.</p>
+            </div>
+            <span class="step-pill" id="stepLabel">Step 1/3</span>
+          </div>
+          <div class="progress" aria-hidden="true">
+            <span class="is-active"></span>
+            <span></span>
+            <span></span>
+          </div>
+
+          <div class="form-step is-active" data-step="1">
+            <div class="field-grid">
+              <label>Nome
+                <input id="nome" name="nome" autocomplete="given-name" required>
+              </label>
+              <label>Cognome
+                <input id="cognome" name="cognome" autocomplete="family-name" required>
+              </label>
+              <label>Telefono
+                <input id="telefono" name="telefono" type="tel" inputmode="tel" autocomplete="tel" required>
+              </label>
+              <label>Email
+                <input id="email" name="email" type="email" autocomplete="email" required>
+              </label>
+            </div>
+          </div>
+
+          <div class="form-step" data-step="2">
+            <p class="muted">Scegli una data nei prossimi giorni lavorativi.</p>
+            <div class="calendar-grid" id="calendarGrid" aria-label="Calendario selezionabile"></div>
+          </div>
+
+          <div class="form-step" data-step="3">
+            <p class="muted">Scegli un orario preferito e aggiungi eventuali note.</p>
+            <div class="slot-grid" id="slotGrid" aria-label="Orari selezionabili"></div>
+            <label>Note/Messaggio
+              <textarea id="messaggio" name="messaggio" placeholder="Indica il motivo della richiesta o eventuali preferenze"></textarea>
+            </label>
+            <div class="summary-box" id="summaryBox" aria-live="polite"></div>
+          </div>
+
+          <p class="form-error" id="formError" aria-live="polite"></p>
+          <div class="form-actions">
+            <button class="btn btn-ghost" type="button" id="prevBtn" hidden>Indietro</button>
+            <button class="btn btn-primary" type="button" id="nextBtn">Avanti</button>
+            <button class="btn btn-primary" type="submit" id="submitBtn" hidden>Invia richiesta</button>
+          </div>
+        </form>
       </div>
     </section>
 
-    <section id="vantaggi" aria-labelledby="benefits-title">
+    <section id="approccio" aria-labelledby="problem-title">
+      <div class="wrap">
+        <p class="eyebrow"><span class="dot"></span> Approccio etico</p>
+        <h2 id="problem-title">La perdita dei denti naturali: oltre l'estetica, la salute funzionale</h2>
+        <p class="problem-copy">La mancanza di uno o più elementi dentali non è solo un disagio estetico. Nel tempo, influisce sulla corretta masticazione, sul posizionamento dei denti adiacenti e sul riassorbimento dell'osso mascellare. La moderna odontoiatria permette oggi di affrontare la sostituzione dei denti mancanti in modo radicalmente diverso rispetto al passato, ponendo al centro il comfort biologico del paziente.</p>
+      </div>
+    </section>
+
+    <section class="soft" id="digitale" aria-labelledby="digital-title">
       <div class="wrap">
         <div class="section-head">
           <div>
-            <p class="eyebrow"><span class="dot"></span> Perche scegliere l'implantologia</p>
-            <h2 id="benefits-title">Una soluzione stabile, funzionale e rispettosa del sorriso.</h2>
+            <p class="eyebrow"><span class="dot"></span> Implantologia digitale</p>
+            <h2 id="digital-title">Perché l'Implantologia Digitale Computer-Guidata cambia l'esperienza del paziente</h2>
           </div>
-          <p>Gli impianti sostituiscono le radici dentarie mancanti e permettono di ripristinare estetica, funzione masticatoria e comfort quotidiano.</p>
+          <p>Un protocollo progettato per aumentare precisione, ridurre invasività quando possibile e rendere più chiari tempi e fasi del trattamento.</p>
         </div>
-        <div class="grid-3">
-          <article class="feature">
-            <b>01</b>
-            <h3>Risultato naturale</h3>
-            <p class="muted">L'obiettivo e ottenere un risultato armonico, funzionale e coerente con l'anatomia della bocca.</p>
+        <div class="solution-grid">
+          <article class="info-card">
+            <b>1</b>
+            <h3>Diagnostica 3D e Simulazione Virtuale</h3>
+            <p class="muted">Prima di procedere all'intervento, l'anatomia ossea viene mappata digitalmente tramite TAC Cone Beam e scanner intraorale. Questo ci permette di simulare l'inserimento dell'impianto al computer con precisione millimetrica, individuando la posizione ideale per stabilità e rispetto dei tessuti nervosi.</p>
           </article>
-          <article class="feature">
-            <b>02</b>
-            <h3>Denti vicini preservati</h3>
-            <p class="muted">Quando possibile, non e necessario limare i denti adiacenti come accade in altre soluzioni protesiche.</p>
+          <article class="info-card">
+            <b>2</b>
+            <h3>Tecnica Flapless: Chirurgia senza incisioni tradizionali</h3>
+            <p class="muted">Quando i parametri clinici lo consentono, utilizziamo la metodica Flapless. Significa che l'impianto viene inserito attraverso una dima chirurgica personalizzata, senza necessità di tagliare la gengiva con il bisturi né di applicare punti di sutura. Il risultato è una riduzione di dolore, gonfiore ed ematomi post-operatori.</p>
           </article>
-          <article class="feature">
-            <b>03</b>
-            <h3>Osso conservato</h3>
-            <p class="muted">Il trattamento mira a preservare l'osso circostante e mantenere equilibrio nei tessuti.</p>
+          <article class="info-card">
+            <b>3</b>
+            <h3>Riduzione dei tempi in poltrona e recupero rapido</h3>
+            <p class="muted">Grazie alla pianificazione digitale, la durata dell'intervento si riduce significativamente: spesso bastano 15-20 minuti per singolo impianto. Nei casi idonei a carico immediato, è possibile ancorare la protesi provvisoria fissa nella stessa giornata, permettendo un rapido ritorno alle normali attività quotidiane.</p>
           </article>
         </div>
       </div>
     </section>
 
-    <section class="band" id="metodo" aria-labelledby="method-title">
+    <section class="band" id="percorso" aria-labelledby="path-title">
       <div class="wrap">
         <div class="section-head">
           <div>
-            <p class="eyebrow"><span class="dot"></span> Metodo clinico</p>
-            <h2 id="method-title">Tecnologia digitale prima dell'intervento.</h2>
+            <p class="eyebrow"><span class="dot"></span> Flusso clinico</p>
+            <h2 id="path-title">Il percorso clinico protocollato per il tuo impianto</h2>
           </div>
-          <p class="muted">Lo studio effettua progettazioni e simulazioni a computer, poi invia i file al laboratorio di fiducia per la ricostruzione tridimensionale dei mascellari.</p>
+          <p>Trasparenza informativa, diagnosi e follow-up sono parte integrante del trattamento.</p>
         </div>
-        <div class="process">
-          <article class="process-step"><b>1</b><h3>Analisi</h3><p class="muted">Valutazione di salute orale, esigenze funzionali e aspettative estetiche.</p></article>
-          <article class="process-step"><b>2</b><h3>Progettazione</h3><p class="muted">Studio digitale dell'intervento e pianificazione del percorso piu adatto.</p></article>
-          <article class="process-step"><b>3</b><h3>Intervento</h3><p class="muted">Impianti in titanio e tecnica flapless quando le indicazioni cliniche lo consentono.</p></article>
-          <article class="process-step"><b>4</b><h3>Controllo</h3><p class="muted">Follow-up e indicazioni per mantenere salute, igiene e stabilita nel tempo.</p></article>
+        <div class="phases">
+          <article class="phase">
+            <b>1</b>
+            <h3>Studio del Caso e Screening Sanitario</h3>
+            <p class="muted">Visita clinica approfondita, anamnesi medica e screening radiografico digitale direttamente in studio.</p>
+          </article>
+          <article class="phase">
+            <b>2</b>
+            <h3>Progettazione 3D</h3>
+            <p class="muted">Elaborazione del modello virtuale e realizzazione della guida personalizzata per l'inserimento mininvasivo.</p>
+          </article>
+          <article class="phase">
+            <b>3</b>
+            <h3>Seduta Chirurgica e Follow-up</h3>
+            <p class="muted">Posizionamento dell'impianto in anestesia locale ed esecuzione dei controlli periodici per monitorare l'osteointegrazione biologica a lungo termine.</p>
+          </article>
         </div>
-      </div>
-    </section>
-
-    <section aria-labelledby="flapless-title">
-      <div class="wrap split">
-        <div>
-          <p class="eyebrow"><span class="dot"></span> Tecnica flapless</p>
-          <h2 id="flapless-title">Meno invasiva, quando il caso lo permette.</h2>
-          <p class="lead">Il sito dello studio indica l'utilizzo della tecnica flapless quando vi sono le condizioni: consente di intervenire senza punti di sutura, ematomi e gonfiori, con tempi contenuti nei casi idonei.</p>
-          <p class="quote">La scelta della tecnica non e automatica: viene definita dopo visita, diagnosi e valutazione dell'anatomia del paziente.</p>
-        </div>
-        <ul class="benefits" aria-label="Elementi valutati in visita">
-          <li><strong>Impianti in titanio</strong><span class="muted">Materiale utilizzato per sostituire le radici dentarie mancanti.</span></li>
-          <li><strong>Approccio personalizzato</strong><span class="muted">Ogni piano tiene conto di masticazione, estetica, tessuti e abitudini.</span></li>
-          <li><strong>Ambulatorio polispecialistico</strong><span class="muted">Team aggiornato e tecnologie odontoiatriche innovative.</span></li>
-          <li><strong>Emergenze</strong><span class="muted">I pazienti sono di solito visti il giorno in cui chiamano.</span></li>
-        </ul>
       </div>
     </section>
 
@@ -701,104 +859,234 @@
       <div class="wrap">
         <div class="section-head">
           <div>
-            <p class="eyebrow"><span class="dot"></span> Domande frequenti</p>
-            <h2 id="faq-title">Risposte rapide prima della visita.</h2>
+            <p class="eyebrow"><span class="dot"></span> FAQ implantologia</p>
+            <h2 id="faq-title">Domande Frequenti sull'Implantologia</h2>
           </div>
-          <p>Contenuti pensati per intercettare ricerche locali e ridurre il dubbio prima del contatto.</p>
+          <p>Risposte utili per chi sta valutando un percorso implantologico e vuole arrivare alla prima visita con più consapevolezza.</p>
         </div>
         <div class="faq-list">
           <details>
-            <summary>Quando serve un impianto dentale?</summary>
-            <p>Quando una radice dentaria manca o non e recuperabile, l'impianto puo sostituirla e sostenere una riabilitazione protesica stabile. La visita stabilisce fattibilita e alternative.</p>
+            <summary>L'intervento di implantologia è doloroso?</summary>
+            <p>L'intervento viene eseguito in anestesia locale. Nei giorni successivi, grazie alle tecniche mininvasive computer-guidate come la Flapless quando indicata, il fastidio e il gonfiore sono ridotti e gestibili con gli analgesici consigliati dal clinico.</p>
           </details>
           <details>
-            <summary>La tecnica flapless e sempre possibile?</summary>
-            <p>No. Viene usata solo quando ci sono indicazioni cliniche adeguate. La pianificazione digitale aiuta a valutare posizione, volume osseo e percorso chirurgico.</p>
+            <summary>Esiste il rischio di rigetto dell'impianto dentale?</summary>
+            <p>In medicina non si parla di rigetto poiché il titanio utilizzato è un materiale biocompatibile, che non innesca reazioni immunitarie. Esiste una minima percentuale di mancata stabilità biologica, cioè mancata osteointegrazione, che viene valutata e ridotta con pianificazione digitale preventiva e protocolli sterili.</p>
           </details>
           <details>
-            <summary>Quanto tempo richiede l'intervento?</summary>
-            <p>Per i casi flapless idonei, il sito dello studio indica un intervento di circa 15-20 minuti. La durata reale dipende dalla complessita del singolo caso.</p>
-          </details>
-          <details>
-            <summary>Lo studio offre finanziamenti o convenzioni?</summary>
-            <p>Si. Lo Studio Dentistico Sorriso & Salute comunica soluzioni di finanziamento personalizzate e convenzioni dirette e indirette con fondi sanitari, casse mutue e assicurazioni.</p>
+            <summary>Chiunque può sottoporsi a implantologia computer-guidata?</summary>
+            <p>La tecnica è applicabile nella maggior parte dei pazienti adulti. Tuttavia, la presenza di una quantità d'osso sufficiente e un buono stato di salute generale, valutando patologie sistemiche o abitudini come il fumo, sono requisiti fondamentali analizzati durante la prima valutazione preliminare.</p>
           </details>
         </div>
       </div>
     </section>
 
-    <section aria-labelledby="reviews-title">
-      <div class="wrap">
-        <div class="section-head">
-          <div>
-            <p class="eyebrow"><span class="dot"></span> Fiducia del paziente</p>
-            <h2 id="reviews-title">Cura, precisione e ascolto.</h2>
-          </div>
-          <p>Lo studio mette al centro comfort, diagnosi accurata e trattamenti personalizzati.</p>
-        </div>
-        <div class="reviews">
-          <article class="review">
-            <p class="stars" aria-label="Recensione positiva">★★★★★</p>
-            <p>“Intervento svolto con sicurezza, brevità ed anestesia molto efficace. Postumi senza particolari problemi.”</p>
-            <strong>Michael T.</strong>
-          </article>
-          <article class="review">
-            <p class="stars" aria-label="Recensione positiva">★★★★★</p>
-            <p>“Valutazione clinica molto accurata, con fotografie intraorali e scanner digitale. Grande attenzione alla diagnosi.”</p>
-            <strong>Giuseppe G.</strong>
-          </article>
-        </div>
-      </div>
-    </section>
-
-    <section class="band" id="contatti" aria-labelledby="contact-title">
-      <div class="wrap split">
+    <section aria-labelledby="closing-title">
+      <div class="wrap closing">
         <div>
-          <p class="eyebrow"><span class="dot"></span> Contatti</p>
-          <h2 id="contact-title">Prenota una valutazione implantologica a Monza.</h2>
-          <p class="muted">Studio Dentistico Sorriso & Salute, Via Gaslini 1, 20090 Monza (MB). Direttore Sanitario: Dott.ssa Maria Isabel Pareja Carrillo, Odontoiatra.</p>
+          <p class="eyebrow"><span class="dot"></span> Consulto diagnostico</p>
+          <h2 id="closing-title">Richiedi un consulto informativo e diagnostico</h2>
+          <p class="lead">Ogni situazione clinica è unica e richiede un piano terapeutico personalizzato. Il nostro team di professionisti è a disposizione per valutare lo stato della tua salute orale e illustrarti le soluzioni tecnologiche più adatte al tuo caso, nel pieno rispetto dei tempi biologici del tuo organismo.</p>
           <div class="cta-row">
-            <a class="btn btn-primary" href="tel:+390392022489">039 2022489</a>
-            <a class="btn btn-ghost" href="mailto:info@sorrisoesalute.it">info@sorrisoesalute.it</a>
-            <a class="btn btn-ghost" href="https://wa.me/393892490181">WhatsApp</a>
+            <a class="btn btn-primary" href="#valutazione">Richiedi una Valutazione Clinica Preliminare</a>
+            <a class="btn btn-ghost" href="tel:+390392022489">039 2022489</a>
           </div>
         </div>
-        <div class="form-panel">
-          <form action="mailto:info@sorrisoesalute.it" method="post" enctype="text/plain">
-            <label>Nome e cognome
-              <input name="nome" autocomplete="name" required>
-            </label>
-            <label>Telefono
-              <input name="telefono" inputmode="tel" autocomplete="tel" required>
-            </label>
-            <label>Obiettivo della visita
-              <select name="obiettivo">
-                <option>Valutazione per impianto dentale</option>
-                <option>Sostituzione di un dente mancante</option>
-                <option>Seconda opinione implantologica</option>
-                <option>Informazioni su tempi e costi</option>
-              </select>
-            </label>
-            <label>Messaggio
-              <textarea name="messaggio" placeholder="Scrivi qui quando preferisci essere ricontattato"></textarea>
-            </label>
-            <button class="btn btn-primary" type="submit">Invia richiesta</button>
-          </form>
-        </div>
+        <aside class="contact-panel" aria-label="Informazioni studio">
+          <h3>Studio Dentistico Sorriso & Salute</h3>
+          <p>Via Gaslini 1, 20090 Monza (MB)</p>
+          <p><strong>Telefono:</strong> <a href="tel:+390392022489">039 2022489</a><br><strong>Email:</strong> <a href="mailto:info@sorrisoesalute.it">info@sorrisoesalute.it</a></p>
+          <p><strong>Orari:</strong> Lun-Ven 9:00-12:30 / 14:00-19:00</p>
+        </aside>
       </div>
     </section>
   </main>
 
   <footer>
     <div class="wrap">
-      <span>© 2026 Landing demo per Studio Dentistico Sorriso & Salute</span>
-      <span><a href="https://www.sorrisoesalute.it/">Sito ufficiale</a> · <a href="https://www.sorrisoesalute.it/attivita/implantologia/">Pagina implantologia</a></span>
+      <strong>Direttore Sanitario: Dott.ssa Maria Isabel Pareja Carrillo, Odontoiatra.</strong>
+      <span>Autorizzazione Sanitaria: dato da inserire.</span>
+      <span>Le informazioni contenute in questo sito hanno carattere puramente informativo e non sostituiscono in alcun modo il consulto medico professionale.</span>
+      <span>© 2026 Landing demo per Studio Dentistico Sorriso & Salute · <a href="https://www.sorrisoesalute.it/">Sito ufficiale</a></span>
     </div>
   </footer>
 
   <div class="mobile-cta" aria-label="Azioni rapide mobile">
-    <a class="btn btn-primary" href="tel:+390392022489">Chiama</a>
-    <a class="btn btn-dark" href="https://wa.me/393892490181">WhatsApp</a>
+    <a class="btn btn-primary" href="#valutazione">Valutazione</a>
+    <a class="btn btn-ghost" href="https://wa.me/393892490181">WhatsApp</a>
   </div>
+
+  <script>
+    (() => {
+      const form = document.querySelector("#valutazione");
+      const steps = [...document.querySelectorAll(".form-step")];
+      const bars = [...document.querySelectorAll(".progress span")];
+      const stepLabel = document.querySelector("#stepLabel");
+      const prevBtn = document.querySelector("#prevBtn");
+      const nextBtn = document.querySelector("#nextBtn");
+      const submitBtn = document.querySelector("#submitBtn");
+      const formError = document.querySelector("#formError");
+      const calendarGrid = document.querySelector("#calendarGrid");
+      const slotGrid = document.querySelector("#slotGrid");
+      const summaryBox = document.querySelector("#summaryBox");
+      const fields = {
+        nome: document.querySelector("#nome"),
+        cognome: document.querySelector("#cognome"),
+        telefono: document.querySelector("#telefono"),
+        email: document.querySelector("#email"),
+        messaggio: document.querySelector("#messaggio")
+      };
+
+      let currentStep = 1;
+      let selectedDate = "";
+      let selectedDateLabel = "";
+      let selectedSlot = "";
+
+      const dateFormatter = new Intl.DateTimeFormat("it-IT", { weekday: "short", day: "2-digit", month: "short" });
+      const isoDate = (date) => {
+        const offset = date.getTimezoneOffset() * 60000;
+        return new Date(date.getTime() - offset).toISOString().slice(0, 10);
+      };
+
+      const officeSlots = () => {
+        const ranges = [["09:00", "12:30"], ["14:00", "19:00"]];
+        const slots = [];
+        ranges.forEach(([start, end]) => {
+          const [startH, startM] = start.split(":").map(Number);
+          const [endH, endM] = end.split(":").map(Number);
+          const cursor = new Date(2000, 0, 1, startH, startM);
+          const limit = new Date(2000, 0, 1, endH, endM);
+          while (cursor <= limit) {
+            slots.push(cursor.toTimeString().slice(0, 5));
+            cursor.setMinutes(cursor.getMinutes() + 30);
+          }
+        });
+        return slots;
+      };
+
+      const setError = (message = "") => {
+        formError.textContent = message;
+      };
+
+      const updateSummary = () => {
+        summaryBox.innerHTML = `
+          <span><strong>Paziente:</strong> ${fields.nome.value || "-"} ${fields.cognome.value || ""}</span>
+          <span><strong>Contatto:</strong> ${fields.telefono.value || "-"} · ${fields.email.value || "-"}</span>
+          <span><strong>Preferenza:</strong> ${selectedDateLabel || "-"} · ${selectedSlot || "-"}</span>
+        `;
+      };
+
+      const showStep = (step) => {
+        currentStep = step;
+        steps.forEach((item) => item.classList.toggle("is-active", Number(item.dataset.step) === step));
+        bars.forEach((bar, index) => bar.classList.toggle("is-active", index < step));
+        stepLabel.textContent = `Step ${step}/3`;
+        prevBtn.hidden = step === 1;
+        nextBtn.hidden = step === 3;
+        submitBtn.hidden = step !== 3;
+        setError();
+        updateSummary();
+      };
+
+      const validateStep = () => {
+        if (currentStep === 1) {
+          const required = [fields.nome, fields.cognome, fields.telefono, fields.email];
+          const invalid = required.find((field) => !field.checkValidity());
+          if (invalid) {
+            invalid.reportValidity();
+            setError("Completa i dati di contatto per continuare.");
+            return false;
+          }
+        }
+        if (currentStep === 2 && !selectedDate) {
+          setError("Seleziona una data disponibile.");
+          return false;
+        }
+        if (currentStep === 3 && !selectedSlot) {
+          setError("Seleziona un orario preferito.");
+          return false;
+        }
+        return true;
+      };
+
+      const buildCalendar = () => {
+        const today = new Date();
+        for (let i = 0; i < 21; i += 1) {
+          const date = new Date(today);
+          date.setDate(today.getDate() + i);
+          const day = date.getDay();
+          if (day === 0 || day === 6) continue;
+          const value = isoDate(date);
+          const label = dateFormatter.format(date).replace(",", "");
+          const labelParts = label.split(" ");
+          const button = document.createElement("button");
+          button.type = "button";
+          button.className = "date-btn";
+          button.setAttribute("aria-pressed", "false");
+          button.dataset.value = value;
+          button.dataset.label = label;
+          button.innerHTML = `<small>${labelParts[0]}</small><span>${labelParts.slice(1).join(" ")}</span>`;
+          button.addEventListener("click", () => {
+            selectedDate = value;
+            selectedDateLabel = label;
+            selectedSlot = "";
+            document.querySelectorAll(".date-btn").forEach((btn) => btn.setAttribute("aria-pressed", "false"));
+            button.setAttribute("aria-pressed", "true");
+            document.querySelectorAll(".slot-btn").forEach((btn) => btn.setAttribute("aria-pressed", "false"));
+            updateSummary();
+            setError();
+          });
+          calendarGrid.append(button);
+        }
+      };
+
+      const buildSlots = () => {
+        officeSlots().forEach((slot) => {
+          const button = document.createElement("button");
+          button.type = "button";
+          button.className = "slot-btn";
+          button.textContent = slot;
+          button.setAttribute("aria-pressed", "false");
+          button.addEventListener("click", () => {
+            selectedSlot = slot;
+            document.querySelectorAll(".slot-btn").forEach((btn) => btn.setAttribute("aria-pressed", "false"));
+            button.setAttribute("aria-pressed", "true");
+            updateSummary();
+            setError();
+          });
+          slotGrid.append(button);
+        });
+      };
+
+      prevBtn.addEventListener("click", () => showStep(Math.max(1, currentStep - 1)));
+      nextBtn.addEventListener("click", () => {
+        if (validateStep()) showStep(Math.min(3, currentStep + 1));
+      });
+
+      form.addEventListener("submit", (event) => {
+        event.preventDefault();
+        if (!validateStep()) return;
+        const subject = "Richiesta valutazione implantologica preliminare";
+        const body = [
+          "Richiesta valutazione implantologica preliminare",
+          "",
+          `Nome: ${fields.nome.value}`,
+          `Cognome: ${fields.cognome.value}`,
+          `Telefono: ${fields.telefono.value}`,
+          `Email: ${fields.email.value}`,
+          `Data preferita: ${selectedDateLabel} (${selectedDate})`,
+          `Orario preferito: ${selectedSlot}`,
+          "",
+          `Note: ${fields.messaggio.value || "Nessuna nota inserita"}`
+        ].join("\n");
+        window.location.href = `mailto:info@sorrisoesalute.it?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+      });
+
+      buildCalendar();
+      buildSlots();
+      updateSummary();
+      showStep(1);
+    })();
+  </script>
 </body>
 </html>
