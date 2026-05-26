@@ -96,7 +96,7 @@
       position: sticky;
       top: 0;
       z-index: 20;
-      background: rgba(249, 252, 255, .94);
+      background: rgba(255, 255, 255, .96);
       border-bottom: 1px solid var(--divider);
       backdrop-filter: blur(16px);
     }
@@ -106,14 +106,30 @@
     .brand {
       display: inline-flex;
       align-items: center;
+      position: relative;
       min-width: 0;
-      padding: .55rem .78rem;
-      border-radius: 8px;
-      background: var(--primary);
+      width: 184px;
+      height: 45px;
+      padding: 0;
+      border-radius: 0;
+      background: transparent;
       text-decoration: none;
     }
 
-    .brand img { width: 184px; height: auto; }
+    .brand::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: var(--primary);
+      -webkit-mask: url("/assets/logo.png") center / contain no-repeat;
+      mask: url("/assets/logo.png") center / contain no-repeat;
+    }
+
+    .brand img {
+      width: 100%;
+      height: auto;
+      opacity: 0;
+    }
 
     .navlinks {
       display: flex;
@@ -622,7 +638,7 @@
     }
 
     #prevBtn {
-      flex: 0 1 112px;
+      flex: 0 1 168px;
       padding-inline: .95rem;
     }
 
@@ -1131,9 +1147,62 @@
       .wrap { width: min(100% - 24px, 1140px); }
       .topbar { display: none; }
       .nav { min-height: 70px; }
-      .brand img { width: 160px; }
+      .brand {
+        width: 160px;
+        height: 39px;
+      }
       h1 { font-size: 2.4rem; }
       .lead { font-size: 1.04rem; }
+      .glass-form {
+        padding: .86rem;
+      }
+      .form-head {
+        margin-bottom: .66rem;
+      }
+      .form-head h2 {
+        font-size: clamp(1.35rem, 8vw, 1.82rem);
+        line-height: 1.04;
+      }
+      .progress {
+        gap: .32rem;
+        margin-bottom: .68rem;
+      }
+      .progress span {
+        height: 5px;
+      }
+      .form-step.is-active {
+        gap: .48rem;
+      }
+      .quiz-kicker {
+        font-size: .66rem;
+      }
+      .quiz-title {
+        font-size: clamp(1.12rem, 6vw, 1.38rem);
+      }
+      .quiz-copy,
+      .muted {
+        font-size: .86rem;
+        line-height: 1.42;
+      }
+      .choice-btn {
+        min-height: 54px;
+        padding: .64rem .7rem;
+      }
+      .choice-btn strong {
+        font-size: .92rem;
+      }
+      .choice-btn span {
+        font-size: .78rem;
+        line-height: 1.26;
+      }
+      input,
+      textarea {
+        min-height: 42px;
+        padding: .62rem .72rem;
+      }
+      textarea {
+        min-height: 86px;
+      }
       .cta-row .btn,
       .form-actions .btn {
         width: 100%;
@@ -1144,23 +1213,83 @@
       }
       .slot-grid {
         grid-template-columns: repeat(3, minmax(0, 1fr));
+        max-height: 178px;
       }
       .problem-media img { aspect-ratio: 16 / 10; }
       .calendar-grid { gap: .28rem; }
-      .date-btn { min-height: 42px; font-size: .88rem; }
+      .calendar-head {
+        margin-bottom: .42rem;
+      }
+      .date-btn {
+        min-height: 38px;
+        font-size: .84rem;
+      }
       .date-btn small { font-size: .66rem; }
+      .slot-btn {
+        min-height: 38px;
+        padding: .52rem .34rem;
+      }
       .footer-cta { padding-block: 32px 28px; }
       .footer-main { padding-block: 28px; }
       .form-actions {
         flex-direction: column-reverse;
+        gap: .5rem;
+        margin-top: .1rem;
+      }
+      #prevBtn {
+        flex-basis: auto;
       }
       .booking-modal {
-        width: calc(100% - 20px);
-        max-height: calc(100vh - 20px);
+        width: calc(100% - 16px);
+        max-height: calc(100svh - 16px);
       }
       .modal-card {
-        max-height: calc(100vh - 20px);
+        max-height: calc(100svh - 16px);
+        padding: .5rem;
+      }
+      .modal-card .glass-form {
+        padding: .76rem;
+      }
+      .modal-close {
+        width: 36px;
+        height: 36px;
+        margin-bottom: .38rem;
+      }
+    }
+
+    @media (max-width: 620px) and (max-height: 720px) {
+      .glass-form {
+        padding: .66rem;
+      }
+      .modal-card .glass-form {
         padding: .62rem;
+      }
+      .form-head {
+        margin-bottom: .48rem;
+      }
+      .form-head h2 {
+        font-size: 1.28rem;
+      }
+      .progress {
+        margin-bottom: .52rem;
+      }
+      .form-step.is-active {
+        gap: .38rem;
+      }
+      .choice-btn {
+        min-height: 48px;
+        padding: .52rem .62rem;
+      }
+      .choice-btn span {
+        font-size: .75rem;
+      }
+      .modal-card {
+        padding: .38rem;
+      }
+      .modal-close {
+        width: 32px;
+        height: 32px;
+        margin-bottom: .28rem;
       }
     }
 
@@ -1384,7 +1513,7 @@
 
           <p class="form-error" id="formError" data-form-error aria-live="polite"></p>
           <div class="form-actions">
-            <button class="btn btn-outline-fill" type="button" id="prevBtn" data-prev-step aria-label="Indietro" hidden>&lt;</button>
+            <button class="btn btn-outline-fill" type="button" id="prevBtn" data-prev-step hidden>torna indietro</button>
             <button class="btn btn-outline-fill" type="button" id="nextBtn" data-next-step>continua</button>
             <button class="btn btn-primary" type="submit" id="submitBtn" data-submit-step hidden>Invia richiesta</button>
           </div>
@@ -1772,7 +1901,7 @@
           steps.forEach((item) => item.classList.toggle("is-active", Number(item.dataset.step) === step));
           bars.forEach((bar, index) => bar.classList.toggle("is-active", index < step));
           prevBtn.hidden = step === 1;
-          nextBtn.hidden = step === totalSteps;
+          nextBtn.hidden = step !== 5;
           submitBtn.hidden = step !== totalSteps;
           setError();
           updateSummary();
@@ -1854,6 +1983,7 @@
               button.setAttribute("aria-pressed", "true");
               updateSummary();
               setError();
+              showStep(4);
             });
             calendarGrid.append(button);
           }
@@ -1873,6 +2003,7 @@
               button.setAttribute("aria-pressed", "true");
               updateSummary();
               setError();
+              showStep(5);
             });
             slotGrid.append(button);
           });
@@ -1903,6 +2034,7 @@
               button.setAttribute("aria-pressed", "true");
               updateSummary();
               setError();
+              if (currentStep < 3) showStep(currentStep + 1);
             });
           });
         });
