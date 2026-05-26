@@ -1,6 +1,6 @@
 # Landing demo Implantologia - Sorriso & Salute Monza
 
-Landing page statica ottimizzata per SEO locale e campagne Google Ads su servizio di implantologia dentale, con modulo multistep e calendario visuale.
+Landing page statica ottimizzata per SEO locale e campagne Google Ads su servizio di implantologia dentale, con quiz multistep, calendario visuale e riepilogo completo per lo studio.
 
 ## Fonti contenuto
 
@@ -13,4 +13,4 @@ Preset: Other
 Build command: lasciare vuoto
 Output directory: lasciare vuoto
 
-Il progetto e composto da file statici e non richiede installazione di dipendenze. Il modulo genera una mail precompilata a `info@sorrisoesalute.it` tramite `mailto:`.
+Il progetto e composto da file statici e non richiede installazione di dipendenze. Il quiz genera una mail precompilata a `info@sorrisoesalute.it` tramite `mailto:`, includendo problema, obiettivo, dubbi, tempistica, preferenza appuntamento e contatti.

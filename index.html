@@ -286,7 +286,7 @@
 
     .progress {
       display: grid;
-      grid-template-columns: repeat(3, 1fr);
+      grid-template-columns: repeat(7, 1fr);
       gap: .45rem;
       margin-bottom: 1rem;
     }
@@ -307,6 +307,74 @@
       grid-template-columns: repeat(2, minmax(0, 1fr));
       gap: .78rem;
     }
+
+    .quiz-kicker {
+      margin-bottom: -.15rem;
+      color: #0A4863;
+      font-size: .72rem;
+      font-weight: 950;
+      letter-spacing: .08em;
+      text-transform: uppercase;
+    }
+
+    .quiz-title {
+      margin-bottom: .15rem;
+      font-size: clamp(1.28rem, 3vw, 1.72rem);
+      letter-spacing: 0;
+    }
+
+    .quiz-copy {
+      margin-bottom: .15rem;
+      color: #426A7C;
+      font-size: .95rem;
+    }
+
+    .quiz-options {
+      display: grid;
+      gap: .58rem;
+    }
+
+    .choice-btn {
+      display: grid;
+      gap: .18rem;
+      width: 100%;
+      min-height: 64px;
+      border: 1px solid rgba(14, 56, 76, .18);
+      border-radius: 8px;
+      padding: .82rem .9rem;
+      background: rgba(255,255,255,.92);
+      color: var(--primary);
+      cursor: pointer;
+      text-align: left;
+      transition: background .15s ease, border-color .15s ease, transform .15s ease, box-shadow .15s ease;
+    }
+
+    .choice-btn:hover {
+      transform: translateY(-1px);
+      border-color: rgba(30, 132, 181, .55);
+      box-shadow: 0 10px 28px rgba(14, 56, 76, .08);
+    }
+
+    .choice-btn[aria-pressed="true"] {
+      border-color: var(--primary);
+      background: var(--primary);
+      color: var(--white);
+      box-shadow: 0 14px 30px rgba(14, 56, 76, .18);
+    }
+
+    .choice-btn strong {
+      font-size: .98rem;
+      line-height: 1.16;
+    }
+
+    .choice-btn span {
+      color: #527282;
+      font-size: .84rem;
+      font-weight: 720;
+      line-height: 1.32;
+    }
+
+    .choice-btn[aria-pressed="true"] span { color: #DDEDF4; }
 
     label {
       display: grid;
@@ -398,6 +466,16 @@
     }
 
     .summary-box strong { color: var(--primary); }
+    .summary-box .summary-line {
+      display: grid;
+      gap: .08rem;
+      padding-bottom: .5rem;
+      border-bottom: 1px solid rgba(14,56,76,.08);
+    }
+    .summary-box .summary-line:last-child {
+      padding-bottom: 0;
+      border-bottom: 0;
+    }
 
     .form-error {
       min-height: 22px;
@@ -737,18 +815,81 @@
         <form class="glass-form" id="valutazione" novalidate>
           <div class="form-head">
             <div>
-              <h2>Valutazione preliminare</h2>
-              <p>Seleziona dati, data e orario preferito. La richiesta apre una mail precompilata.</p>
+              <h2>Check implantologico rapido</h2>
+              <p>Rispondi a poche domande: la mail finale darà allo studio un quadro chiaro di problema, obiettivo e priorità.</p>
             </div>
-            <span class="step-pill" id="stepLabel">Step 1/3</span>
+            <span class="step-pill" id="stepLabel">Step 1/7</span>
           </div>
           <div class="progress" aria-hidden="true">
             <span class="is-active"></span>
             <span></span>
             <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
           </div>
 
           <div class="form-step is-active" data-step="1">
+            <p class="quiz-kicker">Inquadramento clinico</p>
+            <h3 class="quiz-title">Qual è il problema principale?</h3>
+            <p class="quiz-copy">Aiuta lo studio a capire da dove partire nella valutazione.</p>
+            <div class="quiz-options" data-field="problema">
+              <button class="choice-btn" type="button" data-value="Mi manca un dente singolo"><strong>Mi manca un dente singolo</strong><span>Vorrei sostituirlo con una soluzione fissa.</span></button>
+              <button class="choice-btn" type="button" data-value="Mi mancano più denti"><strong>Mi mancano più denti</strong><span>Ho difficoltà a masticare o sorridere con naturalezza.</span></button>
+              <button class="choice-btn" type="button" data-value="Dentiera mobile o protesi instabile"><strong>Dentiera mobile o protesi instabile</strong><span>Cerco più stabilità e comfort quotidiano.</span></button>
+              <button class="choice-btn" type="button" data-value="Ho già impianti o una situazione da rivalutare"><strong>Ho già impianti o una situazione da rivalutare</strong><span>Vorrei un controllo o una seconda opinione.</span></button>
+            </div>
+          </div>
+
+          <div class="form-step" data-step="2">
+            <p class="quiz-kicker">Obiettivo desiderato</p>
+            <h3 class="quiz-title">Cosa vuoi ottenere davvero?</h3>
+            <p class="quiz-copy">Questa risposta chiarisce la priorità: funzione, estetica, stabilità o tempi.</p>
+            <div class="quiz-options" data-field="obiettivo">
+              <button class="choice-btn" type="button" data-value="Masticare meglio e senza fastidi"><strong>Masticare meglio e senza fastidi</strong><span>Voglio tornare a mangiare con più sicurezza.</span></button>
+              <button class="choice-btn" type="button" data-value="Avere denti fissi e un sorriso naturale"><strong>Avere denti fissi e un sorriso naturale</strong><span>Mi interessa molto anche il risultato estetico.</span></button>
+              <button class="choice-btn" type="button" data-value="Evitare o stabilizzare la dentiera mobile"><strong>Evitare o stabilizzare la dentiera mobile</strong><span>Vorrei una soluzione più stabile nella vita quotidiana.</span></button>
+              <button class="choice-btn" type="button" data-value="Capire se posso fare carico immediato"><strong>Capire se posso fare carico immediato</strong><span>Vorrei sapere se posso ridurre i tempi del percorso.</span></button>
+            </div>
+          </div>
+
+          <div class="form-step" data-step="3">
+            <p class="quiz-kicker">Barriera principale</p>
+            <h3 class="quiz-title">Cosa ti preoccupa di più?</h3>
+            <p class="quiz-copy">Lo studio potrà rispondere subito ai dubbi più importanti.</p>
+            <div class="quiz-options" data-field="preoccupazione">
+              <button class="choice-btn" type="button" data-value="Dolore, gonfiore o paura dell'intervento"><strong>Dolore, gonfiore o paura dell'intervento</strong><span>Vorrei capire se esistono tecniche meno invasive.</span></button>
+              <button class="choice-btn" type="button" data-value="Tempi di guarigione e giorni di recupero"><strong>Tempi di guarigione e giorni di recupero</strong><span>Ho bisogno di organizzarmi con lavoro e vita quotidiana.</span></button>
+              <button class="choice-btn" type="button" data-value="Costo, finanziamento o convenzioni"><strong>Costo, finanziamento o convenzioni</strong><span>Vorrei capire opzioni e sostenibilità del piano.</span></button>
+              <button class="choice-btn" type="button" data-value="Poco osso, fumo o condizioni di salute"><strong>Poco osso, fumo o condizioni di salute</strong><span>Ho dubbi sulla fattibilità clinica del trattamento.</span></button>
+            </div>
+          </div>
+
+          <div class="form-step" data-step="4">
+            <p class="quiz-kicker">Urgenza e contesto</p>
+            <h3 class="quiz-title">Quando vorresti affrontare il problema?</h3>
+            <p class="quiz-copy">Questo aiuta a distinguere valutazione informativa, urgenza funzionale o necessità estetica.</p>
+            <div class="quiz-options" data-field="tempistica">
+              <button class="choice-btn" type="button" data-value="Il prima possibile"><strong>Il prima possibile</strong><span>Il problema mi limita o mi crea disagio evidente.</span></button>
+              <button class="choice-btn" type="button" data-value="Entro 1-2 mesi"><strong>Entro 1-2 mesi</strong><span>Vorrei pianificare con calma ma senza rimandare troppo.</span></button>
+              <button class="choice-btn" type="button" data-value="Sto confrontando soluzioni"><strong>Sto confrontando soluzioni</strong><span>Mi serve un quadro chiaro prima di decidere.</span></button>
+              <button class="choice-btn" type="button" data-value="Ho un evento o una scadenza estetica"><strong>Ho un evento o una scadenza estetica</strong><span>Vorrei capire cosa è realistico ottenere nei tempi disponibili.</span></button>
+            </div>
+          </div>
+
+          <div class="form-step" data-step="5">
+            <p class="quiz-kicker">Preferenza appuntamento</p>
+            <h3 class="quiz-title">Quando preferisci essere ricontattato per una valutazione?</h3>
+            <p class="muted">Scegli una data nei prossimi giorni lavorativi.</p>
+            <div class="calendar-grid" id="calendarGrid" aria-label="Calendario selezionabile"></div>
+          </div>
+
+          <div class="form-step" data-step="6">
+            <p class="quiz-kicker">Orario e contatti</p>
+            <h3 class="quiz-title">Lascia i dati per ricevere risposta dallo studio</h3>
+            <p class="muted">Scegli un orario preferito e aggiungi eventuali note.</p>
+            <div class="slot-grid" id="slotGrid" aria-label="Orari selezionabili"></div>
             <div class="field-grid">
               <label>Nome
                 <input id="nome" name="nome" autocomplete="given-name" required>
@@ -763,19 +904,15 @@
                 <input id="email" name="email" type="email" autocomplete="email" required>
               </label>
             </div>
-          </div>
-
-          <div class="form-step" data-step="2">
-            <p class="muted">Scegli una data nei prossimi giorni lavorativi.</p>
-            <div class="calendar-grid" id="calendarGrid" aria-label="Calendario selezionabile"></div>
-          </div>
-
-          <div class="form-step" data-step="3">
-            <p class="muted">Scegli un orario preferito e aggiungi eventuali note.</p>
-            <div class="slot-grid" id="slotGrid" aria-label="Orari selezionabili"></div>
             <label>Note/Messaggio
-              <textarea id="messaggio" name="messaggio" placeholder="Indica il motivo della richiesta o eventuali preferenze"></textarea>
+              <textarea id="messaggio" name="messaggio" placeholder="Aggiungi dettagli utili: denti mancanti, esami già fatti, paura specifica, farmaci o preferenze"></textarea>
             </label>
+          </div>
+
+          <div class="form-step" data-step="7">
+            <p class="quiz-kicker">Riepilogo richiesta</p>
+            <h3 class="quiz-title">Conferma il quadro da inviare allo studio</h3>
+            <p class="quiz-copy">La mail includerà problema, obiettivo, dubbi, urgenza, appuntamento preferito e contatti.</p>
             <div class="summary-box" id="summaryBox" aria-live="polite"></div>
           </div>
 
@@ -918,6 +1055,7 @@
 
   <script>
     (() => {
+      const totalSteps = 7;
       const form = document.querySelector("#valutazione");
       const steps = [...document.querySelectorAll(".form-step")];
       const bars = [...document.querySelectorAll(".progress span")];
@@ -941,6 +1079,12 @@
       let selectedDate = "";
       let selectedDateLabel = "";
       let selectedSlot = "";
+      const quiz = {
+        problema: "",
+        obiettivo: "",
+        preoccupazione: "",
+        tempistica: ""
+      };
 
       const dateFormatter = new Intl.DateTimeFormat("it-IT", { weekday: "short", day: "2-digit", month: "short" });
       const isoDate = (date) => {
@@ -968,11 +1112,17 @@
         formError.textContent = message;
       };
 
+      const selected = (value) => value || "Non indicato";
+
       const updateSummary = () => {
         summaryBox.innerHTML = `
-          <span><strong>Paziente:</strong> ${fields.nome.value || "-"} ${fields.cognome.value || ""}</span>
-          <span><strong>Contatto:</strong> ${fields.telefono.value || "-"} · ${fields.email.value || "-"}</span>
-          <span><strong>Preferenza:</strong> ${selectedDateLabel || "-"} · ${selectedSlot || "-"}</span>
+          <span class="summary-line"><strong>Problema da risolvere</strong>${selected(quiz.problema)}</span>
+          <span class="summary-line"><strong>Risultato desiderato</strong>${selected(quiz.obiettivo)}</span>
+          <span class="summary-line"><strong>Dubbio o barriera principale</strong>${selected(quiz.preoccupazione)}</span>
+          <span class="summary-line"><strong>Tempistica</strong>${selected(quiz.tempistica)}</span>
+          <span class="summary-line"><strong>Preferenza appuntamento</strong>${selectedDateLabel || "Non indicata"} · ${selectedSlot || "Non indicato"}</span>
+          <span class="summary-line"><strong>Contatto</strong>${fields.nome.value || "-"} ${fields.cognome.value || ""} · ${fields.telefono.value || "-"} · ${fields.email.value || "-"}</span>
+          <span class="summary-line"><strong>Note</strong>${fields.messaggio.value || "Nessuna nota inserita"}</span>
         `;
       };
 
@@ -980,31 +1130,39 @@
         currentStep = step;
         steps.forEach((item) => item.classList.toggle("is-active", Number(item.dataset.step) === step));
         bars.forEach((bar, index) => bar.classList.toggle("is-active", index < step));
-        stepLabel.textContent = `Step ${step}/3`;
+        stepLabel.textContent = `Step ${step}/${totalSteps}`;
         prevBtn.hidden = step === 1;
-        nextBtn.hidden = step === 3;
-        submitBtn.hidden = step !== 3;
+        nextBtn.hidden = step === totalSteps;
+        submitBtn.hidden = step !== totalSteps;
         setError();
         updateSummary();
       };
 
       const validateStep = () => {
-        if (currentStep === 1) {
+        if (currentStep <= 4) {
+          const activeStep = steps.find((item) => Number(item.dataset.step) === currentStep);
+          const field = activeStep?.querySelector(".quiz-options")?.dataset.field;
+          if (field && !quiz[field]) {
+            setError("Seleziona una risposta per continuare.");
+            return false;
+          }
+        }
+        if (currentStep === 5 && !selectedDate) {
+          setError("Seleziona una data disponibile.");
+          return false;
+        }
+        if (currentStep === 6) {
           const required = [fields.nome, fields.cognome, fields.telefono, fields.email];
           const invalid = required.find((field) => !field.checkValidity());
           if (invalid) {
             invalid.reportValidity();
-            setError("Completa i dati di contatto per continuare.");
+            setError("Completa i dati di contatto per preparare il riepilogo.");
             return false;
           }
-        }
-        if (currentStep === 2 && !selectedDate) {
-          setError("Seleziona una data disponibile.");
-          return false;
-        }
-        if (currentStep === 3 && !selectedSlot) {
-          setError("Seleziona un orario preferito.");
-          return false;
+          if (!selectedSlot) {
+            setError("Seleziona un orario preferito.");
+            return false;
+          }
         }
         return true;
       };
@@ -1058,26 +1216,52 @@
         });
       };
 
+      document.querySelectorAll(".quiz-options").forEach((group) => {
+        const field = group.dataset.field;
+        group.querySelectorAll(".choice-btn").forEach((button) => {
+          button.setAttribute("aria-pressed", "false");
+          button.addEventListener("click", () => {
+            quiz[field] = button.dataset.value;
+            group.querySelectorAll(".choice-btn").forEach((btn) => btn.setAttribute("aria-pressed", "false"));
+            button.setAttribute("aria-pressed", "true");
+            updateSummary();
+            setError();
+          });
+        });
+      });
+
       prevBtn.addEventListener("click", () => showStep(Math.max(1, currentStep - 1)));
       nextBtn.addEventListener("click", () => {
-        if (validateStep()) showStep(Math.min(3, currentStep + 1));
+        if (validateStep()) showStep(Math.min(totalSteps, currentStep + 1));
       });
 
       form.addEventListener("submit", (event) => {
         event.preventDefault();
         if (!validateStep()) return;
-        const subject = "Richiesta valutazione implantologica preliminare";
+        const subject = `Quiz implantologia - ${fields.nome.value} ${fields.cognome.value}`;
         const body = [
-          "Richiesta valutazione implantologica preliminare",
+          "Nuova richiesta da quiz implantologia",
           "",
+          "QUADRO PAZIENTE",
+          `Problema principale: ${quiz.problema}`,
+          `Obiettivo desiderato: ${quiz.obiettivo}`,
+          `Preoccupazione principale: ${quiz.preoccupazione}`,
+          `Tempistica dichiarata: ${quiz.tempistica}`,
+          "",
+          "PREFERENZA APPUNTAMENTO",
+          `Data preferita: ${selectedDateLabel} (${selectedDate})`,
+          `Orario preferito: ${selectedSlot}`,
+          "",
+          "DATI DI CONTATTO",
           `Nome: ${fields.nome.value}`,
           `Cognome: ${fields.cognome.value}`,
           `Telefono: ${fields.telefono.value}`,
           `Email: ${fields.email.value}`,
-          `Data preferita: ${selectedDateLabel} (${selectedDate})`,
-          `Orario preferito: ${selectedSlot}`,
           "",
-          `Note: ${fields.messaggio.value || "Nessuna nota inserita"}`
+          "NOTE DEL PAZIENTE",
+          fields.messaggio.value || "Nessuna nota inserita",
+          "",
+          "Fonte: landing implantologia Sorriso & Salute Monza"
         ].join("\n");
         window.location.href = `mailto:info@sorrisoesalute.it?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
       });
