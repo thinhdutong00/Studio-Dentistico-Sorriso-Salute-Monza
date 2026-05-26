@@ -84,8 +84,8 @@
 
     .loader-mark {
       position: relative;
-      width: clamp(82px, 14vw, 126px);
-      aspect-ratio: 52 / 48;
+      width: clamp(96px, 13vw, 150px);
+      aspect-ratio: 300 / 353;
       filter: drop-shadow(0 18px 34px rgba(9, 40, 56, .18));
       animation: loader-pop .9s cubic-bezier(.2, .8, .2, 1) both;
     }
@@ -94,16 +94,15 @@
       width: 100%;
       height: 100%;
       object-fit: contain;
-      filter: brightness(0) invert(1);
     }
 
     .loader-mark::before {
       content: "";
       position: absolute;
-      left: 35.2%;
-      top: 39.2%;
-      width: 12.6%;
-      height: 12.6%;
+      left: 26.4%;
+      top: 31.6%;
+      width: 8.8%;
+      height: 11.4%;
       border-radius: 999px;
       background: var(--accent);
       animation: loader-eye-cover 1.05s ease-in-out .18s both;
@@ -112,11 +111,11 @@
     .loader-mark::after {
       content: "";
       position: absolute;
-      left: 35.2%;
-      top: 43.6%;
-      width: 13.5%;
-      height: 8%;
-      border-top: 4px solid var(--white);
+      left: 26.1%;
+      top: 36.9%;
+      width: 10.2%;
+      height: 6.8%;
+      border-top: 3px solid var(--white);
       border-radius: 999px;
       transform: scaleX(0);
       transform-origin: center;
@@ -1476,7 +1475,7 @@
 <body>
   <div class="page-loader" id="pageLoader" aria-hidden="true">
     <span class="loader-mark">
-      <img src="/assets/favicon.png" width="52" height="48" alt="">
+      <img src="/assets/loader-tooth.png" width="300" height="353" alt="">
     </span>
   </div>
 
