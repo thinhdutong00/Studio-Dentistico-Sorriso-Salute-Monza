@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://studio-dentistico-sorriso-salute-monza.vercel.app/sitemap.xml

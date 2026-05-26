@@ -1,0 +1,804 @@
+<!doctype html>
+<html lang="it">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Implantologia Dentale Monza | Sorriso & Salute</title>
+  <meta name="description" content="Implantologia dentale a Monza con impianti in titanio, tecnica flapless quando indicata e progettazione digitale. Chiama lo Studio Dentistico Sorriso & Salute.">
+  <meta name="robots" content="index,follow,max-image-preview:large">
+  <meta name="theme-color" content="#0f6b65">
+  <link rel="canonical" href="https://studio-dentistico-sorriso-salute-monza.vercel.app/">
+  <link rel="icon" href="/assets/favicon.png" type="image/png">
+  <link rel="preload" href="/assets/implantologia.avif" as="image" fetchpriority="high" type="image/avif">
+  <meta property="og:type" content="website">
+  <meta property="og:locale" content="it_IT">
+  <meta property="og:title" content="Implantologia Dentale a Monza | Sorriso & Salute">
+  <meta property="og:description" content="Valutazione implantologica, impianti in titanio e tecnica flapless quando indicata, nel centro odontoiatrico Sorriso & Salute di Monza.">
+  <meta property="og:image" content="/assets/implantologia.avif">
+  <meta name="twitter:card" content="summary_large_image">
+  <style>
+    :root {
+      color-scheme: light;
+      --ink: #16302f;
+      --muted: #526260;
+      --line: #d8e6e3;
+      --paper: #ffffff;
+      --soft: #eef7f5;
+      --brand: #0f6b65;
+      --brand-strong: #064c48;
+      --accent: #a74222;
+      --gold: #c89f45;
+      --shadow: 0 18px 55px rgba(13, 58, 55, .13);
+      font-family: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    }
+
+    * { box-sizing: border-box; }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      margin: 0;
+      color: var(--ink);
+      background: var(--paper);
+      font-size: 16px;
+      line-height: 1.55;
+      text-rendering: optimizeLegibility;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    img { max-width: 100%; display: block; }
+
+    a { color: inherit; }
+
+    .skip {
+      position: absolute;
+      left: 1rem;
+      top: -4rem;
+      z-index: 20;
+      background: var(--ink);
+      color: #fff;
+      padding: .7rem 1rem;
+      border-radius: 6px;
+      transition: top .2s ease;
+    }
+
+    .skip:focus { top: 1rem; }
+
+    .topbar {
+      background: var(--ink);
+      color: #eef7f5;
+      font-size: .92rem;
+    }
+
+    .wrap {
+      width: min(1140px, calc(100% - 32px));
+      margin-inline: auto;
+    }
+
+    .topbar .wrap,
+    .nav {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1rem;
+    }
+
+    .topbar .wrap { min-height: 42px; }
+
+    .topbar a { text-decoration: none; font-weight: 700; }
+
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 10;
+      background: rgba(255, 255, 255, .94);
+      border-bottom: 1px solid var(--line);
+      backdrop-filter: blur(14px);
+    }
+
+    .nav { min-height: 78px; }
+
+    .brand {
+      display: inline-flex;
+      align-items: center;
+      gap: .8rem;
+      text-decoration: none;
+      min-width: 0;
+      background: var(--ink);
+      padding: .55rem .75rem;
+      border-radius: 8px;
+    }
+
+    .brand img { width: 184px; height: auto; }
+
+    .navlinks {
+      display: flex;
+      align-items: center;
+      gap: 1.2rem;
+      font-weight: 750;
+      font-size: .95rem;
+    }
+
+    .navlinks a {
+      text-decoration: none;
+      color: #244543;
+    }
+
+    .cta-row {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: .75rem;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: .55rem;
+      min-height: 46px;
+      padding: .82rem 1.05rem;
+      border: 1px solid transparent;
+      border-radius: 8px;
+      font-weight: 850;
+      text-decoration: none;
+      line-height: 1;
+      transition: transform .15s ease, box-shadow .15s ease, background .15s ease;
+    }
+
+    .btn svg { width: 18px; height: 18px; flex: 0 0 auto; }
+    .btn:hover { transform: translateY(-1px); }
+    .btn-primary { background: var(--accent); color: #fff; box-shadow: 0 12px 24px rgba(217, 105, 60, .24); }
+    .btn-primary:hover { background: #8f351a; }
+    .btn-dark { background: var(--brand); color: #fff; }
+    .btn-dark:hover { background: var(--brand-strong); }
+    .btn-ghost { border-color: var(--line); color: var(--brand-strong); background: #fff; }
+
+    .hero {
+      position: relative;
+      overflow: hidden;
+      background:
+        linear-gradient(90deg, rgba(255,255,255,.98) 0%, rgba(255,255,255,.9) 47%, rgba(255,255,255,.24) 100%),
+        url("/assets/implantologia.avif") right center / min(52vw, 680px) auto no-repeat,
+        var(--soft);
+      border-bottom: 1px solid var(--line);
+    }
+
+    .hero .wrap {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) 380px;
+      gap: 2rem;
+      align-items: center;
+      min-height: 690px;
+      padding-block: 82px 64px;
+    }
+
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: .55rem;
+      color: var(--brand-strong);
+      font-weight: 900;
+      letter-spacing: 0;
+      text-transform: uppercase;
+      font-size: .82rem;
+    }
+
+    .dot {
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      background: var(--gold);
+    }
+
+    h1, h2, h3, p { margin-top: 0; }
+
+    h1 {
+      max-width: 760px;
+      margin-bottom: 1rem;
+      font-size: clamp(2.6rem, 7vw, 5.4rem);
+      line-height: .96;
+      letter-spacing: 0;
+    }
+
+    h2 {
+      font-size: clamp(1.8rem, 4vw, 3rem);
+      line-height: 1.05;
+      letter-spacing: 0;
+      margin-bottom: .95rem;
+    }
+
+    h3 {
+      font-size: 1.12rem;
+      line-height: 1.22;
+      margin-bottom: .5rem;
+    }
+
+    .lead {
+      max-width: 660px;
+      color: #354a48;
+      font-size: 1.16rem;
+      margin-bottom: 1.35rem;
+    }
+
+    .trust {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: .75rem;
+      max-width: 720px;
+      margin-top: 1.6rem;
+    }
+
+    .trust div,
+    .contact-card,
+    .feature,
+    .process-step,
+    .faq details,
+    .review {
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      background: rgba(255,255,255,.88);
+    }
+
+    .trust div { padding: .9rem; }
+    .trust strong { display: block; font-size: 1.45rem; line-height: 1; color: var(--brand); }
+    .trust span { display: block; margin-top: .35rem; color: var(--muted); font-weight: 650; font-size: .92rem; }
+
+    .contact-card {
+      background: #fff;
+      padding: 1.2rem;
+      box-shadow: var(--shadow);
+      align-self: end;
+    }
+
+    .contact-card p { color: var(--muted); margin-bottom: 1rem; }
+
+    .mini-list {
+      display: grid;
+      gap: .7rem;
+      padding: 0;
+      margin: 1rem 0 1.2rem;
+      list-style: none;
+    }
+
+    .mini-list li {
+      display: flex;
+      gap: .65rem;
+      align-items: flex-start;
+      font-weight: 720;
+    }
+
+    .check {
+      display: inline-grid;
+      place-items: center;
+      flex: 0 0 22px;
+      width: 22px;
+      height: 22px;
+      border-radius: 50%;
+      color: #fff;
+      background: var(--brand);
+      font-size: .8rem;
+      margin-top: .1rem;
+    }
+
+    section { padding-block: 76px; }
+
+    .section-head {
+      display: grid;
+      grid-template-columns: minmax(0, .85fr) minmax(280px, .45fr);
+      gap: 2rem;
+      align-items: end;
+      margin-bottom: 2rem;
+    }
+
+    .section-head p,
+    .muted { color: var(--muted); }
+
+    .grid-3 {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 1rem;
+    }
+
+    .feature, .process-step, .review { padding: 1.25rem; }
+    .feature b, .process-step b { color: var(--brand); }
+
+    .band {
+      background: var(--ink);
+      color: #f7fbfa;
+    }
+
+    .band .eyebrow { color: #d8e6e3; }
+    .band .dot { background: #f2c56d; }
+    .band .muted { color: #b9cfcc; }
+
+    .process {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 1rem;
+    }
+
+    .process-step {
+      background: rgba(255,255,255,.06);
+      border-color: rgba(255,255,255,.18);
+    }
+
+    .process-step b { color: #f2c56d; }
+
+    .split {
+      display: grid;
+      grid-template-columns: minmax(0, .95fr) minmax(320px, .55fr);
+      gap: 2rem;
+      align-items: start;
+    }
+
+    .benefits {
+      display: grid;
+      gap: 1rem;
+      padding: 0;
+      margin: 0;
+      list-style: none;
+    }
+
+    .benefits li {
+      padding: 1rem 0;
+      border-bottom: 1px solid var(--line);
+    }
+
+    .benefits strong { display: block; font-size: 1.05rem; }
+
+    .quote {
+      padding: 1.4rem;
+      border-left: 5px solid var(--gold);
+      background: var(--soft);
+      border-radius: 0 8px 8px 0;
+      color: #244543;
+      font-weight: 750;
+    }
+
+    .faq { background: #f8fbfa; border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); }
+    .faq-list { display: grid; gap: .8rem; }
+    .faq details { padding: 1rem 1.1rem; background: #fff; }
+    .faq summary { cursor: pointer; font-weight: 850; }
+    .faq details p { margin: .75rem 0 0; color: var(--muted); }
+
+    .reviews {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 1rem;
+    }
+
+    .stars { color: #b98724; letter-spacing: 0; font-weight: 950; }
+
+    .form-panel {
+      border-radius: 8px;
+      border: 1px solid var(--line);
+      padding: 1.25rem;
+      background: #fff;
+      box-shadow: var(--shadow);
+    }
+
+    form {
+      display: grid;
+      gap: .85rem;
+    }
+
+    label {
+      display: grid;
+      gap: .35rem;
+      color: #284946;
+      font-weight: 800;
+    }
+
+    input, textarea, select {
+      width: 100%;
+      min-height: 46px;
+      border: 1px solid #bdd2ce;
+      border-radius: 8px;
+      padding: .75rem .85rem;
+      font: inherit;
+      background: #fff;
+      color: var(--ink);
+    }
+
+    textarea { min-height: 112px; resize: vertical; }
+
+    input:focus, textarea:focus, select:focus {
+      outline: 3px solid rgba(15, 107, 101, .2);
+      border-color: var(--brand);
+    }
+
+    footer {
+      padding-block: 34px;
+      background: #102928;
+      color: #d8e6e3;
+    }
+
+    footer .wrap {
+      display: flex;
+      justify-content: space-between;
+      gap: 1rem;
+      flex-wrap: wrap;
+    }
+
+    footer a { color: #fff; font-weight: 800; text-decoration: none; }
+
+    .mobile-cta {
+      display: none;
+      position: fixed;
+      inset: auto 0 0;
+      z-index: 15;
+      padding: .7rem .85rem;
+      background: rgba(255,255,255,.96);
+      border-top: 1px solid var(--line);
+      gap: .55rem;
+    }
+
+    .mobile-cta .btn { flex: 1; min-height: 48px; padding-inline: .7rem; }
+
+    @media (max-width: 900px) {
+      .topbar .wrap { justify-content: center; text-align: center; }
+      .navlinks { display: none; }
+      .nav { min-height: 70px; }
+      .brand img { width: 160px; }
+      .hero {
+        background:
+          linear-gradient(180deg, rgba(255,255,255,.95), rgba(255,255,255,.97)),
+          url("/assets/implantologia.avif") center 112px / 520px auto no-repeat,
+          var(--soft);
+      }
+      .hero .wrap {
+        grid-template-columns: 1fr;
+        min-height: auto;
+        padding-block: 44px 42px;
+      }
+      .contact-card { align-self: stretch; }
+      .trust, .grid-3, .process, .reviews, .section-head, .split {
+        grid-template-columns: 1fr;
+      }
+      section { padding-block: 56px; }
+      .mobile-cta { display: flex; }
+      body { padding-bottom: 74px; }
+    }
+
+    @media (max-width: 560px) {
+      .wrap { width: min(100% - 24px, 1140px); }
+      .topbar { display: none; }
+      h1 { font-size: 2.55rem; }
+      .cta-row .btn { width: 100%; }
+      .trust div { padding: .8rem; }
+      .hero .wrap { padding-top: 32px; }
+      .contact-card { padding: 1rem; }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after {
+        animation-duration: .01ms !important;
+        animation-iteration-count: 1 !important;
+        scroll-behavior: auto !important;
+        transition-duration: .01ms !important;
+      }
+    }
+  </style>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "Dentist",
+        "@id": "https://studio-dentistico-sorriso-salute-monza.vercel.app/#dentist",
+        "name": "Studio Dentistico Sorriso & Salute",
+        "url": "https://studio-dentistico-sorriso-salute-monza.vercel.app/",
+        "image": "https://studio-dentistico-sorriso-salute-monza.vercel.app/assets/implantologia.avif",
+        "logo": "https://studio-dentistico-sorriso-salute-monza.vercel.app/assets/logo.png",
+        "telephone": "+390392022489",
+        "email": "info@sorrisoesalute.it",
+        "address": {
+          "@type": "PostalAddress",
+          "streetAddress": "Via Gaslini, 1",
+          "postalCode": "20090",
+          "addressLocality": "Monza",
+          "addressRegion": "MB",
+          "addressCountry": "IT"
+        },
+        "areaServed": ["Monza", "Brianza", "Monza e Brianza"],
+        "openingHoursSpecification": [
+          {
+            "@type": "OpeningHoursSpecification",
+            "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
+            "opens": "09:00",
+            "closes": "12:30"
+          },
+          {
+            "@type": "OpeningHoursSpecification",
+            "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
+            "opens": "14:00",
+            "closes": "19:00"
+          }
+        ],
+        "medicalSpecialty": "Dentistry",
+        "hasOfferCatalog": {
+          "@type": "OfferCatalog",
+          "name": "Servizi odontoiatrici",
+          "itemListElement": [
+            {
+              "@type": "Offer",
+              "itemOffered": {
+                "@type": "Service",
+                "name": "Implantologia dentale",
+                "serviceType": "Sostituzione delle radici dentarie tramite impianti in titanio"
+              }
+            }
+          ]
+        }
+      },
+      {
+        "@type": "FAQPage",
+        "@id": "https://studio-dentistico-sorriso-salute-monza.vercel.app/#faq",
+        "mainEntity": [
+          {
+            "@type": "Question",
+            "name": "La tecnica flapless e indicata per tutti?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "No. La tecnica flapless viene valutata solo quando le condizioni cliniche lo permettono. La visita serve a verificare osso, gengiva, salute orale generale e obiettivi del paziente."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Quanto dura l'intervento di implantologia?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Il sito dello studio indica che, quando la tecnica flapless e applicabile, l'intervento puo richiedere circa 15-20 minuti. Tempi e percorso cambiano in base al singolo caso."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Dove si trova lo Studio Dentistico Sorriso & Salute?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Lo studio si trova in Via Gaslini, 1, 20090 Monza (MB), ed e aperto dal lunedi al venerdi dalle 9:00 alle 12:30 e dalle 14:00 alle 19:00."
+            }
+          }
+        ]
+      }
+    ]
+  }
+  </script>
+</head>
+<body>
+  <a class="skip" href="#main">Salta al contenuto</a>
+  <div class="topbar" aria-label="Contatti rapidi">
+    <div class="wrap">
+      <span>Monza, Via Gaslini 1 · Lun-Ven 9:00-12:30 / 14:00-19:00</span>
+      <span><a href="tel:+390392022489">039 2022489</a> · <a href="https://wa.me/393892490181">WhatsApp 389 2490181</a></span>
+    </div>
+  </div>
+
+  <header>
+    <nav class="nav wrap" aria-label="Navigazione principale">
+      <a class="brand" href="#top" aria-label="Studio Dentistico Sorriso & Salute">
+        <img src="/assets/logo.png" width="360" height="87" alt="Sorriso e Salute">
+      </a>
+      <div class="navlinks" aria-label="Sezioni pagina">
+        <a href="#vantaggi">Vantaggi</a>
+        <a href="#metodo">Metodo</a>
+        <a href="#faq">FAQ</a>
+        <a href="#contatti">Contatti</a>
+      </div>
+      <a class="btn btn-dark" href="tel:+390392022489" aria-label="Chiama lo studio">
+        <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M6.6 10.8c1.7 3.4 3.2 4.9 6.6 6.6l2.2-2.2c.3-.3.8-.4 1.2-.2 1.3.4 2.6.7 4 .7.7 0 1.2.5 1.2 1.2v3.5c0 .7-.5 1.2-1.2 1.2C10.2 21.6 2.4 13.8 2.4 3.4c0-.7.5-1.2 1.2-1.2h3.5c.7 0 1.2.5 1.2 1.2 0 1.4.2 2.8.7 4 .1.4 0 .8-.3 1.1l-2.1 2.3Z" fill="currentColor"/></svg>
+        Chiama
+      </a>
+    </nav>
+  </header>
+
+  <main id="main">
+    <section class="hero" id="top" aria-labelledby="hero-title">
+      <div class="wrap">
+        <div>
+          <p class="eyebrow"><span class="dot"></span> Implantologia dentale a Monza</p>
+          <h1 id="hero-title">Torna a masticare e sorridere con piu sicurezza.</h1>
+          <p class="lead">Valutazione implantologica presso Sorriso & Salute: impianti in titanio, progettazione digitale e tecnica flapless quando le condizioni cliniche lo permettono.</p>
+          <div class="cta-row" aria-label="Azioni principali">
+            <a class="btn btn-primary" href="tel:+390392022489">
+              <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M6.6 10.8c1.7 3.4 3.2 4.9 6.6 6.6l2.2-2.2c.3-.3.8-.4 1.2-.2 1.3.4 2.6.7 4 .7.7 0 1.2.5 1.2 1.2v3.5c0 .7-.5 1.2-1.2 1.2C10.2 21.6 2.4 13.8 2.4 3.4c0-.7.5-1.2 1.2-1.2h3.5c.7 0 1.2.5 1.2 1.2 0 1.4.2 2.8.7 4 .1.4 0 .8-.3 1.1l-2.1 2.3Z" fill="currentColor"/></svg>
+              Prenota una valutazione
+            </a>
+            <a class="btn btn-ghost" href="https://wa.me/393892490181">
+              <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M12 2.4a9.3 9.3 0 0 0-8 14.1L3 21l4.6-1.2A9.3 9.3 0 1 0 12 2.4Zm0 16.8c-1.5 0-2.9-.4-4.1-1.2l-.3-.2-2.2.6.6-2.1-.2-.3A7.5 7.5 0 1 1 12 19.2Zm4.2-5.6c-.2-.1-1.4-.7-1.6-.8-.2-.1-.4-.1-.5.1-.2.2-.6.8-.7.9-.1.2-.3.2-.5.1-.3-.1-1-.4-1.9-1.1-.7-.6-1.1-1.3-1.3-1.6-.1-.2 0-.3.1-.5l.4-.4c.1-.1.1-.2.2-.4.1-.1 0-.3 0-.4l-.7-1.7c-.2-.4-.4-.4-.5-.4h-.5c-.2 0-.4.1-.6.3-.2.2-.8.8-.8 1.9s.8 2.2.9 2.3c.1.2 1.6 2.5 3.9 3.5.5.2 1 .4 1.3.5.6.2 1.1.2 1.5.1.5-.1 1.4-.6 1.6-1.1.2-.6.2-1 .1-1.1 0 0-.2-.1-.4-.2Z" fill="currentColor"/></svg>
+              Scrivi su WhatsApp
+            </a>
+          </div>
+          <div class="trust" aria-label="Punti di fiducia">
+            <div><strong>20+</strong><span>anni al servizio di Monza e Brianza</span></div>
+            <div><strong>2003</strong><span>esperienza clinica consolidata</span></div>
+            <div><strong>15-20</strong><span>minuti indicati per casi flapless idonei</span></div>
+          </div>
+        </div>
+
+        <aside class="contact-card" aria-label="Scheda contatto">
+          <h2>Prima visita implantologica</h2>
+          <p>Parla con lo studio per capire se l'implantologia e il percorso adatto al tuo caso.</p>
+          <ul class="mini-list">
+            <li><span class="check">✓</span><span>Valutazione clinica personalizzata</span></li>
+            <li><span class="check">✓</span><span>Simulazione digitale dell'intervento</span></li>
+            <li><span class="check">✓</span><span>Possibili soluzioni di finanziamento</span></li>
+          </ul>
+          <div class="cta-row">
+            <a class="btn btn-primary" href="tel:+390392022489">Chiama ora</a>
+            <a class="btn btn-ghost" href="#contatti">Richiedi info</a>
+          </div>
+        </aside>
+      </div>
+    </section>
+
+    <section id="vantaggi" aria-labelledby="benefits-title">
+      <div class="wrap">
+        <div class="section-head">
+          <div>
+            <p class="eyebrow"><span class="dot"></span> Perche scegliere l'implantologia</p>
+            <h2 id="benefits-title">Una soluzione stabile, funzionale e rispettosa del sorriso.</h2>
+          </div>
+          <p>Gli impianti sostituiscono le radici dentarie mancanti e permettono di ripristinare estetica, funzione masticatoria e comfort quotidiano.</p>
+        </div>
+        <div class="grid-3">
+          <article class="feature">
+            <b>01</b>
+            <h3>Risultato naturale</h3>
+            <p class="muted">L'obiettivo e ottenere un risultato armonico, funzionale e coerente con l'anatomia della bocca.</p>
+          </article>
+          <article class="feature">
+            <b>02</b>
+            <h3>Denti vicini preservati</h3>
+            <p class="muted">Quando possibile, non e necessario limare i denti adiacenti come accade in altre soluzioni protesiche.</p>
+          </article>
+          <article class="feature">
+            <b>03</b>
+            <h3>Osso conservato</h3>
+            <p class="muted">Il trattamento mira a preservare l'osso circostante e mantenere equilibrio nei tessuti.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="band" id="metodo" aria-labelledby="method-title">
+      <div class="wrap">
+        <div class="section-head">
+          <div>
+            <p class="eyebrow"><span class="dot"></span> Metodo clinico</p>
+            <h2 id="method-title">Tecnologia digitale prima dell'intervento.</h2>
+          </div>
+          <p class="muted">Lo studio effettua progettazioni e simulazioni a computer, poi invia i file al laboratorio di fiducia per la ricostruzione tridimensionale dei mascellari.</p>
+        </div>
+        <div class="process">
+          <article class="process-step"><b>1</b><h3>Analisi</h3><p class="muted">Valutazione di salute orale, esigenze funzionali e aspettative estetiche.</p></article>
+          <article class="process-step"><b>2</b><h3>Progettazione</h3><p class="muted">Studio digitale dell'intervento e pianificazione del percorso piu adatto.</p></article>
+          <article class="process-step"><b>3</b><h3>Intervento</h3><p class="muted">Impianti in titanio e tecnica flapless quando le indicazioni cliniche lo consentono.</p></article>
+          <article class="process-step"><b>4</b><h3>Controllo</h3><p class="muted">Follow-up e indicazioni per mantenere salute, igiene e stabilita nel tempo.</p></article>
+        </div>
+      </div>
+    </section>
+
+    <section aria-labelledby="flapless-title">
+      <div class="wrap split">
+        <div>
+          <p class="eyebrow"><span class="dot"></span> Tecnica flapless</p>
+          <h2 id="flapless-title">Meno invasiva, quando il caso lo permette.</h2>
+          <p class="lead">Il sito dello studio indica l'utilizzo della tecnica flapless quando vi sono le condizioni: consente di intervenire senza punti di sutura, ematomi e gonfiori, con tempi contenuti nei casi idonei.</p>
+          <p class="quote">La scelta della tecnica non e automatica: viene definita dopo visita, diagnosi e valutazione dell'anatomia del paziente.</p>
+        </div>
+        <ul class="benefits" aria-label="Elementi valutati in visita">
+          <li><strong>Impianti in titanio</strong><span class="muted">Materiale utilizzato per sostituire le radici dentarie mancanti.</span></li>
+          <li><strong>Approccio personalizzato</strong><span class="muted">Ogni piano tiene conto di masticazione, estetica, tessuti e abitudini.</span></li>
+          <li><strong>Ambulatorio polispecialistico</strong><span class="muted">Team aggiornato e tecnologie odontoiatriche innovative.</span></li>
+          <li><strong>Emergenze</strong><span class="muted">I pazienti sono di solito visti il giorno in cui chiamano.</span></li>
+        </ul>
+      </div>
+    </section>
+
+    <section class="faq" id="faq" aria-labelledby="faq-title">
+      <div class="wrap">
+        <div class="section-head">
+          <div>
+            <p class="eyebrow"><span class="dot"></span> Domande frequenti</p>
+            <h2 id="faq-title">Risposte rapide prima della visita.</h2>
+          </div>
+          <p>Contenuti pensati per intercettare ricerche locali e ridurre il dubbio prima del contatto.</p>
+        </div>
+        <div class="faq-list">
+          <details>
+            <summary>Quando serve un impianto dentale?</summary>
+            <p>Quando una radice dentaria manca o non e recuperabile, l'impianto puo sostituirla e sostenere una riabilitazione protesica stabile. La visita stabilisce fattibilita e alternative.</p>
+          </details>
+          <details>
+            <summary>La tecnica flapless e sempre possibile?</summary>
+            <p>No. Viene usata solo quando ci sono indicazioni cliniche adeguate. La pianificazione digitale aiuta a valutare posizione, volume osseo e percorso chirurgico.</p>
+          </details>
+          <details>
+            <summary>Quanto tempo richiede l'intervento?</summary>
+            <p>Per i casi flapless idonei, il sito dello studio indica un intervento di circa 15-20 minuti. La durata reale dipende dalla complessita del singolo caso.</p>
+          </details>
+          <details>
+            <summary>Lo studio offre finanziamenti o convenzioni?</summary>
+            <p>Si. Lo Studio Dentistico Sorriso & Salute comunica soluzioni di finanziamento personalizzate e convenzioni dirette e indirette con fondi sanitari, casse mutue e assicurazioni.</p>
+          </details>
+        </div>
+      </div>
+    </section>
+
+    <section aria-labelledby="reviews-title">
+      <div class="wrap">
+        <div class="section-head">
+          <div>
+            <p class="eyebrow"><span class="dot"></span> Fiducia del paziente</p>
+            <h2 id="reviews-title">Cura, precisione e ascolto.</h2>
+          </div>
+          <p>Lo studio mette al centro comfort, diagnosi accurata e trattamenti personalizzati.</p>
+        </div>
+        <div class="reviews">
+          <article class="review">
+            <p class="stars" aria-label="Recensione positiva">★★★★★</p>
+            <p>“Intervento svolto con sicurezza, brevità ed anestesia molto efficace. Postumi senza particolari problemi.”</p>
+            <strong>Michael T.</strong>
+          </article>
+          <article class="review">
+            <p class="stars" aria-label="Recensione positiva">★★★★★</p>
+            <p>“Valutazione clinica molto accurata, con fotografie intraorali e scanner digitale. Grande attenzione alla diagnosi.”</p>
+            <strong>Giuseppe G.</strong>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="band" id="contatti" aria-labelledby="contact-title">
+      <div class="wrap split">
+        <div>
+          <p class="eyebrow"><span class="dot"></span> Contatti</p>
+          <h2 id="contact-title">Prenota una valutazione implantologica a Monza.</h2>
+          <p class="muted">Studio Dentistico Sorriso & Salute, Via Gaslini 1, 20090 Monza (MB). Direttore Sanitario: Dott.ssa Maria Isabel Pareja Carrillo, Odontoiatra.</p>
+          <div class="cta-row">
+            <a class="btn btn-primary" href="tel:+390392022489">039 2022489</a>
+            <a class="btn btn-ghost" href="mailto:info@sorrisoesalute.it">info@sorrisoesalute.it</a>
+            <a class="btn btn-ghost" href="https://wa.me/393892490181">WhatsApp</a>
+          </div>
+        </div>
+        <div class="form-panel">
+          <form action="mailto:info@sorrisoesalute.it" method="post" enctype="text/plain">
+            <label>Nome e cognome
+              <input name="nome" autocomplete="name" required>
+            </label>
+            <label>Telefono
+              <input name="telefono" inputmode="tel" autocomplete="tel" required>
+            </label>
+            <label>Obiettivo della visita
+              <select name="obiettivo">
+                <option>Valutazione per impianto dentale</option>
+                <option>Sostituzione di un dente mancante</option>
+                <option>Seconda opinione implantologica</option>
+                <option>Informazioni su tempi e costi</option>
+              </select>
+            </label>
+            <label>Messaggio
+              <textarea name="messaggio" placeholder="Scrivi qui quando preferisci essere ricontattato"></textarea>
+            </label>
+            <button class="btn btn-primary" type="submit">Invia richiesta</button>
+          </form>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="wrap">
+      <span>© 2026 Landing demo per Studio Dentistico Sorriso & Salute</span>
+      <span><a href="https://www.sorrisoesalute.it/">Sito ufficiale</a> · <a href="https://www.sorrisoesalute.it/attivita/implantologia/">Pagina implantologia</a></span>
+    </div>
+  </footer>
+
+  <div class="mobile-cta" aria-label="Azioni rapide mobile">
+    <a class="btn btn-primary" href="tel:+390392022489">Chiama</a>
+    <a class="btn btn-dark" href="https://wa.me/393892490181">WhatsApp</a>
+  </div>
+</body>
+</html>
