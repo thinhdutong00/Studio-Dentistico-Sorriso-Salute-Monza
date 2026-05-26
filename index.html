@@ -27,6 +27,9 @@
       --divider: #0E384C12;
       --soft-accent: #E8F5FB;
       --ink: #092838;
+      --heading: #0E384C;
+      --body-text: #527282;
+      --body-strong: #365D6E;
       --success: #287269;
       --warning: #9A4D14;
       --shadow: 0 22px 70px rgba(14, 56, 76, .16);
@@ -143,8 +146,8 @@
     .btn:hover { transform: translateY(-1px); }
     .btn-primary { background: var(--primary); color: var(--white); box-shadow: 0 14px 30px rgba(14, 56, 76, .24); }
     .btn-primary:hover { background: var(--ink); }
-    .btn-accent { background: var(--accent); color: var(--primary); border-color: rgba(14, 56, 76, .18); }
-    .btn-accent:hover { background: #66B4D6; }
+    .btn-accent { background: var(--accent); color: var(--white); border-color: rgba(255, 255, 255, .18); }
+    .btn-accent:hover { background: #166E98; }
     .btn-ghost { background: var(--white); color: var(--primary); border-color: rgba(14, 56, 76, .2); }
     .btn-ghost:hover { border-color: var(--accent); }
 
@@ -159,8 +162,8 @@
 
     .hero .wrap {
       display: grid;
-      grid-template-columns: minmax(0, 1fr) minmax(380px, .46fr);
-      gap: clamp(1.6rem, 3vw, 3.2rem);
+      grid-template-columns: minmax(0, .92fr) minmax(520px, .68fr);
+      gap: clamp(1.5rem, 2.8vw, 2.8rem);
       align-items: center;
       min-height: 720px;
       padding-block: 74px 58px;
@@ -170,7 +173,7 @@
       display: inline-flex;
       align-items: center;
       gap: .55rem;
-      color: #0A4863;
+      color: var(--primary);
       font-size: .8rem;
       font-weight: 950;
       letter-spacing: 0;
@@ -212,7 +215,7 @@
     .lead {
       max-width: 690px;
       margin-bottom: 1.35rem;
-      color: #33596A;
+      color: var(--body-strong);
       font-size: 1.17rem;
     }
 
@@ -243,11 +246,11 @@
 
     .proof-item { padding: .92rem; }
     .proof-item strong { display: block; color: var(--primary); font-size: 1.3rem; line-height: 1; }
-    .proof-item span { display: block; margin-top: .35rem; color: #476C7D; font-weight: 720; font-size: .92rem; }
+    .proof-item span { display: block; margin-top: .35rem; color: var(--text); font-weight: 720; font-size: .92rem; }
 
     .glass-form {
       position: relative;
-      padding: 1.15rem;
+      padding: clamp(1.1rem, 2vw, 1.55rem);
       background: rgba(255, 255, 255, .74);
       box-shadow: var(--shadow);
       backdrop-filter: blur(20px);
@@ -272,21 +275,11 @@
       margin-bottom: .95rem;
     }
 
-    .form-head p { color: #426A7C; margin-bottom: 0; }
-
-    .step-pill {
-      flex: 0 0 auto;
-      padding: .42rem .6rem;
-      border-radius: 999px;
-      background: var(--primary);
-      color: var(--white);
-      font-size: .82rem;
-      font-weight: 900;
-    }
+    .form-head p { color: var(--text); margin-bottom: 0; }
 
     .progress {
       display: grid;
-      grid-template-columns: repeat(7, 1fr);
+      grid-template-columns: repeat(6, 1fr);
       gap: .45rem;
       margin-bottom: 1rem;
     }
@@ -300,7 +293,7 @@
     .progress span.is-active { background: var(--accent); }
 
     .form-step { display: none; }
-    .form-step.is-active { display: grid; gap: .8rem; }
+    .form-step.is-active { display: grid; gap: .72rem; }
 
     .field-grid {
       display: grid;
@@ -308,9 +301,11 @@
       gap: .78rem;
     }
 
+    .field-grid label:first-child { grid-column: 1 / -1; }
+
     .quiz-kicker {
       margin-bottom: -.15rem;
-      color: #0A4863;
+      color: var(--primary);
       font-size: .72rem;
       font-weight: 950;
       letter-spacing: .08em;
@@ -325,13 +320,17 @@
 
     .quiz-copy {
       margin-bottom: .15rem;
-      color: #426A7C;
+      color: var(--text);
       font-size: .95rem;
     }
 
     .quiz-options {
       display: grid;
       gap: .58rem;
+    }
+
+    .quiz-options:not(.quiz-options-single) {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
     }
 
     .choice-btn {
@@ -368,7 +367,7 @@
     }
 
     .choice-btn span {
-      color: #527282;
+      color: var(--text);
       font-size: .84rem;
       font-weight: 720;
       line-height: 1.32;
@@ -400,16 +399,71 @@
       outline-offset: 2px;
     }
 
-    .calendar-grid,
+    .calendar-head {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: .75rem;
+      padding: .75rem;
+      border: 1px solid rgba(14, 56, 76, .12);
+      border-radius: 8px;
+      background: rgba(249,252,255,.82);
+    }
+
+    .calendar-title {
+      margin: 0;
+      color: var(--primary);
+      font-size: 1.02rem;
+      font-weight: 950;
+      text-transform: capitalize;
+    }
+
+    .calendar-nav {
+      display: flex;
+      gap: .45rem;
+    }
+
+    .calendar-nav button {
+      display: inline-grid;
+      place-items: center;
+      width: 38px;
+      height: 38px;
+      border: 1px solid rgba(14,56,76,.18);
+      border-radius: 8px;
+      background: var(--white);
+      color: var(--primary);
+      cursor: pointer;
+      font-weight: 950;
+    }
+
+    .calendar-nav button:disabled {
+      cursor: not-allowed;
+      opacity: .38;
+    }
+
+    .calendar-grid {
+      display: grid;
+      grid-template-columns: repeat(7, minmax(0, 1fr));
+      gap: .38rem;
+    }
+
+    .calendar-weekday {
+      color: var(--text);
+      font-size: .72rem;
+      font-weight: 950;
+      text-align: center;
+      text-transform: uppercase;
+    }
+
     .slot-grid {
       display: grid;
-      grid-template-columns: repeat(3, minmax(0, 1fr));
+      grid-template-columns: repeat(4, minmax(0, 1fr));
       gap: .55rem;
     }
 
     .date-btn,
     .slot-btn {
-      min-height: 58px;
+      min-height: 48px;
       border: 1px solid rgba(14, 56, 76, .18);
       border-radius: 8px;
       background: rgba(255,255,255,.9);
@@ -422,15 +476,21 @@
       display: grid;
       align-content: center;
       gap: .1rem;
-      padding: .58rem;
-      text-align: left;
+      padding: .45rem .28rem;
+      text-align: center;
     }
 
     .date-btn small {
-      color: #4F7485;
+      color: var(--text);
       font-size: .78rem;
       font-weight: 850;
       text-transform: uppercase;
+    }
+
+    .date-btn:disabled {
+      cursor: not-allowed;
+      opacity: .28;
+      background: rgba(249,252,255,.62);
     }
 
     .date-btn[aria-pressed="true"],
@@ -461,7 +521,7 @@
       border: 1px solid rgba(14,56,76,.16);
       border-radius: 8px;
       background: rgba(249,252,255,.9);
-      color: #31586A;
+      color: var(--body-strong);
       font-weight: 720;
     }
 
@@ -509,7 +569,7 @@
 
     .problem-copy {
       max-width: 940px;
-      color: #365D6E;
+      color: var(--body-strong);
       font-size: 1.12rem;
     }
 
@@ -534,7 +594,7 @@
       margin-bottom: .85rem;
       border-radius: 50%;
       background: var(--soft-accent);
-      color: #0A4863;
+      color: var(--primary);
       font-weight: 950;
     }
 
@@ -693,24 +753,115 @@
       box-shadow: var(--shadow);
     }
 
-    .contact-panel p { color: #426A7C; }
+    .contact-panel p { color: var(--text); }
 
     footer {
-      padding-block: 34px;
-      background: #082433;
+      padding-block: 0;
+      background: var(--primary);
       color: #DDEDF4;
       font-size: .94rem;
     }
 
     footer .wrap {
       display: grid;
-      gap: .65rem;
+      gap: 0;
     }
 
     footer a {
       color: var(--white);
       font-weight: 850;
       text-decoration: none;
+    }
+
+    .footer-cta {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) auto;
+      gap: 1rem;
+      align-items: center;
+      padding-block: 42px 36px;
+      border-bottom: 1px solid rgba(255,255,255,.14);
+    }
+
+    .footer-cta h2 {
+      max-width: 820px;
+      margin-bottom: 0;
+      color: var(--white);
+      font-size: clamp(1.85rem, 3.2vw, 2.5rem);
+      line-height: 1.15;
+    }
+
+    .footer-cta .btn-accent {
+      background: var(--white);
+      color: var(--primary);
+      border-color: var(--white);
+    }
+
+    .footer-cta .btn-accent:hover {
+      background: var(--secondary);
+      color: var(--primary);
+    }
+
+    .footer-main {
+      display: grid;
+      grid-template-columns: minmax(260px, 1.25fr) minmax(160px, .7fr) minmax(220px, .9fr) minmax(240px, 1fr);
+      gap: clamp(1.2rem, 3vw, 2.2rem);
+      padding-block: 36px;
+      border-bottom: 1px solid rgba(255,255,255,.14);
+    }
+
+    .footer-main h3 {
+      margin-bottom: .55rem;
+      color: var(--white);
+      font-size: 1.05rem;
+    }
+
+    .footer-main p,
+    .footer-main li,
+    .footer-legal {
+      color: #DDEDF4;
+    }
+
+    .footer-main ul {
+      display: grid;
+      gap: .34rem;
+      margin: 0;
+      padding: 0;
+      list-style: none;
+    }
+
+    .footer-brand {
+      display: grid;
+      gap: .85rem;
+      align-content: start;
+    }
+
+    .footer-brand img {
+      width: 220px;
+      height: auto;
+    }
+
+    .footer-social {
+      display: flex;
+      flex-wrap: wrap;
+      gap: .5rem;
+    }
+
+    .footer-social a {
+      display: inline-grid;
+      place-items: center;
+      min-width: 38px;
+      height: 38px;
+      padding-inline: .62rem;
+      border: 1px solid rgba(255,255,255,.18);
+      border-radius: 8px;
+      background: rgba(255,255,255,.06);
+    }
+
+    .footer-legal {
+      display: grid;
+      gap: .45rem;
+      padding-block: 20px 28px;
+      font-size: .88rem;
     }
 
     .mobile-cta {
@@ -736,7 +887,9 @@
       }
       .hero .wrap,
       .section-head,
-      .closing {
+      .closing,
+      .footer-cta,
+      .footer-main {
         grid-template-columns: 1fr;
       }
       .hero .wrap {
@@ -747,7 +900,8 @@
       .phases,
       .staff-grid,
       .finance-grid,
-      .finance-card {
+      .finance-card,
+      .quiz-options:not(.quiz-options-single) {
         grid-template-columns: 1fr;
       }
       .micro-proof {
@@ -770,12 +924,17 @@
         width: 100%;
       }
       .field-grid,
-      .calendar-grid {
+      .quiz-options:not(.quiz-options-single) {
         grid-template-columns: 1fr;
       }
       .slot-grid {
-        grid-template-columns: repeat(2, minmax(0, 1fr));
+        grid-template-columns: repeat(3, minmax(0, 1fr));
       }
+      .calendar-grid { gap: .28rem; }
+      .date-btn { min-height: 42px; font-size: .88rem; }
+      .date-btn small { font-size: .66rem; }
+      .footer-cta { padding-block: 32px 28px; }
+      .footer-main { padding-block: 28px; }
       .form-actions {
         flex-direction: column-reverse;
       }
@@ -912,12 +1071,11 @@
           <div class="form-head">
             <div>
               <h2>Prenota una valutazione implantologica</h2>
-              <p>Rispondi a poche domande per aiutare lo studio a preparare un consulto più mirato.</p>
+              <p>Indica cosa vuoi risolvere e scegli una preferenza di appuntamento: ti ricontatteremo per confermare la prima valutazione in studio.</p>
             </div>
           </div>
           <div class="progress" aria-hidden="true">
             <span class="is-active"></span>
-            <span></span>
             <span></span>
             <span></span>
             <span></span>
@@ -928,7 +1086,7 @@
           <div class="form-step is-active" data-step="1">
             <p class="quiz-kicker">Inquadramento clinico</p>
             <h3 class="quiz-title">Qual è il problema principale?</h3>
-            <p class="quiz-copy">Aiuta lo studio a capire da dove partire nella valutazione.</p>
+            <p class="quiz-copy">Seleziona la situazione che descrive meglio il motivo della prima valutazione.</p>
             <div class="quiz-options" data-field="problema">
               <button class="choice-btn" type="button" data-value="Mi manca un dente singolo"><strong>Mi manca un dente singolo</strong><span>Vorrei sostituirlo con una soluzione fissa.</span></button>
               <button class="choice-btn" type="button" data-value="Mi mancano più denti"><strong>Mi mancano più denti</strong><span>Ho difficoltà a masticare o sorridere con naturalezza.</span></button>
@@ -950,47 +1108,33 @@
           </div>
 
           <div class="form-step" data-step="3">
-            <p class="quiz-kicker">Barriera principale</p>
-            <h3 class="quiz-title">Cosa ti preoccupa di più?</h3>
-            <p class="quiz-copy">Lo studio potrà rispondere subito ai dubbi più importanti.</p>
-            <div class="quiz-options" data-field="preoccupazione">
-              <button class="choice-btn" type="button" data-value="Dolore, gonfiore o paura dell'intervento"><strong>Dolore, gonfiore o paura dell'intervento</strong><span>Vorrei capire se esistono tecniche meno invasive.</span></button>
-              <button class="choice-btn" type="button" data-value="Tempi di guarigione e giorni di recupero"><strong>Tempi di guarigione e giorni di recupero</strong><span>Ho bisogno di organizzarmi con lavoro e vita quotidiana.</span></button>
-              <button class="choice-btn" type="button" data-value="Costo, finanziamento o convenzioni"><strong>Costo, finanziamento o convenzioni</strong><span>Vorrei capire opzioni e sostenibilità del piano.</span></button>
-              <button class="choice-btn" type="button" data-value="Poco osso, fumo o condizioni di salute"><strong>Poco osso, fumo o condizioni di salute</strong><span>Ho dubbi sulla fattibilità clinica del trattamento.</span></button>
-            </div>
-          </div>
-
-          <div class="form-step" data-step="4">
-            <p class="quiz-kicker">Urgenza e contesto</p>
-            <h3 class="quiz-title">Quando vorresti affrontare il problema?</h3>
-            <p class="quiz-copy">Questo aiuta a distinguere valutazione informativa, urgenza funzionale o necessità estetica.</p>
-            <div class="quiz-options" data-field="tempistica">
-              <button class="choice-btn" type="button" data-value="Il prima possibile"><strong>Il prima possibile</strong><span>Il problema mi limita o mi crea disagio evidente.</span></button>
-              <button class="choice-btn" type="button" data-value="Entro 1-2 mesi"><strong>Entro 1-2 mesi</strong><span>Vorrei pianificare con calma ma senza rimandare troppo.</span></button>
-              <button class="choice-btn" type="button" data-value="Voglio capire il percorso più adatto"><strong>Voglio capire il percorso più adatto</strong><span>Ho bisogno di una valutazione clinica prima di scegliere tempi e soluzione.</span></button>
-              <button class="choice-btn" type="button" data-value="Ho un evento o una scadenza estetica"><strong>Ho un evento o una scadenza estetica</strong><span>Vorrei capire cosa è realistico ottenere nei tempi disponibili.</span></button>
-            </div>
-          </div>
-
-          <div class="form-step" data-step="5">
             <p class="quiz-kicker">Preferenza appuntamento</p>
-            <h3 class="quiz-title">Quando preferisci essere ricontattato per una valutazione?</h3>
-            <p class="muted">Scegli una data nei prossimi giorni lavorativi.</p>
+            <h3 class="quiz-title">Scegli una data per la prima valutazione</h3>
+            <p class="muted">Il calendario mostra i giorni lavorativi disponibili nei prossimi 3 mesi.</p>
+            <div class="calendar-head">
+              <p class="calendar-title" id="calendarTitle"></p>
+              <div class="calendar-nav" aria-label="Navigazione calendario">
+                <button type="button" id="prevMonth" aria-label="Mese precedente">‹</button>
+                <button type="button" id="nextMonth" aria-label="Mese successivo">›</button>
+              </div>
+            </div>
             <div class="calendar-grid" id="calendarGrid" aria-label="Calendario selezionabile"></div>
           </div>
 
-          <div class="form-step" data-step="6">
-            <p class="quiz-kicker">Orario e contatti</p>
-            <h3 class="quiz-title">Lascia i dati per ricevere risposta dallo studio</h3>
-            <p class="muted">Scegli un orario preferito e aggiungi eventuali note.</p>
+          <div class="form-step" data-step="4">
+            <p class="quiz-kicker">Orario preferito</p>
+            <h3 class="quiz-title">Scegli una fascia oraria</h3>
+            <p class="muted">Gli slot sono indicativi: lo studio ti ricontatterà per confermare l'appuntamento.</p>
             <div class="slot-grid" id="slotGrid" aria-label="Orari selezionabili"></div>
+          </div>
+
+          <div class="form-step" data-step="5">
+            <p class="quiz-kicker">Dati di contatto</p>
+            <h3 class="quiz-title">Lascia i tuoi recapiti</h3>
+            <p class="muted">Useremo questi dati solo per ricontattarti e confermare la valutazione richiesta.</p>
             <div class="field-grid">
-              <label>Nome
-                <input id="nome" name="nome" autocomplete="given-name" required>
-              </label>
-              <label>Cognome
-                <input id="cognome" name="cognome" autocomplete="family-name" required>
+              <label>Nome e cognome
+                <input id="nomeCompleto" name="nomeCompleto" autocomplete="name" required>
               </label>
               <label>Telefono
                 <input id="telefono" name="telefono" type="tel" inputmode="tel" autocomplete="tel" required>
@@ -1000,14 +1144,14 @@
               </label>
             </div>
             <label>Note/Messaggio
-              <textarea id="messaggio" name="messaggio" placeholder="Aggiungi dettagli utili: denti mancanti, esami già fatti, paura specifica, farmaci o preferenze"></textarea>
+              <textarea id="messaggio" name="messaggio" placeholder="Aggiungi dettagli utili: denti mancanti, esami già fatti, farmaci, esigenze particolari o preferenze"></textarea>
             </label>
           </div>
 
-          <div class="form-step" data-step="7">
+          <div class="form-step" data-step="6">
             <p class="quiz-kicker">Riepilogo richiesta</p>
             <h3 class="quiz-title">Conferma il quadro da inviare allo studio</h3>
-            <p class="quiz-copy">La mail includerà problema, obiettivo, dubbi, urgenza, appuntamento preferito e contatti.</p>
+            <p class="quiz-copy">La mail includerà problema, obiettivo, appuntamento preferito, contatti e note.</p>
             <div class="summary-box" id="summaryBox" aria-live="polite"></div>
           </div>
 
@@ -1217,10 +1361,49 @@
 
   <footer>
     <div class="wrap">
-      <strong>Direttore Sanitario: Dott.ssa Maria Isabel Pareja Carrillo, Odontoiatra.</strong>
-      <span>Autorizzazione Sanitaria: dato da inserire.</span>
-      <span>Le informazioni contenute in questo sito hanno carattere puramente informativo e non sostituiscono in alcun modo il consulto medico professionale.</span>
-      <span>© 2026 Landing demo per Studio Dentistico Sorriso & Salute · <a href="https://www.sorrisoesalute.it/">Sito ufficiale</a></span>
+      <div class="footer-cta">
+        <h2>Un sorriso più sano non può aspettare, <br>Prenota ora!</h2>
+        <a class="btn btn-accent" href="#valutazione">Richiedi appuntamento</a>
+      </div>
+      <div class="footer-main">
+        <div class="footer-brand">
+          <strong>Studio Dentistico Sorriso & Salute</strong>
+          <p>Cerchi un Dentista in Brianza?<br><a href="https://www.sorrisoesalute.it/convenzioni-dirette">Convenzioni Studio Dentistico Monza Dentista</a></p>
+          <div class="footer-social" aria-label="Canali social">
+            <a href="https://www.facebook.com/sorrisomonza/">Facebook</a>
+            <a href="https://www.instagram.com/__studio_sorriso_e_salute__/">Instagram</a>
+            <a href="https://wa.me/+393294724884/">WhatsApp</a>
+            <a href="https://m.me/sorrisoesalute">Messenger</a>
+          </div>
+        </div>
+        <div>
+          <h3>Direttore Sanitario</h3>
+          <p>Dott.ssa Maria Isabel Pareja Carrillo – Odontoiatra</p>
+          <h3>Info</h3>
+          <ul>
+            <li><a href="https://www.sorrisoesalute.it/cookie-policy">Cookie Policy</a></li>
+            <li><a href="https://www.sorrisoesalute.it/privacy-policy">Privacy Policy</a></li>
+          </ul>
+        </div>
+        <div>
+          <h3>Orari di apertura</h3>
+          <p>La struttura sanitaria odontoiatrica è aperta ai pazienti nei seguenti giorni e orari:<br>Lun – Mar – Mer – Gio – Ven<br>dalle 9.00 alle 12.30<br>e dalle 14.00 alle 19.00</p>
+          <p><strong>Emergenza: i pazienti sono di solito visti il giorno in cui chiamano.</strong></p>
+        </div>
+        <div>
+          <h3>Contatti</h3>
+          <ul>
+            <li><a href="tel:+390392022489">+39 039 2022489</a></li>
+            <li><a href="mailto:info@sorrisoesalute.it">info@sorrisoesalute.it</a></li>
+            <li>Via Gaslini, 1 20090 Monza (MB)</li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-legal">
+        <span>Autorizzazione Sanitaria: dato da inserire.</span>
+        <span>Le informazioni contenute in questo sito hanno carattere puramente informativo e non sostituiscono in alcun modo il consulto medico professionale.</span>
+        <span>© SorrisoeSalute 2025 Tutti i diritti sono riservati.</span>
+      </div>
     </div>
   </footer>
 
@@ -1231,7 +1414,7 @@
 
   <script>
     (() => {
-      const totalSteps = 7;
+      const totalSteps = 6;
       const form = document.querySelector("#valutazione");
       const steps = [...document.querySelectorAll(".form-step")];
       const bars = [...document.querySelectorAll(".progress span")];
@@ -1240,11 +1423,13 @@
       const submitBtn = document.querySelector("#submitBtn");
       const formError = document.querySelector("#formError");
       const calendarGrid = document.querySelector("#calendarGrid");
+      const calendarTitle = document.querySelector("#calendarTitle");
+      const prevMonthBtn = document.querySelector("#prevMonth");
+      const nextMonthBtn = document.querySelector("#nextMonth");
       const slotGrid = document.querySelector("#slotGrid");
       const summaryBox = document.querySelector("#summaryBox");
       const fields = {
-        nome: document.querySelector("#nome"),
-        cognome: document.querySelector("#cognome"),
+        nomeCompleto: document.querySelector("#nomeCompleto"),
         telefono: document.querySelector("#telefono"),
         email: document.querySelector("#email"),
         messaggio: document.querySelector("#messaggio")
@@ -1256,12 +1441,19 @@
       let selectedSlot = "";
       const quiz = {
         problema: "",
-        obiettivo: "",
-        preoccupazione: "",
-        tempistica: ""
+        obiettivo: ""
       };
 
-      const dateFormatter = new Intl.DateTimeFormat("it-IT", { weekday: "short", day: "2-digit", month: "short" });
+      const today = new Date();
+      today.setHours(0, 0, 0, 0);
+      const maxDate = new Date(today);
+      maxDate.setMonth(maxDate.getMonth() + 3);
+      const minMonth = new Date(today.getFullYear(), today.getMonth(), 1);
+      const maxMonth = new Date(maxDate.getFullYear(), maxDate.getMonth(), 1);
+      let displayedMonth = new Date(minMonth);
+
+      const monthFormatter = new Intl.DateTimeFormat("it-IT", { month: "long", year: "numeric" });
+      const dateFormatter = new Intl.DateTimeFormat("it-IT", { weekday: "long", day: "2-digit", month: "long" });
       const isoDate = (date) => {
         const offset = date.getTimezoneOffset() * 60000;
         return new Date(date.getTime() - offset).toISOString().slice(0, 10);
@@ -1293,10 +1485,8 @@
         summaryBox.innerHTML = `
           <span class="summary-line"><strong>Problema da risolvere</strong>${selected(quiz.problema)}</span>
           <span class="summary-line"><strong>Risultato desiderato</strong>${selected(quiz.obiettivo)}</span>
-          <span class="summary-line"><strong>Dubbio o barriera principale</strong>${selected(quiz.preoccupazione)}</span>
-          <span class="summary-line"><strong>Tempistica</strong>${selected(quiz.tempistica)}</span>
           <span class="summary-line"><strong>Preferenza appuntamento</strong>${selectedDateLabel || "Non indicata"} · ${selectedSlot || "Non indicato"}</span>
-          <span class="summary-line"><strong>Contatto</strong>${fields.nome.value || "-"} ${fields.cognome.value || ""} · ${fields.telefono.value || "-"} · ${fields.email.value || "-"}</span>
+          <span class="summary-line"><strong>Contatto</strong>${fields.nomeCompleto.value || "-"} · ${fields.telefono.value || "-"} · ${fields.email.value || "-"}</span>
           <span class="summary-line"><strong>Note</strong>${fields.messaggio.value || "Nessuna nota inserita"}</span>
         `;
       };
@@ -1313,7 +1503,7 @@
       };
 
       const validateStep = () => {
-        if (currentStep <= 4) {
+        if (currentStep <= 2) {
           const activeStep = steps.find((item) => Number(item.dataset.step) === currentStep);
           const field = activeStep?.querySelector(".quiz-options")?.dataset.field;
           if (field && !quiz[field]) {
@@ -1321,50 +1511,73 @@
             return false;
           }
         }
-        if (currentStep === 5 && !selectedDate) {
+        if (currentStep === 3 && !selectedDate) {
           setError("Seleziona una data disponibile.");
           return false;
         }
-        if (currentStep === 6) {
-          const required = [fields.nome, fields.cognome, fields.telefono, fields.email];
+        if (currentStep === 4 && !selectedSlot) {
+          setError("Seleziona un orario preferito.");
+          return false;
+        }
+        if (currentStep === 5) {
+          const required = [fields.nomeCompleto, fields.telefono, fields.email];
           const invalid = required.find((field) => !field.checkValidity());
           if (invalid) {
             invalid.reportValidity();
             setError("Completa i dati di contatto per preparare il riepilogo.");
             return false;
           }
-          if (!selectedSlot) {
-            setError("Seleziona un orario preferito.");
-            return false;
-          }
         }
         return true;
       };
 
+      const isSameMonth = (a, b) => a.getFullYear() === b.getFullYear() && a.getMonth() === b.getMonth();
+
       const buildCalendar = () => {
-        const today = new Date();
-        for (let i = 0; i < 21; i += 1) {
-          const date = new Date(today);
-          date.setDate(today.getDate() + i);
+        calendarGrid.innerHTML = "";
+        calendarTitle.textContent = monthFormatter.format(displayedMonth);
+        prevMonthBtn.disabled = isSameMonth(displayedMonth, minMonth);
+        nextMonthBtn.disabled = isSameMonth(displayedMonth, maxMonth);
+
+        ["Lun", "Mar", "Mer", "Gio", "Ven", "Sab", "Dom"].forEach((day) => {
+          const label = document.createElement("span");
+          label.className = "calendar-weekday";
+          label.textContent = day;
+          calendarGrid.append(label);
+        });
+
+        const firstDay = new Date(displayedMonth.getFullYear(), displayedMonth.getMonth(), 1);
+        const daysInMonth = new Date(displayedMonth.getFullYear(), displayedMonth.getMonth() + 1, 0).getDate();
+        const leadingBlanks = (firstDay.getDay() + 6) % 7;
+
+        for (let i = 0; i < leadingBlanks; i += 1) {
+          const blank = document.createElement("span");
+          blank.setAttribute("aria-hidden", "true");
+          calendarGrid.append(blank);
+        }
+
+        for (let dayNumber = 1; dayNumber <= daysInMonth; dayNumber += 1) {
+          const date = new Date(displayedMonth.getFullYear(), displayedMonth.getMonth(), dayNumber);
           const day = date.getDay();
-          if (day === 0 || day === 6) continue;
+          const isWeekend = day === 0 || day === 6;
+          const isOutOfRange = date < today || date > maxDate;
           const value = isoDate(date);
-          const label = dateFormatter.format(date).replace(",", "");
+          const label = dateFormatter.format(date);
           const labelParts = label.split(" ");
           const button = document.createElement("button");
           button.type = "button";
           button.className = "date-btn";
           button.setAttribute("aria-pressed", "false");
+          button.disabled = isWeekend || isOutOfRange;
           button.dataset.value = value;
           button.dataset.label = label;
-          button.innerHTML = `<small>${labelParts[0]}</small><span>${labelParts.slice(1).join(" ")}</span>`;
+          button.innerHTML = `<small>${labelParts[0].slice(0, 3)}</small><span>${dayNumber}</span>`;
+          if (selectedDate === value) button.setAttribute("aria-pressed", "true");
           button.addEventListener("click", () => {
             selectedDate = value;
             selectedDateLabel = label;
-            selectedSlot = "";
             document.querySelectorAll(".date-btn").forEach((btn) => btn.setAttribute("aria-pressed", "false"));
             button.setAttribute("aria-pressed", "true");
-            document.querySelectorAll(".slot-btn").forEach((btn) => btn.setAttribute("aria-pressed", "false"));
             updateSummary();
             setError();
           });
@@ -1408,27 +1621,32 @@
       nextBtn.addEventListener("click", () => {
         if (validateStep()) showStep(Math.min(totalSteps, currentStep + 1));
       });
+      prevMonthBtn.addEventListener("click", () => {
+        displayedMonth = new Date(displayedMonth.getFullYear(), displayedMonth.getMonth() - 1, 1);
+        buildCalendar();
+      });
+      nextMonthBtn.addEventListener("click", () => {
+        displayedMonth = new Date(displayedMonth.getFullYear(), displayedMonth.getMonth() + 1, 1);
+        buildCalendar();
+      });
 
       form.addEventListener("submit", (event) => {
         event.preventDefault();
         if (!validateStep()) return;
-        const subject = `Quiz implantologia - ${fields.nome.value} ${fields.cognome.value}`;
+        const subject = `Richiesta valutazione implantologia - ${fields.nomeCompleto.value}`;
         const body = [
-          "Nuova richiesta da quiz implantologia",
+          "Nuova richiesta di valutazione implantologica",
           "",
           "QUADRO PAZIENTE",
           `Problema principale: ${quiz.problema}`,
           `Obiettivo desiderato: ${quiz.obiettivo}`,
-          `Preoccupazione principale: ${quiz.preoccupazione}`,
-          `Tempistica dichiarata: ${quiz.tempistica}`,
           "",
           "PREFERENZA APPUNTAMENTO",
           `Data preferita: ${selectedDateLabel} (${selectedDate})`,
           `Orario preferito: ${selectedSlot}`,
           "",
           "DATI DI CONTATTO",
-          `Nome: ${fields.nome.value}`,
-          `Cognome: ${fields.cognome.value}`,
+          `Nome e cognome: ${fields.nomeCompleto.value}`,
           `Telefono: ${fields.telefono.value}`,
           `Email: ${fields.email.value}`,
           "",
