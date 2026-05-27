@@ -1446,6 +1446,81 @@
 
     .mobile-cta .btn { flex: 1; min-height: 48px; padding-inline: .7rem; }
 
+    .whatsapp-prompt {
+      position: fixed;
+      right: clamp(1rem, 2.2vw, 1.5rem);
+      bottom: clamp(1rem, 2.2vw, 1.5rem);
+      z-index: 35;
+      width: min(390px, calc(100% - 24px));
+      color: var(--primary);
+    }
+
+    .whatsapp-prompt-card {
+      position: relative;
+      display: grid;
+      gap: .78rem;
+      padding: 1.2rem;
+      border: 1px solid rgba(14, 56, 76, .12);
+      border-radius: 8px;
+      background: rgba(255, 255, 255, .98);
+      box-shadow: 0 24px 70px rgba(9, 40, 56, .2);
+    }
+
+    .whatsapp-prompt-kicker {
+      margin: 0;
+      color: var(--accent);
+      font-size: .72rem;
+      font-weight: 950;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+    }
+
+    .whatsapp-prompt h2 {
+      margin: 0;
+      color: var(--primary);
+      font-size: clamp(1.18rem, 2vw, 1.36rem);
+      line-height: 1.12;
+    }
+
+    .whatsapp-prompt p {
+      margin: 0;
+      color: var(--body-strong);
+      line-height: 1.48;
+    }
+
+    .whatsapp-prompt .btn {
+      width: 100%;
+      min-height: 52px;
+    }
+
+    .whatsapp-prompt-close {
+      position: absolute;
+      top: .75rem;
+      right: .75rem;
+      display: inline-grid;
+      place-items: center;
+      width: 34px;
+      height: 34px;
+      border: 1px solid rgba(14, 56, 76, .14);
+      border-radius: 8px;
+      background: var(--secondary);
+      color: var(--primary);
+      cursor: pointer;
+      font-size: 1.35rem;
+      line-height: 1;
+    }
+
+    .whatsapp-prompt-close:hover,
+    .whatsapp-prompt-close:focus-visible {
+      border-color: var(--accent);
+      color: var(--accent);
+    }
+
+    body.modal-open .whatsapp-prompt,
+    body.mobile-menu-open .whatsapp-prompt {
+      display: none;
+    }
+
     .booking-modal {
       width: min(860px, calc(100% - 32px));
       max-height: min(88vh, 900px);
@@ -1583,6 +1658,17 @@
       }
       .mobile-menu-actions .btn {
         min-height: 64px;
+      }
+      .whatsapp-prompt {
+        right: 12px;
+        bottom: calc(74px + .8rem + env(safe-area-inset-bottom));
+        width: calc(100% - 24px);
+      }
+      .whatsapp-prompt-card {
+        padding: 1rem;
+      }
+      .whatsapp-prompt h2 {
+        padding-right: 2.5rem;
       }
       .nav > .btn {
         display: none;
@@ -2387,6 +2473,16 @@
     <a class="btn btn-primary" href="#prenota-popup" data-open-booking aria-haspopup="dialog">Prenota Ora</a>
   </div>
 
+  <div class="whatsapp-prompt" role="dialog" aria-labelledby="whatsappPromptTitle" aria-describedby="whatsappPromptText" data-whatsapp-prompt hidden>
+    <div class="whatsapp-prompt-card">
+      <button class="whatsapp-prompt-close" type="button" aria-label="Chiudi messaggio WhatsApp" data-whatsapp-prompt-close>×</button>
+      <p class="whatsapp-prompt-kicker">Hai una domanda?</p>
+      <h2 id="whatsappPromptTitle">Dubbi sul trattamento?</h2>
+      <p id="whatsappPromptText">Se hai domande su questo servizio, scrivici su WhatsApp: ti ascolteremo e ti aiuteremo a capire quale percorso può essere più adatto al tuo caso specifico.</p>
+      <a class="btn btn-primary" href="https://wa.me/393892490181?text=Buongiorno%2C%20vorrei%20ricevere%20informazioni%20sul%20servizio%20di%20implantologia." target="_blank" rel="noopener">Scrivici su WhatsApp</a>
+    </div>
+  </div>
+
   <dialog class="booking-modal" id="prenota-popup" aria-label="Prenota una valutazione implantologica">
     <div class="modal-card">
       <button class="modal-close" type="button" data-close-booking aria-label="Chiudi pop-up">×</button>
@@ -2424,6 +2520,10 @@
       const menuToggle = document.querySelector("[data-menu-toggle]");
       const mobileMenu = document.querySelector("#mobileMenu");
       const mobileMenuMedia = window.matchMedia("(max-width: 980px)");
+      const whatsappPrompt = document.querySelector("[data-whatsapp-prompt]");
+      const whatsappPromptClose = document.querySelector("[data-whatsapp-prompt-close]");
+      const whatsappPromptDelay = 30000;
+      const whatsappPromptStorageKey = "sorriso-whatsapp-prompt-dismissed";
 
       const setMobileMenu = (isOpen) => {
         if (!menuToggle || !mobileMenu) return;
@@ -2463,6 +2563,44 @@
           if (!event.matches) setMobileMenu(false);
         });
       }
+
+      const dismissWhatsappPrompt = () => {
+        if (!whatsappPrompt) return;
+        whatsappPrompt.hidden = true;
+        try {
+          window.sessionStorage.setItem(whatsappPromptStorageKey, "true");
+        } catch (error) {
+          // Storage can be unavailable in private browsing modes.
+        }
+      };
+
+      const scheduleWhatsappPrompt = () => {
+        if (!whatsappPrompt) return;
+        let wasDismissed = false;
+        try {
+          wasDismissed = window.sessionStorage.getItem(whatsappPromptStorageKey) === "true";
+        } catch (error) {
+          wasDismissed = false;
+        }
+        if (wasDismissed) return;
+        const showPrompt = () => {
+          if (document.body.classList.contains("modal-open") || document.body.classList.contains("mobile-menu-open")) {
+            window.setTimeout(showPrompt, 5000);
+            return;
+          }
+          whatsappPrompt.hidden = false;
+        };
+        window.setTimeout(showPrompt, whatsappPromptDelay);
+      };
+
+      whatsappPromptClose?.addEventListener("click", dismissWhatsappPrompt);
+      whatsappPrompt?.querySelector("a")?.addEventListener("click", dismissWhatsappPrompt);
+      document.addEventListener("keydown", (event) => {
+        if (event.key === "Escape" && whatsappPrompt && !whatsappPrompt.hidden) {
+          dismissWhatsappPrompt();
+        }
+      });
+      scheduleWhatsappPrompt();
 
       const totalSteps = 6;
       const today = new Date();
