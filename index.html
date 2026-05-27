@@ -1546,59 +1546,80 @@
         max-height: calc(100svh - 18px);
       }
       .modal-card {
+        position: relative;
         max-height: calc(100svh - 18px);
-        padding: .54rem;
-      }
-      .modal-card .glass-form {
-        padding: .72rem .52rem .62rem;
+        padding: 0;
         border: 0;
         background: transparent;
         box-shadow: none;
+        backdrop-filter: none;
+      }
+      .modal-card .glass-form {
+        width: 100%;
+        min-height: 100%;
+        padding: .94rem .82rem .82rem;
+        border: 1px solid rgba(255, 255, 255, .62);
+        background: rgba(249, 252, 255, .94);
+        box-shadow: 0 24px 70px rgba(0, 0, 0, .24);
         outline: 0;
       }
       .modal-card .glass-form::before {
-        display: none;
+        display: block;
+        background:
+          radial-gradient(circle at 90% 8%, rgba(30,132,181,.09), transparent 13rem),
+          linear-gradient(135deg, rgba(255,255,255,.72), rgba(30,132,181,.05));
       }
       .modal-close {
-        width: 36px;
-        height: 36px;
-        margin-right: .12rem;
-        margin-bottom: .72rem;
+        position: absolute;
+        top: .86rem;
+        right: .82rem;
+        width: 40px;
+        height: 40px;
+        margin: 0;
+        box-shadow: 0 10px 24px rgba(14, 56, 76, .12);
+      }
+      .modal-card .form-head {
+        min-height: 42px;
+        margin-bottom: .76rem;
+        padding-right: 3.15rem;
       }
       .modal-card .form-head h2 {
-        font-size: clamp(1.32rem, 7vw, 1.58rem);
+        font-size: clamp(1.48rem, 7.4vw, 1.72rem);
         line-height: 1.03;
       }
       .modal-card .quiz-title {
-        font-size: clamp(1.08rem, 5.6vw, 1.32rem);
+        font-size: clamp(1.22rem, 6vw, 1.48rem);
       }
       .modal-card .quiz-copy,
       .modal-card .muted {
-        font-size: .82rem;
-        line-height: 1.36;
+        font-size: .92rem;
+        line-height: 1.4;
+      }
+      .modal-card .quiz-options {
+        gap: .72rem;
       }
       .modal-card .choice-btn {
-        min-height: 52px;
-        padding: .56rem 2.66rem .56rem .66rem;
+        min-height: 64px;
+        padding: .74rem 3.34rem .74rem .88rem;
       }
       .modal-card .choice-btn::before {
-        right: .62rem;
-        width: 24px;
-        height: 24px;
+        right: .78rem;
+        width: 28px;
+        height: 28px;
         border-width: 3px;
       }
       .modal-card .choice-btn::after {
-        right: calc(.62rem + 6px);
-        width: 12px;
-        height: 12px;
+        right: calc(.78rem + 7px);
+        width: 14px;
+        height: 14px;
       }
       .modal-card .choice-btn strong {
-        font-size: .86rem;
-        line-height: 1.08;
+        font-size: .98rem;
+        line-height: 1.12;
       }
       .modal-card .choice-btn span {
-        font-size: .72rem;
-        line-height: 1.18;
+        font-size: .84rem;
+        line-height: 1.26;
       }
     }
 
@@ -1607,7 +1628,7 @@
         padding: .66rem;
       }
       .modal-card .glass-form {
-        padding: .54rem .44rem .52rem;
+        padding: .72rem .62rem .62rem;
       }
       .form-head {
         margin-bottom: .48rem;
@@ -1639,32 +1660,34 @@
         font-size: .75rem;
       }
       .modal-card .choice-btn {
-        min-height: 46px;
-        padding: .48rem 2.42rem .48rem .58rem;
+        min-height: 56px;
+        padding: .58rem 2.86rem .58rem .68rem;
       }
       .modal-card .choice-btn strong {
-        font-size: .8rem;
+        font-size: .9rem;
       }
       .modal-card .choice-btn span {
-        font-size: .68rem;
+        font-size: .78rem;
+        line-height: 1.2;
       }
       .modal-card .choice-btn::before {
-        right: .56rem;
-        width: 22px;
-        height: 22px;
+        right: .64rem;
+        width: 24px;
+        height: 24px;
       }
       .modal-card .choice-btn::after {
-        right: calc(.56rem + 6px);
-        width: 10px;
-        height: 10px;
+        right: calc(.64rem + 6px);
+        width: 12px;
+        height: 12px;
       }
       .modal-card {
-        padding: .38rem;
+        padding: 0;
       }
       .modal-close {
-        width: 32px;
-        height: 32px;
-        margin-bottom: .28rem;
+        width: 34px;
+        height: 34px;
+        top: .62rem;
+        right: .62rem;
       }
     }
 
