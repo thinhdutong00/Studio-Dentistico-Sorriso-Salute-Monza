@@ -282,8 +282,10 @@
     .menu-toggle span:nth-child(3) { top: 29px; }
 
     .menu-toggle[aria-expanded="true"] {
-      border-color: rgba(30, 132, 181, .38);
-      color: var(--accent);
+      border-color: transparent;
+      background: transparent;
+      color: var(--primary);
+      box-shadow: none;
     }
 
     .menu-toggle[aria-expanded="true"] span:nth-child(1) {
@@ -300,44 +302,84 @@
       transform: rotate(-45deg);
     }
 
+    .menu-toggle[aria-expanded="true"] span {
+      left: 8px;
+      width: 30px;
+      height: 3px;
+    }
+
+    .menu-toggle[aria-expanded="true"]:focus-visible {
+      outline: none;
+    }
+
     .mobile-menu {
       display: none;
-      border-top: 1px solid var(--divider);
-      background: rgba(255, 255, 255, .98);
-      box-shadow: 0 22px 46px rgba(14, 56, 76, .12);
+      position: absolute;
+      inset: 100% 0 auto;
+      z-index: 19;
+      min-height: calc(100dvh - 120px);
+      max-height: calc(100dvh - 120px);
+      overflow-y: auto;
+      border-top: 1px solid rgba(14, 56, 76, .08);
+      background: var(--white);
+      box-shadow: 0 22px 46px rgba(14, 56, 76, .08);
     }
 
     .mobile-menu-panel {
       display: grid;
-      gap: .55rem;
-      padding-block: .85rem 1rem;
+      align-content: start;
+      gap: 0;
+      padding-block: 1.35rem 2rem;
     }
 
     .mobile-menu-links,
     .mobile-menu-actions {
       display: grid;
-      gap: .5rem;
+      gap: 0;
     }
 
     .mobile-menu-links a {
-      padding: .86rem .95rem;
-      border: 1px solid rgba(14, 56, 76, .1);
-      border-radius: 8px;
-      background: var(--secondary);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      min-height: 78px;
+      padding: 1rem 0;
+      border-bottom: 1px solid rgba(14, 56, 76, .08);
       color: var(--primary);
-      font-weight: 900;
+      font-size: clamp(1.22rem, 5.6vw, 2rem);
+      font-weight: 950;
+      letter-spacing: 0;
+      line-height: 1.1;
       text-decoration: none;
+      text-transform: uppercase;
     }
 
     .mobile-menu-links a:hover,
     .mobile-menu-links a:focus-visible {
-      border-color: rgba(30, 132, 181, .38);
       color: var(--accent);
     }
 
     .mobile-menu-actions {
-      grid-template-columns: 1fr 1fr;
-      margin-top: .25rem;
+      gap: .82rem;
+      margin-top: 1.7rem;
+    }
+
+    .mobile-menu-actions .btn {
+      min-height: 70px;
+      border-radius: 8px;
+      font-size: clamp(1rem, 4vw, 1.28rem);
+      letter-spacing: .08em;
+      text-transform: uppercase;
+    }
+
+    .mobile-menu-actions .btn-ghost {
+      --btn-bg: var(--secondary);
+      --btn-border: transparent;
+      --btn-shadow: none;
+    }
+
+    body.mobile-menu-open {
+      overflow: hidden;
     }
 
     .btn {
@@ -1494,6 +1536,7 @@
       .navlinks { display: none; }
       .menu-toggle { display: inline-grid; place-items: center; }
       .mobile-menu:not([hidden]) { display: block; }
+      body.mobile-menu-open .mobile-cta { display: none; }
       .hero {
         background:
           linear-gradient(180deg, rgba(249,252,255,.96), rgba(249,252,255,.98)),
@@ -1535,6 +1578,19 @@
       .wrap { width: min(100% - 24px, 1140px); }
       .topbar { display: none; }
       .nav { min-height: 70px; }
+      .mobile-menu {
+        min-height: calc(100dvh - 70px);
+        max-height: calc(100dvh - 70px);
+      }
+      .mobile-menu-panel {
+        padding-block: 1.15rem calc(1.2rem + env(safe-area-inset-bottom));
+      }
+      .mobile-menu-links a {
+        min-height: 68px;
+      }
+      .mobile-menu-actions .btn {
+        min-height: 64px;
+      }
       .nav > .btn {
         display: none;
       }
@@ -1948,6 +2004,7 @@
     <div class="mobile-menu" id="mobileMenu" hidden>
       <nav class="mobile-menu-panel wrap" aria-label="Navigazione mobile">
         <div class="mobile-menu-links">
+          <a href="#top">Home</a>
           <a href="#approccio">Approccio</a>
           <a href="#digitale">Digitale</a>
           <a href="#percorso">Percorso</a>
@@ -1955,8 +2012,14 @@
           <a href="#faq">FAQ</a>
         </div>
         <div class="mobile-menu-actions">
-          <a class="btn btn-primary" href="tel:+390392022489">Chiama</a>
-          <a class="btn btn-ghost" href="https://wa.me/393892490181">WhatsApp</a>
+          <a class="btn btn-ghost" href="tel:+390392022489" aria-label="Chiama lo studio">
+            <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M6.6 10.8c1.7 3.4 3.2 4.9 6.6 6.6l2.2-2.2c.3-.3.8-.4 1.2-.2 1.3.4 2.6.7 4 .7.7 0 1.2.5 1.2 1.2v3.5c0 .7-.5 1.2-1.2 1.2C10.2 21.6 2.4 13.8 2.4 3.4c0-.7.5-1.2 1.2-1.2h3.5c.7 0 1.2.5 1.2 1.2 0 1.4.2 2.8.7 4 .1.4 0 .8-.3 1.1l-2.1 2.3Z" fill="currentColor"/></svg>
+            Chiama Studio
+          </a>
+          <a class="btn btn-primary" href="#prenota-popup" data-open-booking aria-haspopup="dialog">
+            <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M7 2.2v3.1M17 2.2v3.1M4.2 9.1h15.6M6.2 4h11.6c1.3 0 2.4 1.1 2.4 2.4v12.2c0 1.3-1.1 2.4-2.4 2.4H6.2c-1.3 0-2.4-1.1-2.4-2.4V6.4C3.8 5.1 4.9 4 6.2 4Z" stroke="currentColor" stroke-width="2" stroke-linecap="round"/><path d="m8.4 15.1 2.2 2.2 5-5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            Prenota Visita
+          </a>
         </div>
       </nav>
     </div>
@@ -2377,6 +2440,7 @@
         menuToggle.setAttribute("aria-expanded", String(isOpen));
         menuToggle.setAttribute("aria-label", isOpen ? "Chiudi menu" : "Apri menu");
         mobileMenu.hidden = !isOpen;
+        document.body.classList.toggle("mobile-menu-open", isOpen);
       };
 
       menuToggle?.addEventListener("click", () => {
