@@ -1028,10 +1028,30 @@
 
     .implant-after { z-index: 1; }
 
-    .implant-before {
+    .implant-before-state {
+      position: absolute;
+      inset: 0;
       z-index: 2;
+      background:
+        linear-gradient(180deg, rgba(255,255,255,.18), rgba(249,252,255,.18)),
+        url("/assets/implantologia.avif") center / cover no-repeat;
       clip-path: inset(0 0 0 0);
+      filter: saturate(.68) contrast(.94) brightness(1.05);
       will-change: clip-path;
+    }
+
+    .implant-before-state::before {
+      content: "";
+      position: absolute;
+      left: 27%;
+      right: 27%;
+      top: 36%;
+      bottom: 0;
+      border-radius: 45% 45% 0 0 / 18% 18% 0 0;
+      background:
+        radial-gradient(circle at 52% 10%, rgba(255,222,216,.76), transparent 28%),
+        linear-gradient(180deg, rgba(244,166,160,.94), rgba(231,136,130,.96));
+      box-shadow: 0 -22px 34px rgba(244,166,160,.28);
     }
 
     .implant-compare::after {
@@ -1039,7 +1059,7 @@
       position: absolute;
       top: 0;
       bottom: 0;
-      left: calc(100% - 1px);
+      left: 0;
       z-index: 4;
       width: 2px;
       background: rgba(255,255,255,.96);
@@ -1049,35 +1069,12 @@
       pointer-events: none;
     }
 
-    .problem-media.is-compared .implant-before {
-      animation: implantBeforeWipe 1.65s cubic-bezier(.72, 0, .18, 1) .24s forwards;
+    .problem-media.is-compared .implant-before-state {
+      animation: implantBeforeWipe 3.4s cubic-bezier(.68, 0, .18, 1) .35s forwards;
     }
 
     .problem-media.is-compared .implant-compare::after {
-      animation: implantCompareHandle 1.65s cubic-bezier(.72, 0, .18, 1) .24s forwards;
-    }
-
-    .compare-label {
-      position: absolute;
-      top: .9rem;
-      z-index: 5;
-      padding: .42rem .62rem;
-      border-radius: 999px;
-      background: rgba(255,255,255,.9);
-      color: var(--primary);
-      box-shadow: 0 10px 24px rgba(14,56,76,.12);
-      font-size: .74rem;
-      font-weight: 950;
-      letter-spacing: .08em;
-      text-transform: uppercase;
-      pointer-events: none;
-    }
-
-    .compare-label-before { left: .9rem; }
-    .compare-label-after { right: .9rem; }
-
-    .problem-media.is-compared .compare-label-before {
-      animation: compareBeforeLabel 1.35s ease .46s forwards;
+      animation: implantCompareHandle 3.4s cubic-bezier(.68, 0, .18, 1) .35s forwards;
     }
 
     @keyframes implantBeforeWipe {
@@ -1086,14 +1083,10 @@
     }
 
     @keyframes implantCompareHandle {
-      0% { left: calc(100% - 1px); opacity: 0; }
-      12% { opacity: 1; }
-      88% { opacity: 1; }
-      100% { left: 0; opacity: 0; }
-    }
-
-    @keyframes compareBeforeLabel {
-      to { opacity: 0; transform: translateY(-6px); }
+      0% { left: 0; opacity: 0; }
+      8% { opacity: 1; }
+      90% { opacity: 1; }
+      100% { left: 100%; opacity: 0; }
     }
 
     .solution-grid {
@@ -1879,9 +1872,8 @@
       .page-loader {
         transition-duration: .12s !important;
       }
-      .implant-before,
-      .implant-compare::after,
-      .compare-label-before {
+      .implant-before-state,
+      .implant-compare::after {
         display: none;
       }
     }
@@ -2149,10 +2141,8 @@
         </div>
         <figure class="problem-media reveal delay-1" data-implant-compare>
           <div class="implant-compare" aria-label="Confronto automatico prima e dopo l'inserimento di un impianto dentale">
-            <img class="implant-after" src="/assets/implantologia.avif" width="1200" height="900" loading="lazy" alt="Dopo: riabilitazione con impianto dentale e dente fisso">
-            <img class="implant-before" src="/assets/implantologia-before.svg" width="1200" height="900" loading="lazy" alt="Prima: spazio lasciato da un dente mancante">
-            <span class="compare-label compare-label-before">Prima</span>
-            <span class="compare-label compare-label-after">Dopo</span>
+            <img class="implant-after" src="/assets/implantologia.avif" width="1200" height="900" loading="lazy" alt="Riabilitazione con impianto dentale e dente fisso">
+            <span class="implant-before-state" aria-hidden="true"></span>
           </div>
         </figure>
       </div>
