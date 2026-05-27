@@ -82,12 +82,18 @@
       pointer-events: none;
     }
 
+    .loader-logo {
+      display: grid;
+      justify-items: center;
+      gap: clamp(.75rem, 1.4vw, 1rem);
+      filter: drop-shadow(0 18px 34px rgba(9, 40, 56, .18));
+      animation: loader-pop .9s cubic-bezier(.2, .8, .2, 1) both;
+    }
+
     .loader-mark {
       position: relative;
       width: clamp(96px, 13vw, 150px);
       aspect-ratio: 300 / 353;
-      filter: drop-shadow(0 18px 34px rgba(9, 40, 56, .18));
-      animation: loader-pop .9s cubic-bezier(.2, .8, .2, 1) both;
     }
 
     .loader-mark img {
@@ -124,6 +130,25 @@
       transform: scaleX(0) rotate(-8deg);
       transform-origin: center;
       animation: loader-wink-line .92s ease-in-out .08s both;
+    }
+
+    .loader-wordmark {
+      display: grid;
+      justify-items: center;
+      color: var(--white);
+      line-height: .92;
+      letter-spacing: 0;
+      text-align: center;
+    }
+
+    .loader-wordmark span {
+      font-size: clamp(.82rem, 1.65vw, 1.1rem);
+      font-weight: 760;
+    }
+
+    .loader-wordmark strong {
+      font-size: clamp(1.02rem, 2vw, 1.42rem);
+      font-weight: 950;
     }
 
     @keyframes loader-pop {
@@ -228,6 +253,92 @@
 
     .navlinks a { text-decoration: none; }
     .navlinks a:hover { color: var(--accent); }
+
+    .menu-toggle {
+      display: none;
+      position: relative;
+      width: 46px;
+      height: 46px;
+      border: 1px solid rgba(14, 56, 76, .18);
+      border-radius: 8px;
+      background: var(--white);
+      color: var(--primary);
+      cursor: pointer;
+      box-shadow: 0 10px 26px rgba(14, 56, 76, .08);
+    }
+
+    .menu-toggle span {
+      position: absolute;
+      left: 12px;
+      width: 20px;
+      height: 2px;
+      border-radius: 999px;
+      background: currentColor;
+      transition: transform .18s ease, opacity .18s ease, top .18s ease;
+    }
+
+    .menu-toggle span:nth-child(1) { top: 15px; }
+    .menu-toggle span:nth-child(2) { top: 22px; }
+    .menu-toggle span:nth-child(3) { top: 29px; }
+
+    .menu-toggle[aria-expanded="true"] {
+      border-color: rgba(30, 132, 181, .38);
+      color: var(--accent);
+    }
+
+    .menu-toggle[aria-expanded="true"] span:nth-child(1) {
+      top: 22px;
+      transform: rotate(45deg);
+    }
+
+    .menu-toggle[aria-expanded="true"] span:nth-child(2) {
+      opacity: 0;
+    }
+
+    .menu-toggle[aria-expanded="true"] span:nth-child(3) {
+      top: 22px;
+      transform: rotate(-45deg);
+    }
+
+    .mobile-menu {
+      display: none;
+      border-top: 1px solid var(--divider);
+      background: rgba(255, 255, 255, .98);
+      box-shadow: 0 22px 46px rgba(14, 56, 76, .12);
+    }
+
+    .mobile-menu-panel {
+      display: grid;
+      gap: .55rem;
+      padding-block: .85rem 1rem;
+    }
+
+    .mobile-menu-links,
+    .mobile-menu-actions {
+      display: grid;
+      gap: .5rem;
+    }
+
+    .mobile-menu-links a {
+      padding: .86rem .95rem;
+      border: 1px solid rgba(14, 56, 76, .1);
+      border-radius: 8px;
+      background: var(--secondary);
+      color: var(--primary);
+      font-weight: 900;
+      text-decoration: none;
+    }
+
+    .mobile-menu-links a:hover,
+    .mobile-menu-links a:focus-visible {
+      border-color: rgba(30, 132, 181, .38);
+      color: var(--accent);
+    }
+
+    .mobile-menu-actions {
+      grid-template-columns: 1fr 1fr;
+      margin-top: .25rem;
+    }
 
     .btn {
       display: inline-flex;
@@ -446,6 +557,7 @@
     }
 
     .glass-form > * { position: relative; z-index: 1; }
+    .glass-form:focus { outline: 0; }
 
     .form-head { margin-bottom: .95rem; }
     .form-head h2 { margin-bottom: 0; }
@@ -585,15 +697,21 @@
     }
 
     .choice-btn strong {
+      display: block;
+      min-width: 0;
       font-size: 1rem;
       line-height: 1.12;
+      overflow-wrap: anywhere;
     }
 
     .choice-btn span {
+      display: block;
+      min-width: 0;
       color: var(--text);
       font-size: .82rem;
       font-weight: 720;
       line-height: 1.25;
+      overflow-wrap: anywhere;
     }
 
     .choice-btn[aria-pressed="true"] span { color: var(--body-strong); }
@@ -1272,6 +1390,8 @@
 
     @media (max-width: 980px) {
       .navlinks { display: none; }
+      .menu-toggle { display: inline-grid; place-items: center; }
+      .mobile-menu:not([hidden]) { display: block; }
       .hero {
         background:
           linear-gradient(180deg, rgba(249,252,255,.96), rgba(249,252,255,.98)),
@@ -1422,20 +1542,63 @@
         flex-basis: auto;
       }
       .booking-modal {
-        width: calc(100% - 16px);
-        max-height: calc(100svh - 16px);
+        width: calc(100% - 18px);
+        max-height: calc(100svh - 18px);
       }
       .modal-card {
-        max-height: calc(100svh - 16px);
-        padding: .5rem;
+        max-height: calc(100svh - 18px);
+        padding: .54rem;
       }
       .modal-card .glass-form {
-        padding: .76rem;
+        padding: .72rem .52rem .62rem;
+        border: 0;
+        background: transparent;
+        box-shadow: none;
+        outline: 0;
+      }
+      .modal-card .glass-form::before {
+        display: none;
       }
       .modal-close {
         width: 36px;
         height: 36px;
-        margin-bottom: .38rem;
+        margin-right: .12rem;
+        margin-bottom: .72rem;
+      }
+      .modal-card .form-head h2 {
+        font-size: clamp(1.32rem, 7vw, 1.58rem);
+        line-height: 1.03;
+      }
+      .modal-card .quiz-title {
+        font-size: clamp(1.08rem, 5.6vw, 1.32rem);
+      }
+      .modal-card .quiz-copy,
+      .modal-card .muted {
+        font-size: .82rem;
+        line-height: 1.36;
+      }
+      .modal-card .choice-btn {
+        min-height: 52px;
+        padding: .56rem 2.66rem .56rem .66rem;
+      }
+      .modal-card .choice-btn::before {
+        right: .62rem;
+        width: 24px;
+        height: 24px;
+        border-width: 3px;
+      }
+      .modal-card .choice-btn::after {
+        right: calc(.62rem + 6px);
+        width: 12px;
+        height: 12px;
+      }
+      .modal-card .choice-btn strong {
+        font-size: .86rem;
+        line-height: 1.08;
+      }
+      .modal-card .choice-btn span {
+        font-size: .72rem;
+        line-height: 1.18;
       }
     }
 
@@ -1444,7 +1607,7 @@
         padding: .66rem;
       }
       .modal-card .glass-form {
-        padding: .62rem;
+        padding: .54rem .44rem .52rem;
       }
       .form-head {
         margin-bottom: .48rem;
@@ -1475,6 +1638,26 @@
       .choice-btn span {
         font-size: .75rem;
       }
+      .modal-card .choice-btn {
+        min-height: 46px;
+        padding: .48rem 2.42rem .48rem .58rem;
+      }
+      .modal-card .choice-btn strong {
+        font-size: .8rem;
+      }
+      .modal-card .choice-btn span {
+        font-size: .68rem;
+      }
+      .modal-card .choice-btn::before {
+        right: .56rem;
+        width: 22px;
+        height: 22px;
+      }
+      .modal-card .choice-btn::after {
+        right: calc(.56rem + 6px);
+        width: 10px;
+        height: 10px;
+      }
       .modal-card {
         padding: .38rem;
       }
@@ -1496,6 +1679,7 @@
         opacity: 1;
         transform: none;
       }
+      .loader-logo,
       .loader-mark,
       .loader-mark::before,
       .loader-mark::after {
@@ -1584,9 +1768,15 @@
 </head>
 <body>
   <div class="page-loader" id="pageLoader" aria-hidden="true">
-    <span class="loader-mark">
-      <img src="/assets/loader-tooth.png" width="300" height="353" alt="">
-    </span>
+    <div class="loader-logo">
+      <span class="loader-mark">
+        <img src="/assets/loader-tooth.png" width="300" height="353" alt="">
+      </span>
+      <span class="loader-wordmark">
+        <span>STUDIO DENTISTICO</span>
+        <strong>SORRISO &amp; SALUTE</strong>
+      </span>
+    </div>
   </div>
 
   <a class="skip" href="#main">Salta al contenuto</a>
@@ -1609,11 +1799,31 @@
         <a href="#equipe">Equipe</a>
         <a href="#faq">FAQ</a>
       </div>
+      <button class="menu-toggle" type="button" aria-label="Apri menu" aria-expanded="false" aria-controls="mobileMenu" data-menu-toggle>
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
       <a class="btn btn-primary" href="tel:+390392022489" aria-label="Chiama lo studio">
         <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M6.6 10.8c1.7 3.4 3.2 4.9 6.6 6.6l2.2-2.2c.3-.3.8-.4 1.2-.2 1.3.4 2.6.7 4 .7.7 0 1.2.5 1.2 1.2v3.5c0 .7-.5 1.2-1.2 1.2C10.2 21.6 2.4 13.8 2.4 3.4c0-.7.5-1.2 1.2-1.2h3.5c.7 0 1.2.5 1.2 1.2 0 1.4.2 2.8.7 4 .1.4 0 .8-.3 1.1l-2.1 2.3Z" fill="currentColor"/></svg>
         Chiama
       </a>
     </nav>
+    <div class="mobile-menu" id="mobileMenu" hidden>
+      <nav class="mobile-menu-panel wrap" aria-label="Navigazione mobile">
+        <div class="mobile-menu-links">
+          <a href="#approccio">Approccio</a>
+          <a href="#digitale">Digitale</a>
+          <a href="#percorso">Percorso</a>
+          <a href="#equipe">Equipe</a>
+          <a href="#faq">FAQ</a>
+        </div>
+        <div class="mobile-menu-actions">
+          <a class="btn btn-primary" href="tel:+390392022489">Chiama</a>
+          <a class="btn btn-ghost" href="https://wa.me/393892490181">WhatsApp</a>
+        </div>
+      </nav>
+    </div>
   </header>
 
   <main id="main">
@@ -2014,6 +2224,49 @@
         scheduleLoaderHide();
       } else {
         window.addEventListener("load", scheduleLoaderHide, { once: true });
+      }
+
+      const siteHeader = document.querySelector("header");
+      const menuToggle = document.querySelector("[data-menu-toggle]");
+      const mobileMenu = document.querySelector("#mobileMenu");
+      const mobileMenuMedia = window.matchMedia("(max-width: 980px)");
+
+      const setMobileMenu = (isOpen) => {
+        if (!menuToggle || !mobileMenu) return;
+        menuToggle.setAttribute("aria-expanded", String(isOpen));
+        menuToggle.setAttribute("aria-label", isOpen ? "Chiudi menu" : "Apri menu");
+        mobileMenu.hidden = !isOpen;
+      };
+
+      menuToggle?.addEventListener("click", () => {
+        const isOpen = menuToggle.getAttribute("aria-expanded") === "true";
+        setMobileMenu(!isOpen);
+      });
+
+      mobileMenu?.querySelectorAll("a").forEach((link) => {
+        link.addEventListener("click", () => setMobileMenu(false));
+      });
+
+      document.addEventListener("click", (event) => {
+        if (!siteHeader || !mobileMenu || mobileMenu.hidden) return;
+        if (!siteHeader.contains(event.target)) setMobileMenu(false);
+      });
+
+      document.addEventListener("keydown", (event) => {
+        if (event.key === "Escape" && mobileMenu && !mobileMenu.hidden) {
+          setMobileMenu(false);
+          menuToggle?.focus();
+        }
+      });
+
+      if (mobileMenuMedia.addEventListener) {
+        mobileMenuMedia.addEventListener("change", (event) => {
+          if (!event.matches) setMobileMenu(false);
+        });
+      } else {
+        mobileMenuMedia.addListener((event) => {
+          if (!event.matches) setMobileMenu(false);
+        });
       }
 
       const totalSteps = 6;
