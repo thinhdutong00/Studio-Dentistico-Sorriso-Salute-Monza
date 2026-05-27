@@ -1650,6 +1650,9 @@
       .wrap { width: min(100% - 24px, 1140px); }
       .topbar { display: none; }
       .nav { min-height: 70px; }
+      .hero {
+        padding-bottom: 0;
+      }
       .mobile-menu {
         min-height: calc(100dvh - 70px);
         max-height: calc(100dvh - 70px);
@@ -1682,7 +1685,7 @@
         height: 39px;
       }
       .hero .wrap {
-        padding-block-start: 12px;
+        padding-block: 24px 24px;
       }
       .hero-desktop-label {
         display: none;
@@ -1695,12 +1698,18 @@
       .glass-form {
         padding: .86rem;
       }
+      .hero .glass-form {
+        align-content: start;
+        min-height: clamp(660px, 174vw, 700px);
+        margin-top: .75rem;
+        padding-block: 1.08rem 1.22rem;
+      }
       .form-head {
         margin-bottom: .66rem;
       }
       .form-head h2 {
-        font-size: clamp(1.35rem, 8vw, 1.82rem);
-        line-height: 1.04;
+        font-size: clamp(1.72rem, 6.8vw, 2.05rem);
+        line-height: 1.06;
       }
       .progress {
         gap: .32rem;
