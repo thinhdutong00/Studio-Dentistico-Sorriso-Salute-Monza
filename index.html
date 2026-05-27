@@ -1622,10 +1622,29 @@
         grid-template-columns: repeat(3, minmax(0, 1fr));
         max-height: 178px;
       }
+      .staff-grid {
+        justify-items: center;
+      }
+      .staff-card {
+        width: min(100%, 420px);
+      }
       .staff-card img {
-        height: calc(75vw - 19.5px);
-        aspect-ratio: 4 / 3;
-        object-position: center top;
+        height: calc(110vw - 28.6px);
+        max-height: 462px;
+        aspect-ratio: 10 / 11;
+        object-position: center 35%;
+      }
+      .staff-card:nth-child(2) img {
+        object-position: center 15%;
+      }
+      .staff-card:nth-child(3) img {
+        object-position: center 36%;
+      }
+      .staff-card:nth-child(4) img {
+        object-position: center 48%;
+      }
+      .staff-card:nth-child(5) img {
+        object-position: center 18%;
       }
       .staff-card div {
         padding: .86rem;
