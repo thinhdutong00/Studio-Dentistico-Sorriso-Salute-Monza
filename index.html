@@ -1026,152 +1026,61 @@
       isolation: isolate;
     }
 
-    .implant-stage::before {
-      content: "";
-      position: absolute;
-      inset: 0;
-      z-index: 0;
-      background:
-        linear-gradient(90deg, rgba(255,255,255,.24) 1px, transparent 1px),
-        linear-gradient(0deg, rgba(255,255,255,.18) 1px, transparent 1px);
-      background-size: 42px 42px;
-      mask-image: radial-gradient(circle at 50% 46%, black 0 58%, transparent 76%);
-      opacity: .54;
-    }
-
-    .implant-canvas,
-    .implant-fallback {
+    .before-after-compare img,
+    .compare-after {
       position: absolute;
       inset: 0;
       width: 100%;
       height: 100%;
     }
 
-    .implant-canvas {
-      z-index: 2;
-      opacity: 0;
-      transition: opacity .45s ease;
-    }
-
-    .problem-media.has-implant-webgl .implant-canvas { opacity: 1; }
-    .problem-media.has-implant-webgl .implant-fallback { opacity: 0; }
-
-    .implant-fallback {
-      z-index: 1;
-      display: grid;
-      place-items: center;
-      perspective: 900px;
-      transition: opacity .35s ease;
-    }
-
-    .implant-fallback-arch {
+    .before-after-compare {
       position: relative;
-      width: min(78%, 440px);
-      aspect-ratio: 1.25 / 1;
-      transform: rotateX(58deg) translateY(3%);
-      transform-style: preserve-3d;
+      display: block;
+      background: #0d6682;
     }
 
-    .implant-fallback-arch::before {
-      content: "";
-      position: absolute;
-      inset: 22% 7% 5%;
-      border-radius: 50% 50% 46% 46%;
-      background:
-        radial-gradient(circle at 50% 24%, rgba(255,229,229,.95), transparent 28%),
-        linear-gradient(180deg, #EBA19D, #D8747D 72%, #B95C6E);
-      box-shadow: inset 0 26px 38px rgba(255,255,255,.3), 0 40px 55px rgba(14,56,76,.14);
-      transform: translateZ(-34px);
+    .before-after-compare img {
+      display: block;
+      object-fit: cover;
     }
 
-    .fallback-tooth {
-      position: absolute;
-      left: 50%;
-      top: 50%;
-      width: var(--tooth-w, 42px);
-      height: var(--tooth-h, 74px);
-      border-radius: 50% 50% 44% 44% / 34% 34% 64% 64%;
-      background: linear-gradient(150deg, #FFFFFF 4%, #F6EFE4 48%, #DAC7AC 100%);
-      box-shadow: inset -10px -13px 18px rgba(118,95,62,.16), inset 8px 9px 16px rgba(255,255,255,.74), 0 14px 18px rgba(14,56,76,.12);
-      transform:
-        rotate(var(--a))
-        translateY(var(--r))
-        rotate(calc(-1 * var(--a)))
-        translate(-50%, -50%)
-        translateZ(42px);
+    .compare-after {
+      clip-path: inset(0 100% 0 0);
+      will-change: clip-path;
     }
 
-    .fallback-tooth:nth-child(1) { --a: -52deg; --r: -122px; --tooth-w: 35px; --tooth-h: 62px; }
-    .fallback-tooth:nth-child(2) { --a: -35deg; --r: -134px; --tooth-w: 38px; --tooth-h: 70px; }
-    .fallback-tooth:nth-child(3) { --a: -18deg; --r: -142px; --tooth-w: 43px; --tooth-h: 78px; }
-    .fallback-tooth:nth-child(4) { --a: 18deg; --r: -142px; --tooth-w: 43px; --tooth-h: 78px; }
-    .fallback-tooth:nth-child(5) { --a: 35deg; --r: -134px; --tooth-w: 38px; --tooth-h: 70px; }
-    .fallback-tooth:nth-child(6) { --a: 52deg; --r: -122px; --tooth-w: 35px; --tooth-h: 62px; }
-
-    .fallback-gap {
+    .compare-handle {
       position: absolute;
-      left: 50%;
-      top: 25%;
-      width: 66px;
-      height: 76px;
-      border-radius: 999px;
-      background: radial-gradient(circle at 50% 35%, rgba(117,52,69,.38), rgba(217,120,130,.22) 58%, transparent 70%);
-      transform: translate(-50%, -50%) translateZ(44px);
-    }
-
-    .fallback-implant {
-      position: absolute;
-      left: 50%;
-      top: 50%;
-      width: 50px;
-      height: 132px;
-      border-radius: 25px 25px 18px 18px;
-      background:
-        repeating-linear-gradient(180deg, transparent 0 9px, rgba(82,114,130,.34) 10px 13px),
-        linear-gradient(135deg, #FDFBF5 0 34%, #C9A76F 35% 46%, #AEB8BD 47% 100%);
-      box-shadow: inset -12px -10px 18px rgba(14,56,76,.18), 0 18px 28px rgba(14,56,76,.18);
+      top: 0;
+      bottom: 0;
+      left: 0;
+      width: 2px;
+      background: rgba(255,255,255,.95);
+      box-shadow: 0 0 0 1px rgba(14,56,76,.14), 0 0 28px rgba(255,255,255,.48);
       opacity: 0;
-      transform: translate(-50%, -152%) translateZ(130px) rotateX(-58deg) scale(.92);
-    }
-
-    .problem-media.is-implant-active .fallback-implant {
-      animation: fallbackImplantSeat 2.8s cubic-bezier(.18, .72, .18, 1) .2s forwards;
-    }
-
-    .implant-hud {
-      position: absolute;
-      left: 1rem;
-      right: 1rem;
-      bottom: 1rem;
-      z-index: 3;
-      display: flex;
-      justify-content: space-between;
-      gap: .75rem;
+      transform: translateX(-50%);
       pointer-events: none;
     }
 
-    .implant-hud span {
-      display: inline-flex;
-      align-items: center;
-      min-height: 34px;
-      padding: .45rem .68rem;
-      border: 1px solid rgba(255,255,255,.58);
-      border-radius: 8px;
-      background: rgba(255,255,255,.72);
-      color: var(--primary);
-      box-shadow: 0 12px 28px rgba(14,56,76,.12);
-      backdrop-filter: blur(14px);
-      font-size: .78rem;
-      font-weight: 900;
-      line-height: 1;
-      white-space: nowrap;
+    .problem-media.is-implant-active .compare-after {
+      animation: revealAfterImage 3.2s cubic-bezier(.68, 0, .18, 1) .18s forwards;
     }
 
-    @keyframes fallbackImplantSeat {
-      0% { opacity: 0; transform: translate(-50%, -152%) translateZ(130px) rotateX(-58deg) scale(.92); }
-      18% { opacity: 1; }
-      70% { opacity: 1; transform: translate(-50%, -68%) translateZ(70px) rotateX(-58deg) scale(1); }
-      100% { opacity: 1; transform: translate(-50%, -48%) translateZ(58px) rotateX(-58deg) scale(1); }
+    .problem-media.is-implant-active .compare-handle {
+      animation: revealAfterHandle 3.2s cubic-bezier(.68, 0, .18, 1) .18s forwards;
+    }
+
+    @keyframes revealAfterImage {
+      from { clip-path: inset(0 100% 0 0); }
+      to { clip-path: inset(0 0 0 0); }
+    }
+
+    @keyframes revealAfterHandle {
+      0% { left: 0; opacity: 0; }
+      8% { opacity: 1; }
+      92% { opacity: 1; }
+      100% { left: 100%; opacity: 0; }
     }
 
     .solution-grid {
@@ -1887,14 +1796,6 @@
       .implant-stage {
         height: clamp(320px, 86vw, 390px);
       }
-      .implant-hud {
-        align-items: flex-start;
-        flex-direction: column;
-      }
-      .implant-hud span {
-        white-space: normal;
-        line-height: 1.18;
-      }
       .calendar-grid { gap: .28rem; }
       .calendar-head {
         margin-bottom: .42rem;
@@ -2068,9 +1969,11 @@
       .page-loader {
         transition-duration: .12s !important;
       }
-      .fallback-implant {
-        opacity: 1;
-        transform: translate(-50%, -48%) translateZ(58px) rotateX(-58deg) scale(1);
+      .compare-after {
+        clip-path: inset(0 0 0 0);
+      }
+      .compare-handle {
+        display: none;
       }
     }
   </style>
@@ -2336,24 +2239,12 @@
           <p class="problem-copy">La mancanza di uno o più elementi dentali non è solo un disagio estetico. Nel tempo, influisce sulla corretta masticazione, sul posizionamento dei denti adiacenti e sul riassorbimento dell'osso mascellare. La moderna odontoiatria permette oggi di affrontare la sostituzione dei denti mancanti in modo radicalmente diverso rispetto al passato, ponendo al centro il comfort biologico del paziente.</p>
         </div>
         <figure class="problem-media reveal delay-1" data-implant-render>
-          <div class="implant-stage" role="img" aria-label="Render 3D di un'arcata dentale con spazio edentulo e impianto inserito nello spazio mancante">
-            <canvas class="implant-canvas" data-implant-canvas aria-hidden="true"></canvas>
-            <div class="implant-fallback" aria-hidden="true">
-              <div class="implant-fallback-arch">
-                <span class="fallback-tooth"></span>
-                <span class="fallback-tooth"></span>
-                <span class="fallback-tooth"></span>
-                <span class="fallback-tooth"></span>
-                <span class="fallback-tooth"></span>
-                <span class="fallback-tooth"></span>
-                <span class="fallback-gap"></span>
-                <span class="fallback-implant"></span>
-              </div>
+          <div class="implant-stage before-after-compare" role="img" aria-label="Confronto automatico tra arcata con dente mancante e arcata riabilitata con impianto dentale">
+            <img class="compare-before" src="/assets/implant-before.jpg" width="1100" height="1022" loading="lazy" decoding="async" alt="" aria-hidden="true">
+            <div class="compare-after" aria-hidden="true">
+              <img src="/assets/implant-after.jpg" width="1100" height="1022" loading="lazy" decoding="async" alt="">
             </div>
-            <div class="implant-hud" aria-hidden="true">
-              <span>Spazio edentulo</span>
-              <span>Impianto guidato</span>
-            </div>
+            <span class="compare-handle" aria-hidden="true"></span>
           </div>
         </figure>
       </div>
@@ -2794,7 +2685,6 @@
           entries.forEach((entry) => {
             if (entry.isIntersecting) {
               entry.target.classList.add("is-implant-active");
-              entry.target.dispatchEvent(new CustomEvent("implant-render:start"));
               observer.unobserve(entry.target);
             }
           });
@@ -3110,249 +3000,6 @@
       initReveal();
       initImplantRender();
     })();
-  </script>
-  <script type="module">
-    import * as THREE from "https://cdn.jsdelivr.net/npm/three@0.164.1/build/three.module.js";
-
-    const shell = document.querySelector("[data-implant-render]");
-    const canvas = document.querySelector("[data-implant-canvas]");
-
-    if (shell && canvas) {
-      const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)");
-      const renderer = new THREE.WebGLRenderer({ canvas, alpha: true, antialias: true });
-      renderer.outputColorSpace = THREE.SRGBColorSpace;
-      renderer.setClearColor(0x000000, 0);
-      renderer.setPixelRatio(Math.min(window.devicePixelRatio || 1, 2));
-      renderer.shadowMap.enabled = true;
-      renderer.shadowMap.type = THREE.PCFSoftShadowMap;
-
-      const scene = new THREE.Scene();
-      const camera = new THREE.PerspectiveCamera(34, 1, .1, 100);
-      camera.position.set(0, 4.15, 6.9);
-
-      const root = new THREE.Group();
-      root.rotation.x = -.38;
-      scene.add(root);
-
-      const hemi = new THREE.HemisphereLight(0xffffff, 0x7fa6b7, 2.4);
-      scene.add(hemi);
-
-      const keyLight = new THREE.DirectionalLight(0xffffff, 3.1);
-      keyLight.position.set(-3.7, 5.4, 4.6);
-      keyLight.castShadow = true;
-      keyLight.shadow.mapSize.set(1024, 1024);
-      scene.add(keyLight);
-
-      const rimLight = new THREE.DirectionalLight(0x76d5ff, 1.35);
-      rimLight.position.set(4, 2.2, -3.5);
-      scene.add(rimLight);
-
-      const gumMaterial = new THREE.MeshPhysicalMaterial({
-        color: 0xd9828b,
-        roughness: .54,
-        clearcoat: .2,
-        sheen: .42,
-        sheenColor: 0xffd6d9
-      });
-      const gumDeepMaterial = new THREE.MeshPhysicalMaterial({
-        color: 0x9e5065,
-        roughness: .7,
-        clearcoat: .08
-      });
-      const toothMaterial = new THREE.MeshPhysicalMaterial({
-        color: 0xfffbf1,
-        roughness: .38,
-        metalness: 0,
-        clearcoat: .62,
-        clearcoatRoughness: .28
-      });
-      const toothSideMaterial = new THREE.MeshPhysicalMaterial({
-        color: 0xe2d2ba,
-        roughness: .46,
-        clearcoat: .36
-      });
-      const titaniumMaterial = new THREE.MeshPhysicalMaterial({
-        color: 0xb7c2c9,
-        metalness: .72,
-        roughness: .23,
-        clearcoat: .45
-      });
-      const goldMaterial = new THREE.MeshPhysicalMaterial({
-        color: 0xcaa466,
-        metalness: .35,
-        roughness: .24,
-        clearcoat: .42
-      });
-      const glowMaterial = new THREE.MeshBasicMaterial({
-        color: 0x1e84b5,
-        transparent: true,
-        opacity: .18,
-        side: THREE.DoubleSide,
-        blending: THREE.AdditiveBlending,
-        depthWrite: false
-      });
-
-      const gum = new THREE.Mesh(new THREE.SphereGeometry(2.95, 64, 32), gumMaterial);
-      gum.scale.set(1.14, .13, .52);
-      gum.position.set(0, -.5, -.32);
-      gum.castShadow = true;
-      gum.receiveShadow = true;
-      root.add(gum);
-
-      const palate = new THREE.Mesh(new THREE.SphereGeometry(1.58, 64, 24), gumDeepMaterial);
-      palate.scale.set(1.08, .07, .54);
-      palate.position.set(0, -.4, -.72);
-      palate.receiveShadow = true;
-      root.add(palate);
-
-      const socket = new THREE.Mesh(new THREE.TorusGeometry(.38, .045, 18, 72), gumDeepMaterial);
-      socket.rotation.x = Math.PI / 2;
-      socket.scale.set(1, .62, 1);
-      socket.position.set(0, -.21, -1.55);
-      root.add(socket);
-
-      const socketGlow = new THREE.Mesh(new THREE.RingGeometry(.36, .78, 96), glowMaterial);
-      socketGlow.rotation.x = -Math.PI / 2;
-      socketGlow.position.set(0, -.18, -1.55);
-      root.add(socketGlow);
-
-      const crownProfile = [
-        new THREE.Vector2(.02, -.44),
-        new THREE.Vector2(.24, -.39),
-        new THREE.Vector2(.34, -.14),
-        new THREE.Vector2(.31, .18),
-        new THREE.Vector2(.18, .4),
-        new THREE.Vector2(.035, .47)
-      ];
-      const toothGeometry = new THREE.LatheGeometry(crownProfile, 38);
-      toothGeometry.computeVertexNormals();
-
-      const makeTooth = ({ angle, size, height, zBias = 0, side = false }) => {
-        const radians = THREE.MathUtils.degToRad(angle);
-        const tooth = new THREE.Mesh(toothGeometry, side ? toothSideMaterial : toothMaterial);
-        const radiusX = 2.28;
-        const radiusZ = 1.28;
-        tooth.position.set(Math.sin(radians) * radiusX, .16, -Math.cos(radians) * radiusZ + zBias);
-        tooth.scale.set(size, height, size * .82);
-        tooth.rotation.y = -radians * .62;
-        tooth.castShadow = true;
-        tooth.receiveShadow = true;
-        root.add(tooth);
-        return tooth;
-      };
-
-      [
-        { angle: -58, size: 1.02, height: 1.08, zBias: .08, side: true },
-        { angle: -40, size: .92, height: 1.18 },
-        { angle: -22, size: .82, height: 1.28 },
-        { angle: 22, size: .82, height: 1.28 },
-        { angle: 40, size: .92, height: 1.18 },
-        { angle: 58, size: 1.02, height: 1.08, zBias: .08, side: true }
-      ].forEach(makeTooth);
-
-      const implant = new THREE.Group();
-      implant.position.set(0, 2.42, -1.55);
-      implant.rotation.y = -.52;
-      implant.rotation.z = .18;
-      root.add(implant);
-
-      const screw = new THREE.Mesh(new THREE.CylinderGeometry(.15, .21, 1.28, 48), titaniumMaterial);
-      screw.position.y = -.66;
-      screw.castShadow = true;
-      implant.add(screw);
-
-      for (let index = 0; index < 9; index += 1) {
-        const rib = new THREE.Mesh(new THREE.TorusGeometry(.176, .011, 8, 46), titaniumMaterial);
-        rib.rotation.x = Math.PI / 2;
-        rib.position.y = -1.21 + index * .125;
-        implant.add(rib);
-      }
-
-      const abutment = new THREE.Mesh(new THREE.CylinderGeometry(.14, .25, .42, 48), goldMaterial);
-      abutment.position.y = .15;
-      abutment.castShadow = true;
-      implant.add(abutment);
-
-      const implantCrown = new THREE.Mesh(toothGeometry, toothMaterial);
-      implantCrown.position.y = .64;
-      implantCrown.scale.set(.9, 1.02, .78);
-      implantCrown.castShadow = true;
-      implantCrown.receiveShadow = true;
-      implant.add(implantCrown);
-
-      const locator = new THREE.Mesh(new THREE.TorusGeometry(.52, .014, 10, 96), glowMaterial);
-      locator.rotation.x = Math.PI / 2;
-      locator.position.set(0, .12, -1.55);
-      root.add(locator);
-
-      let progress = prefersReducedMotion.matches ? 1 : 0;
-      let targetProgress = progress;
-      let lastTime = performance.now();
-
-      const easeOutCubic = (value) => 1 - Math.pow(1 - value, 3);
-      const resize = () => {
-        const rect = canvas.getBoundingClientRect();
-        const width = Math.max(1, Math.floor(rect.width));
-        const height = Math.max(1, Math.floor(rect.height));
-        renderer.setSize(width, height, false);
-        camera.aspect = width / height;
-        camera.updateProjectionMatrix();
-      };
-
-      const play = () => {
-        targetProgress = 1;
-        shell.classList.add("is-implant-active");
-      };
-
-      const observeStart = () => {
-        if (prefersReducedMotion.matches || !("IntersectionObserver" in window)) {
-          play();
-          return;
-        }
-        const observer = new IntersectionObserver((entries) => {
-          entries.forEach((entry) => {
-            if (entry.isIntersecting) {
-              play();
-              observer.disconnect();
-            }
-          });
-        }, { threshold: .38, rootMargin: "0px 0px -80px" });
-        observer.observe(shell);
-      };
-
-      shell.addEventListener("implant-render:start", play);
-      if (shell.classList.contains("is-implant-active")) play();
-      observeStart();
-
-      const render = (now) => {
-        const delta = Math.min(48, now - lastTime) / 16.67;
-        lastTime = now;
-        progress += (targetProgress - progress) * Math.min(.075 * delta, 1);
-        if (Math.abs(targetProgress - progress) < .001) progress = targetProgress;
-
-        const seated = easeOutCubic(progress);
-        const settle = Math.sin(seated * Math.PI);
-        implant.position.y = THREE.MathUtils.lerp(2.42, .08, seated) - settle * .08;
-        implant.rotation.y = THREE.MathUtils.lerp(-.52, 0, seated);
-        implant.rotation.z = THREE.MathUtils.lerp(.18, 0, seated);
-        implant.scale.setScalar(THREE.MathUtils.lerp(.9, 1, seated));
-
-        socketGlow.material.opacity = THREE.MathUtils.lerp(.2, .06, seated) + settle * .18;
-        locator.material.opacity = THREE.MathUtils.lerp(.24, .04, seated);
-        locator.scale.setScalar(THREE.MathUtils.lerp(1.12, .78, seated));
-        root.rotation.y = Math.sin(now * .00045) * .08 + THREE.MathUtils.lerp(-.08, .02, seated);
-        root.position.y = Math.sin(now * .0007) * .025;
-
-        camera.lookAt(0, .1, -.35);
-        renderer.render(scene, camera);
-        requestAnimationFrame(render);
-      };
-
-      resize();
-      shell.classList.add("has-implant-webgl");
-      window.addEventListener("resize", resize, { passive: true });
-      requestAnimationFrame(render);
-    }
   </script>
 </body>
 </html>
