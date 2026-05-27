@@ -960,6 +960,7 @@
     }
 
     .problem-media {
+      position: relative;
       overflow: hidden;
       border: 1px solid rgba(30,132,181,.16);
       border-radius: 8px;
@@ -967,10 +968,90 @@
       box-shadow: 0 22px 62px rgba(14, 56, 76, .12), 0 0 0 8px rgba(30,132,181,.06);
     }
 
-    .problem-media img {
-      width: 100%;
+    .implant-compare {
+      position: relative;
       aspect-ratio: 4 / 3;
+      overflow: hidden;
+      isolation: isolate;
+    }
+
+    .implant-compare img {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
       object-fit: cover;
+      display: block;
+    }
+
+    .implant-after { z-index: 1; }
+
+    .implant-before {
+      z-index: 2;
+      clip-path: inset(0 0 0 0);
+      will-change: clip-path;
+    }
+
+    .implant-compare::after {
+      content: "";
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      left: calc(100% - 1px);
+      z-index: 4;
+      width: 2px;
+      background: rgba(255,255,255,.96);
+      box-shadow: 0 0 0 1px rgba(14,56,76,.12), 0 0 28px rgba(30,132,181,.32);
+      opacity: 0;
+      transform: translateX(-50%);
+      pointer-events: none;
+    }
+
+    .problem-media.is-compared .implant-before {
+      animation: implantBeforeWipe 1.65s cubic-bezier(.72, 0, .18, 1) .24s forwards;
+    }
+
+    .problem-media.is-compared .implant-compare::after {
+      animation: implantCompareHandle 1.65s cubic-bezier(.72, 0, .18, 1) .24s forwards;
+    }
+
+    .compare-label {
+      position: absolute;
+      top: .9rem;
+      z-index: 5;
+      padding: .42rem .62rem;
+      border-radius: 999px;
+      background: rgba(255,255,255,.9);
+      color: var(--primary);
+      box-shadow: 0 10px 24px rgba(14,56,76,.12);
+      font-size: .74rem;
+      font-weight: 950;
+      letter-spacing: .08em;
+      text-transform: uppercase;
+      pointer-events: none;
+    }
+
+    .compare-label-before { left: .9rem; }
+    .compare-label-after { right: .9rem; }
+
+    .problem-media.is-compared .compare-label-before {
+      animation: compareBeforeLabel 1.35s ease .46s forwards;
+    }
+
+    @keyframes implantBeforeWipe {
+      from { clip-path: inset(0 0 0 0); }
+      to { clip-path: inset(0 0 0 100%); }
+    }
+
+    @keyframes implantCompareHandle {
+      0% { left: calc(100% - 1px); opacity: 0; }
+      12% { opacity: 1; }
+      88% { opacity: 1; }
+      100% { left: 0; opacity: 0; }
+    }
+
+    @keyframes compareBeforeLabel {
+      to { opacity: 0; transform: translateY(-6px); }
     }
 
     .solution-grid {
@@ -1541,7 +1622,14 @@
         grid-template-columns: repeat(3, minmax(0, 1fr));
         max-height: 178px;
       }
-      .problem-media img { aspect-ratio: 16 / 10; }
+      .staff-card img {
+        aspect-ratio: 4 / 3;
+        object-position: center top;
+      }
+      .staff-card div {
+        padding: .86rem;
+      }
+      .implant-compare { aspect-ratio: 16 / 10; }
       .calendar-grid { gap: .28rem; }
       .calendar-head {
         margin-bottom: .42rem;
@@ -1714,6 +1802,11 @@
       }
       .page-loader {
         transition-duration: .12s !important;
+      }
+      .implant-before,
+      .implant-compare::after,
+      .compare-label-before {
+        display: none;
       }
     }
   </style>
@@ -1971,8 +2064,13 @@
           <h2 id="problem-title">La perdita dei denti naturali: oltre l'estetica, la salute funzionale</h2>
           <p class="problem-copy">La mancanza di uno o più elementi dentali non è solo un disagio estetico. Nel tempo, influisce sulla corretta masticazione, sul posizionamento dei denti adiacenti e sul riassorbimento dell'osso mascellare. La moderna odontoiatria permette oggi di affrontare la sostituzione dei denti mancanti in modo radicalmente diverso rispetto al passato, ponendo al centro il comfort biologico del paziente.</p>
         </div>
-        <figure class="problem-media reveal delay-1">
-          <img src="/assets/implantologia.avif" width="1200" height="900" loading="lazy" alt="Tecnologia digitale per pianificazione implantologica nello studio dentistico">
+        <figure class="problem-media reveal delay-1" data-implant-compare>
+          <div class="implant-compare" aria-label="Confronto automatico prima e dopo l'inserimento di un impianto dentale">
+            <img class="implant-after" src="/assets/implantologia.avif" width="1200" height="900" loading="lazy" alt="Dopo: riabilitazione con impianto dentale e dente fisso">
+            <img class="implant-before" src="/assets/implantologia-before.svg" width="1200" height="900" loading="lazy" alt="Prima: spazio lasciato da un dente mancante">
+            <span class="compare-label compare-label-before">Prima</span>
+            <span class="compare-label compare-label-after">Dopo</span>
+          </div>
         </figure>
       </div>
     </section>
@@ -2342,6 +2440,24 @@
         targets.forEach((target) => observer.observe(target));
       };
 
+      const initImplantComparison = () => {
+        const comparisons = [...document.querySelectorAll("[data-implant-compare]")];
+        if (!comparisons.length) return;
+        if (window.matchMedia("(prefers-reduced-motion: reduce)").matches || !("IntersectionObserver" in window)) {
+          comparisons.forEach((comparison) => comparison.classList.add("is-compared"));
+          return;
+        }
+        const observer = new IntersectionObserver((entries) => {
+          entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+              entry.target.classList.add("is-compared");
+              observer.unobserve(entry.target);
+            }
+          });
+        }, { threshold: .38, rootMargin: "0px 0px -80px" });
+        comparisons.forEach((comparison) => observer.observe(comparison));
+      };
+
       const officeSlots = () => {
         const ranges = [["09:00", "12:30"], ["14:00", "19:00"]];
         const slots = [];
@@ -2648,6 +2764,7 @@
       });
 
       initReveal();
+      initImplantComparison();
     })();
   </script>
 </body>
